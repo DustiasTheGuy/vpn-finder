@@ -1,0 +1,16 @@
+<div class="container">
+    <app-jumbotron></app-jumbotron>
+    <aside>
+        <select name="" id="">
+            <option value="">Free</option>
+            <option value="">Best</option>
+            <option value="">Cheap</option>
+            <option value="">Discount</option>
+        </select>
+
+        <button>Apply Filters</button>
+    </aside>
+    <div class="grid">
+        <app-card *ngFor="let product of products" [product]="product"></app-card>
+    </div>
+</div>

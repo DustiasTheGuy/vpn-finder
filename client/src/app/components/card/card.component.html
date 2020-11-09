@@ -1,0 +1,27 @@
+<section [ngClass]="{ 'isFlipped': isFlipped }">
+
+  <a [href]="product.link" target="_blank" id="image-container">
+    <div class="link">
+      <i matTooltip="Visit" class="fa fa-external-link" aria-hidden="true"></i>
+    </div>
+    <img [src]="product.imageURL">
+  </a>
+  <div class="content">
+    <h1>{{product.label}}</h1>
+
+    <ul>
+      <li *ngFor="let feature of product.features">
+        <span class="key">{{feature.key}}</span>
+        <span class="value">
+          <span *ngFor="let v of feature.value; let i = index" class="inner-value">{{v}}<i *ngIf="i < feature.value.length - 1">,</i></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    <a [href]="product.link" [matTooltip]="'Visit ' + product.label">
+      Visit
+    </a>
+  </footer>
+</section>
