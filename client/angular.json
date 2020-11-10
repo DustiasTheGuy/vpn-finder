@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "vpn-finder"
+  "defaultProject": "vpn-finder",
+  "cli": {
+    "analytics": "0b6bd4f9-2fda-4402-bc70-9d93749eb010"
+  }
 }

@@ -14,6 +14,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE');
     next();
 });
+
 app.use(bodyParser.json());
 app.use(express.static("./public")); // serve static content from the public folder
 app.use("/api", require("./api/api")); // any request that has to do with json 

@@ -15,6 +15,7 @@ for(let i = 0; i < data.length; i++) {
         imageURL: data[i].imageURL,
         link: data[i].link,
         freeOption: data[i].freeOption,
+        onSaleData: data[i].onSaleData,
         features: data[i].features
     }).save(err => {
         if(err) {

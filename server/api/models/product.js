@@ -21,6 +21,16 @@ module.exports = mongoose.model("Product", new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    onSaleData: {
+        onSale: {
+            type: Boolean,
+            default: false
+        },
+        discount: {
+            type: Number,
+            default: 0
+        }
+    },
     features: { 
         type: Array,
         required: true  

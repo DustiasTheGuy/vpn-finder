@@ -5,6 +5,10 @@
         "imageURL": "/assets/images/vs.png",
         "link": "https://virtualshield.com/?rfsn=4860654.25c305",
         "freeOption": false,
+        "onSaleData": {
+            "onSale": false,
+            "discount": 0
+        },
         "features":
         [
             {"key": "Money Back Guarantee", "value": ["30 Days"]},
@@ -20,6 +24,10 @@
         "imageURL": "/assets/images/ws.png",
         "link": "https://windscribe.com/?affid=ts8ndjip",
         "freeOption": true,
+        "onSaleData": {
+            "onSale": false,
+            "discount": 0
+        },
         "features":
         [
             {"key": "Money Back Guarantee", "value": ["30 Days"]},
@@ -35,6 +43,10 @@
         "imageURL": "https://www.wizcase.com/wp-content/uploads/2018/06/ProtonVPN20-20Logo20-20Vertical-300x297.png",
         "link": "https://go.getproton.me/aff_c?offer_id=6&aff_id=2082",
         "freeOption": true,
+        "onSaleData": {
+            "onSale": false,
+            "discount": 0
+        },
         "features": 
         [
             {"key": "Money Back Guarantee", "value": ["30 Days"]},
@@ -49,11 +61,71 @@
         "imageURL": "/assets/images/hma.png",
         "link": "https://click.hmavpn.com/aff_c?offer_id=1&aff_id=1790",
         "freeOption": false,
+        "onSaleData": {
+            "onSale": true,
+            "discount": 59
+        },
         "features":
         [
             {"key": "Money Back Guarantee","value": ["30 Days"]},
             {"key": "Countries", "value": ["190+"]},
             {"key": "Locations", "value": ["280+"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    },
+    
+    {
+        "label": "IvacyVPN",
+        "description": "empty",
+        "imageURL": "/assets/images/ivacy-logo-dark.png",
+        "link": "https://billing.ivacy.com/page/93606",
+        "freeOption": false,
+        "onSaleData": {
+            "onSale": true,
+            "discount": 81
+        },
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["30 Days"]},
+            {"key": "Locations", "value": ["100+"]},     
+            {"key": "Bandwidth", "value": ["Unlimited"]},
+            {"key": "Malware Protection", "value": ["Included"]}     
+        ]
+    },
+
+    {
+        "label": "vpn.ac",
+        "description": "empty",
+        "imageURL": "/assets/images/VPN.ac-712x604-300x254.png",
+        "link": "https://vpn.ac/aff.php?aff=2400",
+        "freeOption": false,
+        "onSaleData": {
+            "onSale": false,
+            "discount": 0
+        },
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["7 Days"]},
+            {"key": "Countries", "value": ["20+"]},     
+            {"key": "Devices", "value": ["6"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    },
+
+    {
+        "label": "RapidVPN",
+        "description": "empty",
+        "imageURL": "/assets/images/Rapid-VPN-712x604-300x254-1.png",
+        "link": "https://affiliate.rapidvpn.com/app//idevaffiliate.php?id=isakg12",
+        "freeOption": false,
+        "onSaleData": {
+            "onSale": false,
+            "discount": 0
+        },
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["30 Days"]},
+            {"key": "Devices", "value": ["4"]},
             {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
         ]
     }

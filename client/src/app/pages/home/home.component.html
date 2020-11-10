@@ -1,9 +1,9 @@
 <div class="container">
     <app-jumbotron></app-jumbotron>
     <aside>
-        <app-aside></app-aside>
+        <app-aside (filterProducts)="childUpdate($event)"></app-aside>
     </aside>
     <div class="grid">
-        <app-card *ngFor="let product of products" [product]="product"></app-card>
+        <app-card *ngFor="let product of renderedProducts" [product]="product"></app-card>
     </div>
 </div>
