@@ -1,7 +1,7 @@
 const Product = require("../models/product");
 
 module.exports = (req, res) => {
-    if(!req.body.properties || req.body.properties.length === 0) {
+    if(!req.body.features || req.body.features.length === 0) {
         return res.status(404).json({
             message: "You forgot to add some properties",
             success: false,
@@ -9,7 +9,7 @@ module.exports = (req, res) => {
             data: null
         });
 
-    } else if(!req.body.subtitle) {
+    } else if(!req.body.description) {
         return res.status(404).json({
             message: "You forgot to add a subtitle",
             success: false,
@@ -25,7 +25,7 @@ module.exports = (req, res) => {
             data: null
         })
 
-    } else if(!req.body.affLink) {
+    } else if(!req.body.link) {
         return res.status(404).json({
             message: "You forgot to add an affiliate link",
             success: false,
@@ -33,7 +33,7 @@ module.exports = (req, res) => {
             data: null
         })
 
-    } else if(!title) {
+    } else if(!req.body.label) {
         return res.status(404).json({
             message: "You forgot to add a title",
             success: false,
@@ -43,11 +43,11 @@ module.exports = (req, res) => {
     } 
 
     let product = new Product({
-        title: req.body.title,
-        subtitle: req.body.subtitle,
+        label: req.body.label,
+        description: req.body.description,
         imageURL: req.body.imageURL,
-        affLink: req.body.affLink,
-        properties: req.body.properties
+        link: req.body.link,
+        features: req.body.features
     });
     
     product.save(err => {

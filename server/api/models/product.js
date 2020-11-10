@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 module.exports = mongoose.model("Product", new mongoose.Schema({
-    title: { 
+    label: { 
         type: String,
         required: true 
     },
-    subtitle: { 
+    description: { 
         type: String,
         required: true
     },
@@ -13,11 +13,11 @@ module.exports = mongoose.model("Product", new mongoose.Schema({
         type: String,
         required: true 
     },
-    affLink: { 
+    link: { 
         type: String,
         required: true 
     },
-    properties: { 
+    features: { 
         type: Array,
         required: true  
     }

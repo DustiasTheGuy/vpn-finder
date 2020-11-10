@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Products, Product } from './products';
+import { Product } from './products';
+import { ReadService } from '../../services/read/read.service';
+import { HttpResponse } from '../../interfaces/http.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +12,16 @@ import { Products, Product } from './products';
 export class HomeComponent implements OnInit {
   public products: Array<Product>;
 
-  constructor() {
-    this.products = new Products().products;
-  }
+  constructor(private readService: ReadService) {}
 
   ngOnInit(): void {
+    this.readProducts();
   }
 
+  readProducts() {
+    this.readService.readProducts()
+    .subscribe((response: HttpResponse) => {
+      this.products = response.data;
+    })
+  }
 }
