@@ -7,20 +7,29 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './footer/footer.component';
+import { AsideComponent } from './aside/aside.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [ CardComponent, JumbotronComponent, FooterComponent ],
+  declarations: [
+    CardComponent, 
+    JumbotronComponent, 
+    FooterComponent,
+    AsideComponent
+  ],
   imports: [ 
-    FormsModule, 
+    FormsModule,  
     BrowserModule, 
     MatTooltipModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    CommonModule
   ], 
   exports: [ 
     CardComponent, 
     JumbotronComponent, 
-    FooterComponent 
+    FooterComponent,
+    AsideComponent
   ]
 })
 

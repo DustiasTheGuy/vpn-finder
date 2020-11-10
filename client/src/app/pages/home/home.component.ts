@@ -9,16 +9,12 @@ import { Products, Product } from './products';
 
 export class HomeComponent implements OnInit {
   public products: Array<Product>;
-  private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
+
   constructor() {
     this.products = new Products().products;
   }
 
   ngOnInit(): void {
   }
-
-
-
 
 }
