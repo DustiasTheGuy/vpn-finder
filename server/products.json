@@ -51,7 +51,8 @@
         [
             {"key": "Money Back Guarantee", "value": ["30 Days"]},
             {"key": "Free Data", "value": ["500MB Month"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
+            {"key": "Tracking", "value": ["No-log policy"]}
         ]
     },
 
@@ -75,7 +76,7 @@
     },
     
     {
-        "label": "IvacyVPN",
+        "label": "Ivacy VPN",
         "description": "empty",
         "imageURL": "/assets/images/ivacy-logo-dark.png",
         "link": "https://billing.ivacy.com/page/93606",
@@ -94,7 +95,7 @@
     },
 
     {
-        "label": "vpn.ac",
+        "label": "VPN.AC",
         "description": "empty",
         "imageURL": "/assets/images/VPN.ac-712x604-300x254.png",
         "link": "https://vpn.ac/aff.php?aff=2400",
@@ -113,7 +114,7 @@
     },
 
     {
-        "label": "RapidVPN",
+        "label": "Rapid VPN",
         "description": "empty",
         "imageURL": "/assets/images/Rapid-VPN-712x604-300x254-1.png",
         "link": "https://affiliate.rapidvpn.com/app//idevaffiliate.php?id=isakg12",
@@ -126,6 +127,23 @@
         [
             {"key": "Money Back Guarantee","value": ["30 Days"]},
             {"key": "Devices", "value": ["4"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
+            {"key": "Bonus", "value": ["Trust Point System"]}
+        ]
+    },
+
+    {
+        "label": "OVPN",
+        "description": "Empty",
+        "imageURL": "/assets/images/ovpn-1-ar-licens.jpg",
+        "link": "https://www.ovpn.com/en?ref=isakgranqvist",
+        "freeOption": false,
+        "onSaleData": {"onSale": false, "discount": 0},
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["10 Days"]},
+            {"key": "Cities", "value": ["26+"]},
+            {"key": "Support", "value": ["Live Chat"]},
             {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
         ]
     }

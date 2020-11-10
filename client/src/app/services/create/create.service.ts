@@ -5,13 +5,14 @@ import { HttpConfig } from '../http.config';
 @Injectable({
   providedIn: 'root'
 })
-export class ReadService {
+export class CreateService {
   private serverAddr: string;
+  
   constructor(private httpClient: HttpClient) {
     this.serverAddr = new HttpConfig().getAddr();
   }
 
-  readProducts() {
-    return this.httpClient.get(`${this.serverAddr}/api/read`) 
+  addUser(data) {
+    return this.httpClient.post(`${this.serverAddr}/api/add-user`, data)
   }
 }

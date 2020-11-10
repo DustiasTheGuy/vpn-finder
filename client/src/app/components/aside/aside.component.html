@@ -1,13 +1,29 @@
-<form>
-    <div class="form-group">
-        <select name="filter" [(ngModel)]="filter">
-            <option value="all" selected>All</option>
-            <option value="free">Free</option>
-            <option value="discount">Discounted</option>
-        </select>
-    </div>
-    
-    <div class="button-group">
-        <button (click)="applyFilters()">Apply Filters</button>
-    </div>
-</form>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="email">Join Our Mailing List <i class="fa fa-envelope-o" aria-hidden="true"></i></label>
+            <input type="email" name="email" placeholder="email@gmail.com" id="email" [(ngModel)]="email" (keyup.enter)="joinMailList(email)">
+        </div>
+
+        <div class="button-group">
+            <button (click)="joinMailList(email)">
+                <i class="fa fa-paper-plane"></i>
+            </button>
+        </div>
+    </form>
+    <form>
+        <div class="form-group">
+            <select name="filter" [(ngModel)]="filter">
+                <option value="all" selected>All</option>
+                <option value="free">Free</option>
+                <option value="discount">Discounted</option>
+            </select>
+        </div>
+        
+        <div class="button-group">
+            <button (click)="applyFilters()">
+                Apply Filter
+            </button>
+        </div>
+    </form>
+</div>

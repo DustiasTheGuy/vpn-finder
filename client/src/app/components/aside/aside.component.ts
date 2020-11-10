@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CreateService } from '../../services/create/create.service';
+import { HttpResponse } from '../../interfaces/http.interface'; 
 
 @Component({
   selector: 'app-aside',
@@ -7,16 +9,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 export class AsideComponent implements OnInit {
-  public filter: string = "all";
   @Output() filterProducts = new EventEmitter<string>();
+  public filter: string = "all";
+  public email: string;
 
-  constructor() { }
+  constructor(private createService: CreateService) { }
 
   ngOnInit(): void {
   }
 
   applyFilters() {
-    console.log("Emit")
     this.filterProducts.emit(this.filter);
+  }
+
+  joinMailList(email: string) {
+    if(email.length > 0) {
+      this.createService.addUser({ email: email.toLowerCase() })
+      .subscribe((response: HttpResponse) => {
+        console.log(response)
+      })
+    }
   }
 }

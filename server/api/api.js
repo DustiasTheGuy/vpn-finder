@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-router.post('/create', require("./controllers/create"));
-router.get('/read', require("./controllers/read"));
-router.put("/update", require("./controllers/update"));
-router.post("/delete", require("./controllers/delete"));
+router.post("/create", require("./controllers/create-product"));
+router.get("/read", require("./controllers/read-product"));
+router.put("/update", require("./controllers/update-product"));
+router.post("/delete", require("./controllers/delete-product"));
+
+router.post("/add-user", require("./controllers/create-user"));
 
 module.exports = router;

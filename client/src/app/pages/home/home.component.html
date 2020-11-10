@@ -3,7 +3,7 @@
     <aside>
         <app-aside (filterProducts)="childUpdate($event)"></app-aside>
     </aside>
-    <div class="grid">
+    <div class="grid" *ngIf="renderedProducts">
         <app-card *ngFor="let product of renderedProducts" [product]="product"></app-card>
     </div>
 </div>

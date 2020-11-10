@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './products';
+import { Product } from '../../interfaces/product';
 import { ReadService } from '../../services/read/read.service';
 import { HttpResponse } from '../../interfaces/http.interface';
 
@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
     .subscribe((response: HttpResponse) => {
       this.products = response.data;
       this.renderedProducts = this.products;
-      console.log(this.products)
     })
   }
 
