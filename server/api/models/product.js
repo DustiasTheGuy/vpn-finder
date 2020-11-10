@@ -17,6 +17,10 @@ module.exports = mongoose.model("Product", new mongoose.Schema({
         type: String,
         required: true 
     },
+    freeOption: {
+        type: Boolean,
+        required: true
+    },
     features: { 
         type: Array,
         required: true  

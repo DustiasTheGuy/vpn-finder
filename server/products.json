@@ -1,0 +1,60 @@
+[
+    {
+        "label": "VirtualShield VPN",
+        "description": "With excellent reviews and a 30 day money back guarantee there are very few reasons not to try this reliable VPN. This VPN provider ranks at the very top of our recommended list.",
+        "imageURL": "/assets/images/vs.png",
+        "link": "https://virtualshield.com/?rfsn=4860654.25c305",
+        "freeOption": false,
+        "features":
+        [
+            {"key": "Money Back Guarantee", "value": ["30 Days"]},
+            {"key": "Multiple Devices","value": ["15 Devices"]},
+            {"key": "Support","value": ["Live Chat", "FAQ"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    },
+
+    {
+        "label": "Windscribe VPN",
+        "description": "Windscribe is one of our absolute favorite VPN provider. They do not only provide 10 free GB of data every month but also have a wide selection of countries and extremely reliable servers. They suppport a wide range of platforms.",
+        "imageURL": "/assets/images/ws.png",
+        "link": "https://windscribe.com/?affid=ts8ndjip",
+        "freeOption": true,
+        "features":
+        [
+            {"key": "Money Back Guarantee", "value": ["30 Days"]},
+            {"key": "Free Data", "value": ["10GB Month"]},
+            {"key": "Locations", "value": ["500+"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    },
+
+    {
+        "label": "Proton VPN",
+        "description": "With a 30 day money back guarantee and excellent customer service this is an excellent choise for your VPN.",
+        "imageURL": "https://www.wizcase.com/wp-content/uploads/2018/06/ProtonVPN20-20Logo20-20Vertical-300x297.png",
+        "link": "https://go.getproton.me/aff_c?offer_id=6&aff_id=2082",
+        "freeOption": true,
+        "features": 
+        [
+            {"key": "Money Back Guarantee", "value": ["30 Days"]},
+            {"key": "Free Data", "value": ["500MB Month"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    },
+
+    {
+        "label": "HideMyAss VPN",
+        "description": "This VPN provider also makes the top list of reliable vpn providers. With their 30 days money back guarantee there's no risk associated with trying them out.",
+        "imageURL": "/assets/images/hma.png",
+        "link": "https://click.hmavpn.com/aff_c?offer_id=1&aff_id=1790",
+        "freeOption": false,
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["30 Days"]},
+            {"key": "Countries", "value": ["190+"]},
+            {"key": "Locations", "value": ["280+"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    }
+]

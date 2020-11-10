@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   readProducts() {
     this.readService.readProducts()
     .subscribe((response: HttpResponse) => {
+      console.log(response)
       this.products = response.data;
     })
   }

@@ -47,6 +47,7 @@ module.exports = (req, res) => {
         description: req.body.description,
         imageURL: req.body.imageURL,
         link: req.body.link,
+        freeOption: req.body.freeOption,
         features: req.body.features
     });
     

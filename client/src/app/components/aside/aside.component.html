@@ -1,14 +1,13 @@
 <form>
     <div class="form-group">
-        <select name="" id="">
-            <option value="">Free</option>
-            <option value="">Best</option>
-            <option value="">Cheap</option>
-            <option value="">Discount</option>
+        <select name="filter" [(ngModel)]="filter">
+            <option value="all" selected>All</option>
+            <option value="free">Free</option>
+            <option value="discounted">Discounted</option>
         </select>
     </div>
     
     <div class="button-group">
-        <button>Apply Filters</button>
+        <button (click)="applyFilters()">Apply Filters</button>
     </div>
 </form>
