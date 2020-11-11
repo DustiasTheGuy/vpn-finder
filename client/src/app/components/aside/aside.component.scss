@@ -60,111 +60,108 @@
     }
 }
 
-
-.email-list-form.show {
-    width: 300px;
-    padding: calc(1em + 6px);
-}
-.email-list-form {
-    padding: 0;
+.form-container {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 5;
-    width: 0;
-    background-color: #ffffff;
-    box-shadow: 
-    0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    transition: all 145ms cubic-bezier(0.39, 0.575, 0.565, 1);
-    #hideForm {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        padding: 10px;
-        height: 100%;
-        background-color: #0b4e8d;
-        color: #ffffff;
-        cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+    form.show {
+        width: auto;
+        padding: 1em;
+    }
+
+    form {
+        background-color: #ffffff;
+        box-shadow: 
+        0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
-        transition: transform 100ms ease;
-        &:hover {
-            background-color: #08447c;
-        }
-    }
-
-    &:focus-within {
-        .form-group {
-            margin-top: 2em;
-        }
-    }
-
-
-    .form-group.show {
-        width: 100%;
-    }
-
-    .form-group {
-        display: flex;
-        justify-content: flex-end;
-        position: relative;
-        transition: all 145ms cubic-bezier(0.39, 0.575, 0.565, 1);
         width: 0;
-        &:focus-within {
-            label {
-                bottom: 100%;
-                opacity: 1;
-            }
+        overflow: hidden;
+        transition: width 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-sizing: content-box;
+        padding: 1em 0;
 
-            input {
-                border-color: lightblue;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
 
-                &::placeholder {
+            &:focus-within {
+                label {
+                    opacity: 1;
+                }
+
+                input::placeholder {
                     color: transparent;
                 }
             }
+
+            label {
+                z-index: 1;
+                transition: opacity 200ms ease-in;
+                margin-bottom: 8px;
+                opacity: 0;
+                color: gray;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+
+            input {
+                padding: .7em;
+                z-index: 2;
+                outline: none;
+                border: 1px solid lightgray;
+                transition: border 100ms ease-in;
+                border-right: none;
+
+                &:focus {
+                    border-color: lightblue;
+                }
+            }
         }
-        label {
-            position: absolute;
-            bottom: 50%;
-            transform: translateY(-50%);
-            opacity: 0;
-            z-index: 1;
-            transition: all 145ms cubic-bezier(0.39, 0.575, 0.565, 1);
+
+        .button-group {
             display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-            color: gray;
-        }
+            flex-direction: column;
+            justify-content: flex-end;
+            
+            button {
+                padding: .7em;
+                outline: none;
+                border: 1px solid transparent;
+                background-color: rgb(46, 97, 207);
+                transition: background-color 100ms linear;
+                cursor: pointer;
+                color: #ffffff;
 
-        input {
-            flex-grow: 1;
-            padding: 8px;
-            z-index: 2;
-            outline: none;
-            border: 1px solid rgb(131, 131, 131);
-            transition: border-color 100ms ease-in;
-            margin-right: 6px;
-
-            &::placeholder  {
-                transition: color 100ms ease;
+                &:hover {
+                    background-color: rgb(38, 84, 184);
+                }
             }
         }
+    }
 
-        button {
-            padding: 12px;
-            border: none;
-            background-color: rgb(46, 97, 207);
-            color: #ffffff;
-            cursor: pointer;
+    .form-actions {
+        display: flex;
+        align-items: center;
+        padding: .7em;
+        outline: none;
+        border: 1px solid transparent;
+        background-color: rgb(46, 97, 207);
+        transition: background-color 100ms linear;
+        cursor: pointer;
+        color: #ffffff;
 
-            &:hover {
-                background-color: rgb(38, 84, 184);
-            }
+        &:hover {
+            background-color: rgb(38, 84, 184);
         }
     }
 }
