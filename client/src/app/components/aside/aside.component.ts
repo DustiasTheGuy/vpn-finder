@@ -19,8 +19,16 @@ export class AsideComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   joinMailList(email: string) {
-    if(email.length > 0) {
+    if(!this.validateEmail(email)) {
+      this.label = "You've entered an invalid email";
+      setTimeout(() => this.label = "Join Our Email List!", 3000);
+    } else {
       this.createService.addUser({ email: email.toLowerCase() })
       .subscribe((response: HttpResponse) => {
         if(response.success) {
@@ -32,6 +40,7 @@ export class AsideComponent implements OnInit {
     }
   }
 
+  stopFocus($) { document.getElementById("filter").blur() }
   applyFilters() { this.filterProducts.emit(this.filter) }
   toggleEmailForm() { this.showEmailForm = this.showEmailForm ? false : true }
 }

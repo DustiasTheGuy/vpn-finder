@@ -139,7 +139,10 @@
         "imageURL": "/assets/images/ovpn-1-ar-licens.jpg",
         "link": "https://www.ovpn.com/en?ref=isakgranqvist",
         "freeOption": false,
-        "onSaleData": {"onSale": false, "discount": 0},
+        "onSaleData": {
+            "onSale": false, 
+            "discount": 0
+        },
         "features":
         [
             {"key": "Money Back Guarantee","value": ["10 Days"]},
@@ -155,7 +158,10 @@
         "imageURL": "https://www.vpncrew.com/wp-content/uploads/2018/12/StrongVPN.png",
         "link": "https://strongvpn.com/?tr_aid=5faa8f327bc45",
         "freeOption": false,
-        "onSaleData": {"onSale": true, "discount": 50},
+        "onSaleData": {
+            "onSale": true, 
+            "discount": 50
+        },
         "features":
         [
             {"key": "Money Back Guarantee","value": ["30 Days"]},
@@ -168,10 +174,13 @@
     {
         "label": "SaferVPN",
         "description": "Empty",
-        "imageURL": "https://pbs.twimg.com/profile_images/686889814755520512/39SXpcH3.png",
+        "imageURL": "https://financesonline.com/uploads/2019/09/SaferVPN-logo1.png",
         "link": "https://www.safervpn.com/?a_aid=1792",
         "freeOption": false,
-        "onSaleData": {"onSale": false, "discount": 0},
+        "onSaleData": {
+            "onSale": false, 
+            "discount": 0
+        },
         "features":
         [
             {"key": "Money Back Guarantee","value": ["30 Days"]},
@@ -187,13 +196,35 @@
         "imageURL": "https://remoters.net/wp-content/uploads/2020/04/ipvanish-300x220.png",
         "link": "https://www.ipvanish.com/?a_bid=48f95966&a_aid=isakg12",
         "freeOption": false,
-        "onSaleData": {"onSale": true, "discount": 73},
+        "onSaleData": {
+            "onSale": true, 
+            "discount": 73
+        },
         "features":
         [
             {"key": "Money Back Guarantee","value": ["30 Days"]},
             {"key": "Support", "value": ["Live Chat"]},
             {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
             {"key": "Storage", "value": ["250GB"]}
+        ]
+    },
+
+    {
+        "label": "PureVPN",
+        "description": "Empty",
+        "imageURL": "https://sm.pcmag.com/t/pcmag_uk/review/p/purevpn-re/purevpn-review_1afm.1024.jpg",
+        "link": "https://billing.purevpn.com/aff.php?aff=45139",
+        "freeOption": false,
+        "onSaleData": {
+            "onSale": true, 
+            "discount": 62
+        },
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["7 Days"]},
+            {"key": "Support", "value": ["Live Chat"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
+            {"key": "Countries", "value": ["140+"]}
         ]
     }
 ]

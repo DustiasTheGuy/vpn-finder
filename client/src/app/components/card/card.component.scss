@@ -10,8 +10,6 @@ section {
     0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     background-color: #ffffff;
 
-
-
     #image-container {
         position: relative;
         color: #ffffff;
@@ -79,7 +77,8 @@ section {
                 display: flex;
                 justify-content: space-between;
                 padding: 5px;
-
+                border-right: 2px solid transparent;
+                transition: border-color 200ms ease-in-out;
                 span {
                     text-transform: capitalize;
                 }
@@ -88,8 +87,7 @@ section {
                 }
 
                 &:hover {
-                    font-weight: bold;
-                    color: rgb(24, 170, 48);
+                    border-color: rgb(24, 170, 48);
                 }
             }
         }
