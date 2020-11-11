@@ -17,6 +17,11 @@ module.exports = mongoose.model("Product", new mongoose.Schema({
         type: String,
         required: true 
     },
+    views: {
+        type: Number,
+        required: false,
+        default: 0
+    },
     freeOption: {
         type: Boolean,
         required: true

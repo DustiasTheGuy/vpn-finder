@@ -15,4 +15,8 @@ export class CreateService {
   addUser(data) {
     return this.httpClient.post(`${this.serverAddr}/api/add-user`, data)
   }
+
+  addView(target) {
+    return this.httpClient.get(`${this.serverAddr}/api/view/${target}`)
+  }
 }

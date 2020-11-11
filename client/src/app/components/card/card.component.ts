@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../interfaces/product';
+import { CreateService } from '../../services/create/create.service';
 
 @Component({
   selector: 'app-card',
@@ -8,8 +9,8 @@ import { Product } from '../../interfaces/product';
 })
 export class CardComponent implements OnInit {
   @Input() product: Product;
-  isFlipped: boolean = false;
-  constructor() { }
+
+  constructor(private createService: CreateService) { }
 
   ngOnInit(): void {
     this.product.features.forEach(element => {
@@ -21,6 +22,14 @@ export class CardComponent implements OnInit {
     })
   }
 
+
   sortObjects(arr: Array<any>) { arr.sort((a, b) => a.totalCharacters - b.totalCharacters) }
-  visitLink(link) { window.location.href = link }
+
+  visitLink(product) {
+    this.createService.addView(product._id)
+    .subscribe(response => {
+      console.log(response)
+      window.location.href = product.link; 
+    })
+  }
 }

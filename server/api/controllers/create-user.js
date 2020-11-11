@@ -28,7 +28,7 @@ module.exports = (req, res) => {
                 data: null
             })
 
-        } else if(!document) {
+        } else {
             new User({
                 email: req.body.email
             }).save(err => {
@@ -43,7 +43,7 @@ module.exports = (req, res) => {
                 }
         
                 return res.status(201).json({
-                    message: "You're done!",
+                    message: "You're done, Thank you!",
                     success: true,
                     statusCode: 201,
                     data: req.body.email

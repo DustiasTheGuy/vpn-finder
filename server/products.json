@@ -90,7 +90,8 @@
             {"key": "Money Back Guarantee","value": ["30 Days"]},
             {"key": "Locations", "value": ["100+"]},     
             {"key": "Bandwidth", "value": ["Unlimited"]},
-            {"key": "Malware Protection", "value": ["Included"]}     
+            {"key": "Malware Protection", "value": ["Included"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
         ]
     },
 
@@ -145,6 +146,54 @@
             {"key": "Cities", "value": ["26+"]},
             {"key": "Support", "value": ["Live Chat"]},
             {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        ]
+    },
+
+    {
+        "label": "StrongVPN",
+        "description": "Empty",
+        "imageURL": "https://www.vpncrew.com/wp-content/uploads/2018/12/StrongVPN.png",
+        "link": "https://strongvpn.com/?tr_aid=5faa8f327bc45",
+        "freeOption": false,
+        "onSaleData": {"onSale": true, "discount": 50},
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["30 Days"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
+            {"key": "Countries", "value": ["30+"]},
+            {"key": "Tracking", "value": ["No-log policy"]}
+        ]
+    },
+
+    {
+        "label": "SaferVPN",
+        "description": "Empty",
+        "imageURL": "https://pbs.twimg.com/profile_images/686889814755520512/39SXpcH3.png",
+        "link": "https://www.safervpn.com/?a_aid=1792",
+        "freeOption": false,
+        "onSaleData": {"onSale": false, "discount": 0},
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["30 Days"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
+            {"key": "Security", "value": ["256-bit Encryption Security"]},
+            {"key": "servers", "value": ["1300+"]}
+        ]
+    },
+
+    {
+        "label": "IPVanish",
+        "description": "Empty",
+        "imageURL": "https://remoters.net/wp-content/uploads/2020/04/ipvanish-300x220.png",
+        "link": "https://www.ipvanish.com/?a_bid=48f95966&a_aid=isakg12",
+        "freeOption": false,
+        "onSaleData": {"onSale": true, "discount": 73},
+        "features":
+        [
+            {"key": "Money Back Guarantee","value": ["30 Days"]},
+            {"key": "Support", "value": ["Live Chat"]},
+            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
+            {"key": "Storage", "value": ["250GB"]}
         ]
     }
 ]
