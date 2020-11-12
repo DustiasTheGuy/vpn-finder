@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  childUpdate(filter: string): Array<Product> { 
+  childUpdate(filter: string) { 
     // when the user clicks "apply filters" this method gets called
     /*
         all
@@ -39,35 +39,52 @@ export class HomeComponent implements OnInit {
         iOS
         moneybackguarantee
     */
+    this.renderedProducts = this.filter(filter);
+    console.log(this.renderedProducts.length)
+  }
+
+
+  filter(filter): Array<Product> {
     switch(filter) {
-      case "all":       
-        return this.renderedProducts = this.products;
+      case "all": return this.products;
 
-      case "free": 
-        return this.renderedProducts = this.products.filter(element => element.freeOption);
+      case "free": return this.products.filter(element => element.freeOption);
+      case "discount": return this.products.filter(element => element.onSaleData.onSale);
 
-      case "discount": 
-        return this.renderedProducts = this.products.filter(element => element.onSaleData.onSale);
-      
-      case "platforms": return this.renderedProducts = this.filterByFeature(this.products, "Supported Platforms")
-      
-      case "support": return this.renderedProducts = this.filterByFeature(this.products, "Support")
+      case "windows": return this.filterByValue("Windows 7+");
+      case "ios": return this.filterByValue("iOS");
+      case "android": return this.filterByValue("Android");
+      case "linux": return this.filterByValue("Linux");
 
-      case "moneybackguarantee": return this.renderedProducts = this.filterByFeature(this.products, "Money Back Guarantee")
-        default: 
-        return this.renderedProducts = this.products;
+      case "support": return this.filterByKey("Support");
+      case "moneybackguarantee": return this.filterByKey("Money Back Guarantee");
+
+      default: return this.products;
     }
   }
 
-  filterByFeature(products: Array<Product>, match: string): Array<Product> {
-    let filtered = [];
 
-    products.forEach(i => {
-      i.features.forEach(j => {
-        if(j.key === match) return filtered.push(i);
-      })
-    })
+  filterByKey(filter): Array<Product> {
+    let products: Array<Product> = [];
 
-    return filtered;
-  };
+    this.products.forEach(element => {
+      element.features.forEach((i) =>  { 
+        if(i.key === filter) return products.push(element); 
+      });
+    });
+
+   return products;
+  }
+
+  filterByValue(filter: string): Array<Product> {
+    let products: Array<Product> = [];
+
+     this.products.forEach(element => {
+      element.features.filter(i => {
+        if(i.value.includes(filter)) return products.push(element);
+      });
+    });
+
+    return products;
+  }
 }

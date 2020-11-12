@@ -1,7 +1,7 @@
 const Product = require("../models/product");
 
 module.exports = (req, res) => {
-    Product.find({}, (err, documents) => {
+    Product.find({}, (err, documents) => { // Query all the products, primarily used on the landing page
         if(err) {
             return res.status(404).json({
                 message: err,

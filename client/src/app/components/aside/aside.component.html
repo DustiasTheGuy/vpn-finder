@@ -3,13 +3,14 @@
         <div class="form-group">
             <label for="filter">Filter VPN's</label>
 
-            <select id="filter" name="filter" [(ngModel)]="filter" (change)="stopFocus($event)">
+            <select id="filter" name="filter" [(ngModel)]="filter">
                 <option value="all" selected>All</option>
                 <option value="free">Free</option>
                 <option value="discount">Discounted</option>
-                <option value="platforms">Linux</option>
-                <option value="platforms">Windows</option>
-                <option value="platforms">iOS</option>
+                <option value="linux">Linux</option>
+                <option value="windows">Windows</option>
+                <option value="android">Android</option>
+                <option value="ios">iOS</option>
                 <option value="moneybackguarantee">Money Back Guarantee</option>
                 <option value="support">Live Support</option>
             </select>
@@ -21,19 +22,22 @@
             </button>
         </div>
     </form>
+</div>
 
-    <form autocomplete="off" [ngClass]="{ 'show': showEmailForm }">
+
+<div class="email-list" *ngIf="showEmailForm">
+    <form autocomplete="off">
+        <i class="fa fa-times fa-2x" (click)="toggleEmailForm()"></i>
         <div class="form-group">
 
             <label for="email">{{label}}</label>
-            <input type="email" name="email" placeholder="Join Our Email List!" id="email" [(ngModel)]="email" (keyup.enter)="joinMailList(email)">
+            <input autofocus type="email" name="email" placeholder="myemail@email.com" id="email" [(ngModel)]="email" (keyup.enter)="joinMailList(email)">
         </div>
 
-        <div class="button-group">
+        <div class="button-group" *ngIf="validateEmail(email)">
             <button (click)="joinMailList(email)" type="button">
-                Send
+                Join!
             </button>
         </div>
     </form>
 </div>
-

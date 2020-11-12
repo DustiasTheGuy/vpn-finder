@@ -7,7 +7,6 @@ mongoose.connect('mongodb://localhost:27017/vpn-finder', {
     useUnifiedTopology: true
 });
 
-
 for(let i = 0; i < data.length; i++) {
     new Product({
         label: data[i].label,
@@ -21,8 +20,16 @@ for(let i = 0; i < data.length; i++) {
         if(err) {
             return console.log(err);
         } else {
-            return console.log(`Saved: ${data[i].label}`);   
-        }
+            return console.log(`Saved: ${data[i].label}`);
+        };
     });
+
+    if(i === data.length - 1) {
+        setTimeout(() => {
+            mongoose.disconnect();
+        }, 5000);
+        
+        console.log(`Saved ${data.length} products`);
+    };
 };
 

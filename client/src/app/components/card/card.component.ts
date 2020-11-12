@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { CreateService } from '../../services/create/create.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -10,26 +11,16 @@ import { CreateService } from '../../services/create/create.service';
 export class CardComponent implements OnInit {
   @Input() product: Product;
 
-  constructor(private createService: CreateService) { }
+  constructor(private createService: CreateService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.product.features.forEach(element => {
-      let str = "";
-      str+=element.key;
-      element.value.forEach(s => str += s);
-      element["totalCharacters"] = str.trim().length;
-      this.sortObjects(this.product.features);
-    })
-  }
+  ngOnInit(): void {}
 
-
-  sortObjects(arr: Array<any>) { arr.sort((a, b) => a.totalCharacters - b.totalCharacters) }
 
   visitLink(product) {
     this.createService.addView(product._id)
     .subscribe(response => {
-      console.log(response)
-      window.location.href = product.link; 
+      //window.location.href = product.link; 
+      this.router.navigate(["/visit"], { queryParams: { id: product._id }})
     })
   }
 }

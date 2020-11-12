@@ -14,4 +14,8 @@ export class ReadService {
   readProducts() {
     return this.httpClient.get(`${this.serverAddr}/api/read`) 
   }
+  
+  readProduct(id: string) {
+    return this.httpClient.get(`${this.serverAddr}/api/read/${id}`)
+  }
 }

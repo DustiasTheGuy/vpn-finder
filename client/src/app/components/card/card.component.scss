@@ -61,7 +61,10 @@ section {
     .content {
         flex-grow: 1;
         padding: 1em;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
         h1 {
             text-transform: capitalize;
             color: gray;

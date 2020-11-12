@@ -1,0 +1,37 @@
+<main *ngIf="product">
+    <div class="container">
+        <a id="go-back" routerLink="/">
+            <button>
+                <i class="fa fa-chevron-left" aria-hidden="false"></i>
+            </button>
+        </a>
+
+        <div id="thank-you-desktop"></div>
+        <div id="thank-you-phone">
+            <h1>Thank you for choosing vpnfind!</h1>
+        </div>
+
+        <section>
+            <div class="body">
+                <h1>
+                    <span>Vpnfind.site</span>
+                    <i class="fa fa-arrow-right"></i> 
+                    <span>{{product.label}}</span>
+                </h1>
+            </div>
+            <footer>
+                <div class="loader">
+                    <div class="spinner">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                      </div>
+                </div>
+
+                <div class="logo">
+                    <img [src]="product.imageURL">
+                </div>
+            </footer>
+        </section>
+    </div>
+</main> 
