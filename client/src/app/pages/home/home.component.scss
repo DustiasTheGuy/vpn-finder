@@ -11,6 +11,10 @@
     aside {
         grid-column-start: 1;
         grid-column-end: span 2;
+        
+        #amount {
+            margin: 0;
+        }
     }
 
     .grid {
@@ -68,7 +72,7 @@
 @media only screen and (max-width: 941px) and (min-width: 600px) {
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         margin-bottom: 100px;
         app-jumbotron {
@@ -89,7 +93,7 @@
 @media only screen and (max-width: 601px) {
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         margin-bottom: 100px;
         app-jumbotron {

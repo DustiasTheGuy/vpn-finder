@@ -5,6 +5,7 @@
 
             <select id="filter" name="filter" [(ngModel)]="filter">
                 <option value="all" selected>All</option>
+                <option value="recommended">Recommended</option>
                 <option value="free">Free</option>
                 <option value="discount">Discounted</option>
                 <option value="linux">Linux</option>
@@ -17,26 +18,9 @@
         </div>
         
         <div class="button-group">
+            <ng-content></ng-content>
             <button type="button" (click)="applyFilters()">
-                Filter
-            </button>
-        </div>
-    </form>
-</div>
-
-
-<div class="email-list" *ngIf="showEmailForm">
-    <form autocomplete="off">
-        <i class="fa fa-times fa-2x" (click)="toggleEmailForm()"></i>
-        <div class="form-group">
-
-            <label for="email">{{label}}</label>
-            <input autofocus type="email" name="email" placeholder="myemail@email.com" id="email" [(ngModel)]="email" (keyup.enter)="joinMailList(email)">
-        </div>
-
-        <div class="button-group" *ngIf="validateEmail(email)">
-            <button (click)="joinMailList(email)" type="button">
-                Join!
+                Filter <i class="fa fa-filter" aria-hidden="true"></i>
             </button>
         </div>
     </form>

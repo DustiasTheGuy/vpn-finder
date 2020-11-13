@@ -24,6 +24,14 @@ section {
             }
         } 
 
+        .discount {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(13, 73, 163, 0.863);
+            color: #ffffffd5;
+            padding: 1em;
+        }
 
         .link {
             position: absolute;

@@ -1,5 +1,4 @@
-[
-    {
+[{
         "label": "VirtualShield VPN",
         "description": "With excellent reviews and a 30 day money back guarantee there are very few reasons not to try this reliable VPN. This VPN provider ranks at the very top of our recommended list.",
         "imageURL": "/assets/images/products/vs.png",
@@ -9,12 +8,55 @@
             "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee", "value": ["30 Days"]},
-            {"key": "Multiple Devices","value": ["15 Devices"]},
-            {"key": "Support","value": ["Live Chat", "FAQ"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Multiple Devices",
+                "value": ["15 Devices"]
+            },
+            {
+                "key": "Support",
+                "value": ["Live Chat", "FAQ"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            }
+        ]
+    },
+
+    {
+        "label": "Ivacy VPN",
+        "description": "empty",
+        "imageURL": "/assets/images/products/ivacy.png",
+        "link": "https://billing.ivacy.com/page/93606",
+        "freeOption": false,
+        "onSaleData": {
+            "onSale": true,
+            "discount": 81
+        },
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Locations",
+                "value": ["100+"]
+            },
+            {
+                "key": "Bandwidth",
+                "value": ["Unlimited"]
+            },
+            {
+                "key": "Malware Protection",
+                "value": ["Included"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            }
         ]
     },
 
@@ -28,15 +70,25 @@
             "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee", "value": ["30 Days"]},
-            {"key": "Free Data", "value": ["10GB Month"]},
-            {"key": "Locations", "value": ["500+"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Free Data",
+                "value": ["10GB Month"]
+            },
+            {
+                "key": "Locations",
+                "value": ["500+"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            }
         ]
     },
-
+    
     {
         "label": "Proton VPN",
         "description": "With a 30 day money back guarantee and excellent customer service this is an excellent choise for your VPN.",
@@ -47,14 +99,30 @@
             "onSale": false,
             "discount": 0
         },
-        "features": 
-        [
-            {"key": "Money Back Guarantee", "value": ["30 Days"]},
-            {"key": "Free Data", "value": ["500MB Month"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Tracking", "value": ["No-log policy"]},
-            {"key": "Devices", "value": ["10"]},
-            {"key": "Bandwidth", "value": ["Unlimited"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Free Data",
+                "value": ["500MB Month"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Tracking",
+                "value": ["No-log policy"]
+            },
+            {
+                "key": "Devices",
+                "value": ["10"]
+            },
+            {
+                "key": "Bandwidth",
+                "value": ["Unlimited"]
+            }
         ]
     },
 
@@ -62,38 +130,28 @@
         "label": "HideMyAss VPN",
         "description": "This VPN provider also makes the top list of reliable vpn providers. With their 30 days money back guarantee there's no risk associated with trying them out.",
         "imageURL": "/assets/images/products/hma.png",
-        "link": "https://click.hmavpn.com/aff_c?offer_id=1&aff_id=1790",
+        "link": "https://click.hmavpn.com/SH6q",
         "freeOption": false,
         "onSaleData": {
             "onSale": true,
             "discount": 59
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["30 Days"]},
-            {"key": "Countries", "value": ["190+"]},
-            {"key": "Locations", "value": ["280+"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
-        ]
-    },
-    
-    {
-        "label": "Ivacy VPN",
-        "description": "empty",
-        "imageURL": "/assets/images/products/ivacy.png",
-        "link": "https://billing.ivacy.com/page/93606",
-        "freeOption": false,
-        "onSaleData": {
-            "onSale": true,
-            "discount": 81
-        },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["30 Days"]},
-            {"key": "Locations", "value": ["100+"]},     
-            {"key": "Bandwidth", "value": ["Unlimited"]},
-            {"key": "Malware Protection", "value": ["Included"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Countries",
+                "value": ["190+"]
+            },
+            {
+                "key": "Locations",
+                "value": ["280+"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            }
         ]
     },
 
@@ -107,13 +165,26 @@
             "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["7 Days"]},
-            {"key": "Countries", "value": ["20+"]},     
-            {"key": "Devices", "value": ["6"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Android"]},
-            {"key": "Speed Limit", "value": ["No Speed Limit"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["7 Days"]
+            },
+            {
+                "key": "Countries",
+                "value": ["20+"]
+            },
+            {
+                "key": "Devices",
+                "value": ["6"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Android"]
+            },
+            {
+                "key": "Speed Limit",
+                "value": ["No Speed Limit"]
+            }
         ]
     },
 
@@ -127,12 +198,22 @@
             "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["30 Days"]},
-            {"key": "Devices", "value": ["4"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Speed", "value": ["Optimized For Streaming"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Devices",
+                "value": ["4"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Speed",
+                "value": ["Optimized For Streaming"]
+            }
         ]
     },
 
@@ -143,15 +224,25 @@
         "link": "https://www.ovpn.com/en?ref=isakgranqvist",
         "freeOption": false,
         "onSaleData": {
-            "onSale": false, 
+            "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["10 Days"]},
-            {"key": "Cities", "value": ["26+"]},
-            {"key": "Support", "value": ["Live Chat"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["10 Days"]
+            },
+            {
+                "key": "Cities",
+                "value": ["26+"]
+            },
+            {
+                "key": "Support",
+                "value": ["Live Chat"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            }
         ]
     },
 
@@ -162,15 +253,25 @@
         "link": "https://strongvpn.com/?tr_aid=5faa8f327bc45",
         "freeOption": false,
         "onSaleData": {
-            "onSale": true, 
+            "onSale": true,
             "discount": 50
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["30 Days"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Countries", "value": ["30+"]},
-            {"key": "Tracking", "value": ["No-log policy"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Countries",
+                "value": ["30+"]
+            },
+            {
+                "key": "Tracking",
+                "value": ["No-log policy"]
+            }
         ]
     },
 
@@ -181,15 +282,25 @@
         "link": "https://www.safervpn.com/?a_aid=1792",
         "freeOption": false,
         "onSaleData": {
-            "onSale": false, 
+            "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["30 Days"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Security", "value": ["256-bit Encryption Security"]},
-            {"key": "servers", "value": ["1300+"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Security",
+                "value": ["256-bit Encryption Security"]
+            },
+            {
+                "key": "servers",
+                "value": ["1300+"]
+            }
         ]
     },
 
@@ -200,16 +311,29 @@
         "link": "https://www.ipvanish.com/?a_bid=48f95966&a_aid=isakg12",
         "freeOption": false,
         "onSaleData": {
-            "onSale": true, 
+            "onSale": true,
             "discount": 73
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["30 Days"]},
-            {"key": "Support", "value": ["Live Chat"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Storage", "value": ["250GB"]},
-            {"key": "Security", "value": ["256-bit Encryption Security"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["30 Days"]
+            },
+            {
+                "key": "Support",
+                "value": ["Live Chat"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Storage",
+                "value": ["250GB"]
+            },
+            {
+                "key": "Security",
+                "value": ["256-bit Encryption Security"]
+            }
         ]
     },
 
@@ -220,15 +344,25 @@
         "link": "https://billing.purevpn.com/aff.php?aff=45139",
         "freeOption": false,
         "onSaleData": {
-            "onSale": true, 
-            "discount": 62
+            "onSale": false,
+            "discount": 0
         },
-        "features":
-        [
-            {"key": "Money Back Guarantee","value": ["7 Days"]},
-            {"key": "Support", "value": ["Live Chat"]},
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Countries", "value": ["140+"]}
+        "features": [{
+                "key": "Money Back Guarantee",
+                "value": ["31 Days"]
+            },
+            {
+                "key": "Support",
+                "value": ["Live Chat"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Speed",
+                "value": ["10GB"]   
+            }
         ]
     },
 
@@ -239,16 +373,29 @@
         "link": "https://torguard.net/aff.php?aff=6774",
         "freeOption": false,
         "onSaleData": {
-            "onSale": false, 
+            "onSale": false,
             "discount": 0
         },
-        "features":
-        [
-            {"key": "Speed / Bandwidth", "value": ["Unlimited"] },
-            {"key": "Connections", "value": ["8"] },
-            {"key": "Servers / Countries", "value": ["3000+ / 50+"] },
-            {"key": "Supported Platforms", "value": ["Windows 7+", "iOS", "Linux", "Android"]},
-            {"key": "Support", "value": ["Live Chat"]}
+        "features": [{
+                "key": "Speed / Bandwidth",
+                "value": ["Unlimited"]
+            },
+            {
+                "key": "Connections",
+                "value": ["8"]
+            },
+            {
+                "key": "Servers / Countries",
+                "value": ["3000+ / 50+"]
+            },
+            {
+                "key": "Supported Platforms",
+                "value": ["Windows 7+", "iOS", "Linux", "Android"]
+            },
+            {
+                "key": "Support",
+                "value": ["Live Chat"]
+            }
         ]
     }
 ]

@@ -22,6 +22,10 @@ module.exports = mongoose.model("Product", new mongoose.Schema({
         required: false,
         default: 0
     },
+    priority: {
+        type: Boolean,
+        default: false  
+    },
     freeOption: {
         type: Boolean,
         required: true

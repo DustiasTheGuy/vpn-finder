@@ -7,6 +7,11 @@ mongoose.connect('mongodb://localhost:27017/vpn-finder', {
     useUnifiedTopology: true
 });
 
+let prioritized = [
+    "Ivacy VPN",
+    "PureVPN"
+];
+
 for(let i = 0; i < data.length; i++) {
     new Product({
         label: data[i].label,
@@ -15,7 +20,8 @@ for(let i = 0; i < data.length; i++) {
         link: data[i].link,
         freeOption: data[i].freeOption,
         onSaleData: data[i].onSaleData,
-        features: data[i].features
+        features: data[i].features,
+        priority: prioritized.includes(data[i].label) ? true : false
     }).save(err => {
         if(err) {
             return console.log(err);

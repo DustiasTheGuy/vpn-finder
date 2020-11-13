@@ -1,0 +1,154 @@
+.container {
+    width: 100%;
+    height: 100%;
+    table {
+        width: 100%;
+        height: auto;
+        border-collapse: collapse;
+
+        tbody {
+            tr {
+                cursor: pointer;
+                
+                &:hover {
+                    background-color: rgb(219, 219, 219);
+                }
+            }
+
+            tr.active {
+                background-color: green;
+            }
+        }
+        th {
+            text-align: left;
+            border: 1px solid black;
+            padding: 8px;
+        }
+    
+        td {
+            max-width: 100px;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 8px;
+            border: 1px solid black;
+        }
+    }
+
+
+    .in-focus {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 1em;
+            h1 {
+                text-align: center;
+            }
+
+            .form-group.row {
+                flex-direction: row;
+            }
+
+            .form-group {
+                margin: 10px 0;
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    margin-bottom: 8px;
+                    font-size: 19px;
+                }
+
+                input, textarea {
+                    padding: 1em;
+                }
+
+                button {
+                    width: 200px;
+                    padding: 1em;
+                }
+
+            }
+
+            .features {
+
+                #main-ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    
+                    .outer-li {
+                        padding: 1em;
+                        min-height: 300px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        input, button {
+                            padding: 8px;
+                        }
+
+                        &:nth-child(odd) {
+                            background-color: #f0eeee;
+                        }
+
+                        &:nth-child(even) {
+                            background-color: #d6d5d5;
+                        }
+
+                        .key {
+                            display: flex;
+                            justify-content: space-between;
+
+                            label {
+                                font-weight: bold;
+                            }
+
+                            .key-actions {
+                                width: 75%;
+                                display: flex;
+                                input {
+                                    flex-grow: 1;
+                                }
+                            }
+                        }
+
+                        .values {
+                            display: flex;
+                            flex-direction: column;
+                            margin: 20px 0;
+                            flex-grow: 1;
+                            li {
+                                &:hover {
+                                    color: red;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .add-new {
+                            display: flex;
+                            input {
+                                flex-grow: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .button-group {
+                display: flex;
+                justify-content: flex-end;
+                padding: 8px;
+            }
+        }
+    }
+}
+

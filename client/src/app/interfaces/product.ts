@@ -14,6 +14,7 @@ export interface Product {
     description: string;
     link: string;
     freeOption: boolean;
+    priority: boolean;
     onSaleData: OnSaleData;
     features: Array<Feature>;
 };

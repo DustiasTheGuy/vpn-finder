@@ -1,0 +1,23 @@
+
+<div class="email-list" *ngIf="showEmailForm">
+    <form autocomplete="off">
+        <i class="fa fa-times fa-2x" (click)="toggleEmailForm()"></i>
+        <div class="form-group">
+
+            <label for="email">{{label}}</label>
+            <input autofocus type="email" name="email" placeholder="myemail@email.com" id="email" [(ngModel)]="email" (keyup.enter)="joinMailList(email)">
+        </div>
+
+        <p>
+            We only send relevant emails and we promise not to send you any spam mails or share your email with third parties. Unless you explicitly provide consent.
+            You may at any time revoke your consent and get removed of our email list without any hard feelings.<br><br>
+            We despise shady practises.
+        </p>
+
+        <div class="button-group" *ngIf="validateEmail(email)">
+            <button (click)="joinMailList(email)" type="button">
+                Join!
+            </button>
+        </div>
+    </form>
+</div>

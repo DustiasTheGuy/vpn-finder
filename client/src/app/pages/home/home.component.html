@@ -1,9 +1,14 @@
 <div class="container">
     <app-jumbotron></app-jumbotron>
     <aside>
-        <app-aside (filterProducts)="childUpdate($event)"></app-aside>
+        <app-aside (filterProducts)="childUpdate($event)">
+            <p id="amount">Found: {{renderedProducts.length}}</p>
+        </app-aside>
     </aside>
     <div class="grid" *ngIf="renderedProducts">
         <app-card *ngFor="let product of renderedProducts" [product]="product"></app-card>
     </div>
 </div>
+
+
+<app-email-list></app-email-list>

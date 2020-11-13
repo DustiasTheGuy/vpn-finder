@@ -24,8 +24,7 @@ export class HomeComponent implements OnInit {
     .subscribe((response: HttpResponse) => {
       this.products = response.data;
       this.renderedProducts = this.products;
-      console.log(this.products);
-    })
+    });
   }
 
   childUpdate(filter: string) { 
@@ -40,7 +39,6 @@ export class HomeComponent implements OnInit {
         moneybackguarantee
     */
     this.renderedProducts = this.filter(filter);
-    console.log(this.renderedProducts.length)
   }
 
 
@@ -50,6 +48,7 @@ export class HomeComponent implements OnInit {
 
       case "free": return this.products.filter(element => element.freeOption);
       case "discount": return this.products.filter(element => element.onSaleData.onSale);
+      case "recommended": return this.products.filter(element => element.priority);
 
       case "windows": return this.filterByValue("Windows 7+");
       case "ios": return this.filterByValue("iOS");
@@ -63,12 +62,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
   filterByKey(filter): Array<Product> {
     let products: Array<Product> = [];
 
     this.products.forEach(element => {
-      element.features.forEach((i) =>  { 
+      element.features.forEach(i =>  { 
         if(i.key === filter) return products.push(element); 
       });
     });

@@ -1,15 +1,32 @@
 .container {
     width: 100%;
-    box-shadow: 
-    0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgb(255, 255, 255);
     
+    ul {
+        margin: 10px 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+
+        li {
+            width: 100%;
+            margin: 10px 0;
+            iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+
     form {
+        box-shadow: 
+        0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        background-color: rgb(255, 255, 255);
         padding: 1em;
         width: 100%;
         .form-group, .button-group {
@@ -19,9 +36,10 @@
         .button-group {      
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
+            justify-content: space-between;
             button {
-                padding: 8px;
+                padding: 8px; 
+                width: 100px;
                 border: none;
                 background-color: rgb(46, 97, 207);
                 color: #ffffff;
@@ -36,26 +54,13 @@
     
         .form-group {
             position: relative;
-            margin-top: 2em;
             flex-grow: 1;
             width: 100%;
-            &:focus-within {
-                label {
-                    opacity: 1;
-                    bottom: 100%;
-                }
-
-                input::placeholder {
-                    color: transparent;
-                }
-            }
 
             label {
-                position: absolute;
                 display: block;
-                bottom: 0;
-                opacity: 0;
-                transition: all 205ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+                margin-bottom: 8px;
+                color: gray;
             }
 
             input, select {
@@ -74,80 +79,3 @@
     }
 }
 
-.email-list {
-    z-index: 6;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #33333367;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    form {
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        padding: 3em;
-        width: 50%;
-        position: relative;
-
-        i {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 10px;
-            color: rgb(46, 97, 207);
-            cursor: pointer;
-
-            &:hover {
-                color: rgb(38, 84, 184);
-            }
-        }
-
-        .form-group {
-           display: flex;
-           flex-direction: column;
-
-           label {
-               margin-bottom: 8px;
-               font-size: 30px;
-               letter-spacing: 1.1px;
-               color: gray;
-           }
-
-           input {
-               font-size: 1rem;
-               padding: .5em;
-               outline: none;
-           }
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: flex-end;
-            padding: 8px 0;
-            button {
-                padding: 8px;
-                border: none;
-                background-color: rgb(46, 97, 207);
-                border-radius: 4px;
-                color: #ffffff;
-                cursor: pointer;
-                outline: none;
-                transition: background-color 100ms ease-out;
-                &:hover {
-                    background-color: rgb(38, 84, 184);
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 1750px) {
-    .container {
-        flex-direction: column-reverse;
-    }
-}

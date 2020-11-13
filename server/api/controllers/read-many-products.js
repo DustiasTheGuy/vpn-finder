@@ -8,21 +8,32 @@ module.exports = (req, res) => {
                 success: false,
                 statusCode: 404,
                 data: null
-            })
+            });
+
         } else if(!documents) {
             return res.status(404).json({
                 message: "Zero documents",
                 success: false,
                 statusCode: 404,
                 data: null
-            })
-        }
+            });
 
+        };
+
+        documents.forEach((element, index) => {
+            if(element.priority) {
+                documents.splice(index, 1);
+                documents.unshift(element);
+            };
+        });
+    
         return res.status(200).json({
             message: null,
-            success: false,
+            success: true,
             statusCode: 200,
             data: documents
-        })
-    })
+        });
+    });
 };
+
+

@@ -1,0 +1,109 @@
+<div class="container">
+    <table *ngIf="products">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Label</th>
+                <th>Priority</th>
+                <th>Free Option</th>
+                <th>Views</th>
+                <th>Link</th>
+                <th>ImageURL</th>
+                <th>On Sale</th>
+                <th>Features</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let product of products; let i = index" (click)="setInfocus(product)" [ngClass]="{ 'active': inFocus._id === product._id }">
+                <td>{{product._id}}</td>
+                <td>{{product.label}}</td>
+                <td>{{product.priority}}</td>
+                <td>{{product.freeOption}}</td>
+                <td>{{product.views}}</td>
+                <td>{{product.link}}</td>
+                <td>{{product.imageURL}}</td>
+                <td>{{product.onSaleData.onSale}}</td>
+                <td>{{product.features.length}}</td>
+                <td>{{product.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="in-focus" *ngIf="inFocus">
+        <form>
+            <h1>{{inFocus.label}}</h1>
+
+            <div class="form-group">
+                <label>Label</label>
+                <input type="text" [(ngModel)]="inFocus.label" name="infocus-label">
+            </div>
+            <div class="form-group">
+                <label>Affiliate Link</label>
+                <input type="text" [(ngModel)]="inFocus.link" name="infocus-link">
+            </div>
+            <div class="form-group">
+                <label>ImageURL</label>
+                <input type="text" [(ngModel)]="inFocus.imageURL" name="infocus-imgurl">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea type="text" [(ngModel)]="inFocus.description" name="infocus-description"></textarea>
+            </div>
+
+            <div class="form-group row">
+                <div class="form-group">
+                    <label>On Sale: {{inFocus.onSaleData.onSale}}</label>
+                    <button (click)="inFocus.onSaleData.onSale = inFocus.onSaleData.onSale ? false : true">Change</button>
+                </div>
+                <div class="form-group" *ngIf="inFocus.onSaleData.onSale">
+                    <label>Discount:</label>
+                    <input [(ngModel)]="inFocus.onSaleData.discount" name="infocus-discount">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Free Option: {{inFocus.freeOption}}</label>
+                <button (click)="inFocus.freeOption = inFocus.freeOption ? false : true">Change</button>
+            </div>
+
+            <div class="form-group">
+                <label>Priority: {{inFocus.priority}}</label>
+                <button (click)="inFocus.priority = inFocus.priority ? false : true">Change</button>
+            </div>
+
+            <div class="features">
+                <h1>Features <br><button (click)="addFeature()">Add Feature</button></h1>
+                <ul id="main-ul">
+                    <li class="outer-li" *ngFor="let feature of inFocus.features; let j = index">
+                        <div class="key">
+                            <label>{{feature.key}}</label>
+                            <div class="key-actions">
+                                <input [(ngModel)]="feature.key" [name]="'feature-key'+j" [disabled]="feature.titleLock">
+                                <button (click)="feature.titleLock = !feature.titleLock ? true : false">
+                                    <span *ngIf="!feature.titleLock">Lock</span>
+                                    <span *ngIf="feature.titleLock">Unlock</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <ul class="values">
+                            <li title="Remove" *ngFor="let value of feature.value; let k = index" (click)="feature.value.splice(k, 1)">{{value}}</li>
+                        </ul>
+
+                        <div class="add-new">
+                            <input type="text" [(ngModel)]="feature.temp" placeholder="Some value.." name="newValue" (keyup.enter)="addValue(feature)">
+                            <button (click)="addValue(feature)">Add</button>
+                            <button (click)="inFocus.features.splice(j, 1)">Remove Entire List</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="button-group">
+                <button (click)="submit()" type="button">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

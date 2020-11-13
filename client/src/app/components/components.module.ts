@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
-import { CardComponent } from './card/card.component';
-import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+
+import { CardComponent } from './card/card.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { CookieConsentComponent } from './cookie-consent/cookie-consent.component';
+import { EmailListComponent } from './email-list/email-list.component';
 
 @NgModule({
   declarations: [
     CardComponent, 
     JumbotronComponent, 
     FooterComponent,
-    AsideComponent
+    AsideComponent,
+    CookieConsentComponent,
+    EmailListComponent
   ],
   imports: [ 
     BrowserModule, 
@@ -29,7 +34,9 @@ import { FormsModule } from '@angular/forms';
     CardComponent, 
     JumbotronComponent, 
     FooterComponent,
-    AsideComponent
+    AsideComponent,
+    CookieConsentComponent,
+    EmailListComponent
   ]
 })
 

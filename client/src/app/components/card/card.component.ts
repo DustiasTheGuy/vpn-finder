@@ -15,7 +15,6 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
   visitLink(product) {
     this.createService.addView(product._id)
     .subscribe(response => {

@@ -12,6 +12,33 @@
     0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     position: relative;
 
+    .actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px;
+
+        button {
+
+            &:first-child {
+                margin-right: 8px;
+            }
+
+            border: 1px solid #ffffff;
+            outline: none;
+            background-color: #0f6394;
+            color: #ffffff;
+            padding: 6px;
+            min-width: 60px;
+            cursor: pointer;
+            transition: all 165ms cubic-bezier(0.47, 0, 0.745, 0.715);
+            
+            &:hover {
+                background-color: #ffffff;
+                color: #0f6394;
+            }
+        }
+    }
 
     section {
         display: flex;

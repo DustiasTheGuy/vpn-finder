@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../../services/state/state.service';
 
 @Component({
   selector: 'app-jumbotron',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JumbotronComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stateService: StateService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  toggleEmailForm() { this.stateService.toggleForm(true) }
+  togglePrivacyDocs() { this.stateService.togglePrivacy(true) }
 }

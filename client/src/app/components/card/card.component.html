@@ -1,9 +1,14 @@
-<section>
-
+<section *ngIf="product">
   <a (click)="visitLink(product)" target="_blank" id="image-container">
     <div class="link">
       <i [matTooltip]="'Visit ' + product.label" class="fa fa-external-link" aria-hidden="true"></i>
     </div>
+    <div class="discount" *ngIf="product.onSaleData.onSale">
+      <span>
+        {{product.onSaleData.discount}}% discount
+      </span>
+    </div>
+
     <img [src]="product.imageURL">
   </a>
 
