@@ -6,7 +6,11 @@
         </app-aside>
     </aside>
     <div class="grid" *ngIf="renderedProducts">
-        <app-card *ngFor="let product of renderedProducts" [product]="product"></app-card>
+        <app-card 
+        *ngFor="let product of renderedProducts" 
+        [product]="product" 
+        [ngStyle]="{ 'display': product.active ? 'block' : 'none' }">
+        </app-card>
     </div>
 </div>
 

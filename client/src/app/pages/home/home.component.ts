@@ -49,19 +49,19 @@ export class HomeComponent implements OnInit {
       case "free": return this.products.filter(element => element.freeOption);
       case "discount": return this.products.filter(element => element.onSaleData.onSale);
       case "recommended": return this.products.filter(element => element.priority);
+      case "moneybackguarantee": return this.products.filter(element => element.moneyBack);
 
-      case "windows": return this.filterByValue("Windows 7+");
-      case "ios": return this.filterByValue("iOS");
-      case "android": return this.filterByValue("Android");
-      case "linux": return this.filterByValue("Linux");
-
-      case "support": return this.filterByKey("Support");
-      case "moneybackguarantee": return this.filterByKey("Money Back Guarantee");
+      case "windows": return this.products;
+      case "ios": return this.products;
+      case "android": return this.products;
+      case "linux": return this.products;
+      case "support": return this.products;
 
       default: return this.products;
     }
   }
 
+  /*
   filterByKey(filter): Array<Product> {
     let products: Array<Product> = [];
 
@@ -85,4 +85,5 @@ export class HomeComponent implements OnInit {
 
     return products;
   }
+  */
 }

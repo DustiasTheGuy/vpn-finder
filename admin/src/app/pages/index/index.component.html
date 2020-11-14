@@ -2,7 +2,6 @@
     <table *ngIf="products">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Label</th>
                 <th>Priority</th>
                 <th>Free Option</th>
@@ -12,12 +11,13 @@
                 <th>On Sale</th>
                 <th>Features</th>
                 <th>Description</th>
+                <th><button (click)="newProduct()">New Row</button></th>
+
             </tr>
         </thead>
     
         <tbody>
-            <tr *ngFor="let product of products; let i = index" (click)="setInfocus(product)" [ngClass]="{ 'active': inFocus._id === product._id }">
-                <td>{{product._id}}</td>
+            <tr *ngFor="let product of products; let i = index" (click)="setInfocus(product)" [ngClass]="{ 'active': inFocus.link === product.link }">
                 <td>{{product.label}}</td>
                 <td>{{product.priority}}</td>
                 <td>{{product.freeOption}}</td>
@@ -34,7 +34,10 @@
 
     <div class="in-focus" *ngIf="inFocus">
         <form>
-            <h1>{{inFocus.label}}</h1>
+            <header id="main-header">
+                <h1>{{inFocus.label}}</h1>
+                <img [src]="'https://vpnfind.site' + inFocus.imageURL">
+            </header>
 
             <div class="form-group">
                 <label>Label</label>
@@ -55,7 +58,12 @@
 
             <div class="form-group row">
                 <div class="form-group">
-                    <label>On Sale: {{inFocus.onSaleData.onSale}}</label>
+                    <label>
+                        On Sale: 
+                        <span [ngStyle]="{ 'color': inFocus.onSaleData.onSale ? 'green' : 'red' }">
+                            {{inFocus.onSaleData.onSale}}
+                        </span>
+                    </label>
                     <button (click)="inFocus.onSaleData.onSale = inFocus.onSaleData.onSale ? false : true">Change</button>
                 </div>
                 <div class="form-group" *ngIf="inFocus.onSaleData.onSale">
@@ -64,45 +72,59 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Free Option: {{inFocus.freeOption}}</label>
-                <button (click)="inFocus.freeOption = inFocus.freeOption ? false : true">Change</button>
+            <div class="form-group row">
+                <div class="form-group">
+                    <label>
+                        Free Option: 
+                        <span [ngStyle]="{ 'color': inFocus.freeOption ? 'green' : 'red' }">
+                            {{inFocus.freeOption}}
+                        </span>
+                    </label>
+                    <button (click)="inFocus.freeOption = inFocus.freeOption ? false : true">Change</button>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Priority: 
+                        <span [ngStyle]="{ 'color': inFocus.priority ? 'green' : 'red' }">
+                            {{inFocus.priority}}
+                        </span>
+                    </label>
+                    <button (click)="inFocus.priority = inFocus.priority ? false : true">Change</button>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Active: 
+                        <span [ngStyle]="{ 'color': inFocus.active ? 'green' : 'red' }">
+                            {{inFocus.active}}
+                        </span>
+                    </label>
+                    <button (click)="inFocus.active = inFocus.active ? false : true">Change</button>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label>Priority: {{inFocus.priority}}</label>
-                <button (click)="inFocus.priority = inFocus.priority ? false : true">Change</button>
-            </div>
 
             <div class="features">
-                <h1>Features <br><button (click)="addFeature()">Add Feature</button></h1>
-                <ul id="main-ul">
-                    <li class="outer-li" *ngFor="let feature of inFocus.features; let j = index">
-                        <div class="key">
-                            <label>{{feature.key}}</label>
-                            <div class="key-actions">
-                                <input [(ngModel)]="feature.key" [name]="'feature-key'+j" [disabled]="feature.titleLock">
-                                <button (click)="feature.titleLock = !feature.titleLock ? true : false">
-                                    <span *ngIf="!feature.titleLock">Lock</span>
-                                    <span *ngIf="feature.titleLock">Unlock</span>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <ul class="values">
-                            <li title="Remove" *ngFor="let value of feature.value; let k = index" (click)="feature.value.splice(k, 1)">{{value}}</li>
-                        </ul>
+                <header>
+                    <h1>Features</h1>
+                    <p>What does this VPN provider have thats unique?</p>
+                </header>
 
-                        <div class="add-new">
-                            <input type="text" [(ngModel)]="feature.temp" placeholder="Some value.." name="newValue" (keyup.enter)="addValue(feature)">
-                            <button (click)="addValue(feature)">Add</button>
-                            <button (click)="inFocus.features.splice(j, 1)">Remove Entire List</button>
-                        </div>
+                <ul id="main-ul">
+                    <li *ngFor="let feature of inFocus.features; let i = index;">
+                        <span>{{feature}}</span>
+                        <span (click)="inFocus.features.splice(i, 1)">Delete</span>
                     </li>
+
+                    <div class="add-new">
+                        <input type="text" name="newFeature" [(ngModel)]="newFeature" placeholder="3000+ IPs in 50+ Countries">
+                        <button (click)="inFocus.features.push(newFeature)">Add Feature</button>
+                    </div>
                 </ul>
             </div>
+
             <div class="button-group">
-                <button (click)="submit()" type="button">Submit</button>
+                <button (click)="submit()" type="button" *ngIf="!inFocus.new">Submit</button>
+                <button (click)="create()" type="button" *ngIf="inFocus.new">Create</button>
             </div>
         </form>
     </div>

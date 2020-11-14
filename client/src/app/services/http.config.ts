@@ -1,7 +1,7 @@
 export class HttpConfig {
   private prodAddr: string = "https://vpnfind.site";
   private devAddr: string = "http://localhost:3000";
-  private prod: boolean = true;
+  private prod: boolean = false;
 
   constructor() {}
 

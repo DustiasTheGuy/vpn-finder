@@ -21,3 +21,4 @@ import { IndexComponent } from './pages/index/index.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

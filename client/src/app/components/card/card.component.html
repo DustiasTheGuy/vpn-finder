@@ -3,26 +3,19 @@
     <div class="link">
       <i [matTooltip]="'Visit ' + product.label" class="fa fa-external-link" aria-hidden="true"></i>
     </div>
-    <div class="discount" *ngIf="product.onSaleData.onSale">
-      <span>
-        {{product.onSaleData.discount}}% discount
-      </span>
-    </div>
-
     <img [src]="product.imageURL">
   </a>
 
   <div class="content">
-    <h1>{{product.label}}</h1>
-
     <ul>
       <li *ngFor="let feature of product.features">
-        <span class="key">{{feature.key}}:</span>
-        <span class="value">
-          <span *ngFor="let v of feature.value; let i = index" class="inner-value">{{v}}<i *ngIf="i < feature.value.length - 1">,</i></span>
-        </span>
+        {{feature}}
       </li>
     </ul>
+
+    <header (click)="visitLink(product)">
+      <h1>{{product.label}}</h1>
+    </header>
   </div>
 
 </section>  

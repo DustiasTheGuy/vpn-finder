@@ -18,7 +18,9 @@ for(let i = 0; i < data.length; i++) {
         description: data[i].description,
         imageURL: data[i].imageURL,
         link: data[i].link,
+        active: true,
         freeOption: data[i].freeOption,
+        moneyBack: data[i].moneyBack,
         onSaleData: data[i].onSaleData,
         features: data[i].features,
         priority: prioritized.includes(data[i].label) ? true : false

@@ -45,7 +45,6 @@ section {
             align-items: center;
             padding: .3em;
             transition: background-color 200ms linear;
-            border-bottom: 1px solid lightgray;
             cursor: pointer;
             i {
                 margin-left: -150%;
@@ -68,38 +67,29 @@ section {
     
     .content {
         flex-grow: 1;
-        padding: 1em;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        
-        h1 {
-            text-transform: capitalize;
-            color: gray;
-            font-size: 2rem;
-            font-style: italic;
-            text-align: center;
-            margin: 0; 
+
+        header {
+            background-color: rgb(36, 133, 212);
+            padding: 1em;
+            h1 {
+                margin: 0;
+                color: #ffffff;
+                text-align: center;
+            }
         }
-        
         ul {
             padding: 0;
+            margin: 0;
+            width: 100%;
             li {
-                display: flex;
-                justify-content: space-between;
-                padding: 5px;
-                border-right: 2px solid transparent;
-                transition: border-color 200ms ease-in-out;
-                span {
-                    text-transform: capitalize;
-                }
-                .inner-value {
-                    margin-right: 4px;
-                }
-
-                &:hover {
-                    border-color: rgb(24, 170, 48);
-                }
+                display: block;
+                padding: 1em;
+                text-transform: capitalize;
+                text-align: center;
+                width: 100%;
+                border-top: 1px solid rgb(238, 237, 237);
             }
         }
     }

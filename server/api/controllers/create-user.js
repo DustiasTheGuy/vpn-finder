@@ -8,8 +8,8 @@ module.exports = (req, res) => {
             success: false,
             statusCode: 200,
             data: null
-        })
-    }
+        });
+    };
 
     User.findOne({email: req.body.email}, (err, document) => { // prevent duplication
         if(err) {
@@ -18,7 +18,7 @@ module.exports = (req, res) => {
                 success: false,
                 statusCode: 200,
                 data: null
-            })
+            });
 
         } else if(document) {
             return res.status(200).json({
@@ -26,7 +26,7 @@ module.exports = (req, res) => {
                 success: false,
                 statusCode: 200,
                 data: null
-            })
+            });
 
         } else {
             new User({
@@ -39,16 +39,16 @@ module.exports = (req, res) => {
                         success: false,
                         statusCode: 200,
                         data: null
-                    })    
-                }
+                    });    
+                };
         
                 return res.status(201).json({
                     message: "You're done, Thank you!",
                     success: true,
                     statusCode: 201,
                     data: req.body.email
-                })
-            })
-        }
-    })
-}
+                });
+            });
+        };
+    });
+};

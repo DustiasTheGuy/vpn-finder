@@ -9,7 +9,7 @@ module.exports = (req, res) => {
                 success: false,
                 statusCode: 200,
                 data: null
-            })
+            });
 
         } else {
             document.views++;
@@ -21,16 +21,16 @@ module.exports = (req, res) => {
                         success: false,
                         statusCode: 200,
                         data: null
-                    })
-                } 
+                    });
+                };
 
                 return res.status(201).json({
                     message: null,
                     success: true,
                     statusCode: 201,
                     data: null
-                })
-            })
-        }
-    })
-}
+                });
+            });
+        };
+    });
+};

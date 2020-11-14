@@ -1,8 +1,3 @@
-declare interface Feature {
-    key: string;
-    value: Array<string>;
-}
-
 declare interface OnSaleData {
     onSale: boolean;
     discount: number;
@@ -14,7 +9,9 @@ export interface Product {
     description: string;
     link: string;
     freeOption: boolean;
+    active: boolean;
     priority: boolean;
+    moneyBack: boolean;
     onSaleData: OnSaleData;
-    features: Array<Feature>;
+    features: Array<String>;
 };

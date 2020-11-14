@@ -15,7 +15,7 @@ module.exports = (req, res) => {
             success: false,
             statusCode: 404,
             data: null
-        })
+        });
 
     } else if(!req.body.imageURL) {
         return res.status(404).json({
@@ -23,7 +23,7 @@ module.exports = (req, res) => {
             success: false,
             statusCode: 404,
             data: null
-        })
+        });
 
     } else if(!req.body.link) {
         return res.status(404).json({
@@ -31,7 +31,7 @@ module.exports = (req, res) => {
             success: false,
             statusCode: 404,
             data: null
-        })
+        });
 
     } else if(!req.body.label) {
         return res.status(404).json({
@@ -39,7 +39,7 @@ module.exports = (req, res) => {
             success: false,
             statusCode: 404,
             data: null
-        })
+        });
     } 
 
     let product = new Product({
