@@ -5,7 +5,8 @@ const app = express();
 
 mongoose.connect('mongodb://localhost:27017/vpn-finder', {
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 app.use((req, res, next) => {

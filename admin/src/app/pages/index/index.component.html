@@ -1,134 +1,122 @@
-<div class="container"> 
-    <button id="new-product" (click)="newProduct()" tabindex="13">New Product</button>
+<div class="window">
+    <app-header (createNew)="newProduct()"></app-header>
 
-    <table *ngIf="products">
-        <thead>
-            <tr>
-                <th>Label</th>
-                <th>Priority</th>
-                <th>Free Option</th>
-                <th>Views</th>
-                <th>Link</th>
-                <th>ImageURL</th>
-                <th>On Sale</th>
-                <th>Features</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-    
-        <tbody>
-            <tr *ngFor="let product of products; let i = index" (click)="setInfocus(product, i)" [ngClass]="{ 'active': i === index }">
-                <td>{{product.label}}</td>
-                <td>{{product.priority}}</td>
-                <td>{{product.freeOption}}</td>
-                <td>{{product.views}}</td>
-                <td>{{product.link}}</td>
-                <td>{{product.imageURL}}</td>
-                <td>{{product.onSaleData.onSale}}</td>
-                <td>{{product.features.length}}</td>
-                <td>{{product.description}}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="in-focus" *ngIf="inFocus">
-        <form>
-            <header id="main-header">
-                <h1>{{inFocus.label}}</h1>
-                <img [src]="'https://vpnfind.site' + inFocus.imageURL">
-            </header>
-
-            <div class="form-group">
-                <label>Label</label>
-                <input type="text" [(ngModel)]="inFocus.label" name="infocus-label" tabindex="1" required>
-            </div>
-            <div class="form-group">
-                <label>Affiliate Link</label>
-                <input type="text" [(ngModel)]="inFocus.link" name="infocus-link" tabindex="2" required>
-            </div>
-            <div class="form-group">
-                <label>ImageURL</label>
-                <input type="text" [(ngModel)]="inFocus.imageURL" name="infocus-imgurl" tabindex="3" required>
-            </div>
-            <div class="form-group">
-                <label>Description</label>
-                <textarea type="text" [(ngModel)]="inFocus.description" name="infocus-description" tabindex="4" required></textarea>
-            </div>
-
-            <div class="form-group row">
-                <div class="form-group">
-                    <label>
-                        On Sale: 
-                        <span [ngStyle]="{ 'color': inFocus.onSaleData.onSale ? 'green' : 'red' }">
-                            {{inFocus.onSaleData.onSale}}
-                        </span>
-                    </label>
-                    <button (click)="inFocus.onSaleData.onSale = inFocus.onSaleData.onSale ? false : true" tabindex="5">Change</button>
-                </div>
-                <div class="form-group" *ngIf="inFocus.onSaleData.onSale">
-                    <label>Discount:</label>
-                    <input [(ngModel)]="inFocus.onSaleData.discount" name="infocus-discount" tabindex="6">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="form-group">
-                    <label>
-                        Free Option: 
-                        <span [ngStyle]="{ 'color': inFocus.freeOption ? 'green' : 'red' }">
-                            {{inFocus.freeOption}}
-                        </span>
-                    </label>
-                    <button type="button" (click)="inFocus.freeOption = inFocus.freeOption ? false : true" tabindex="7">Change</button>
-                </div>
-                <div class="form-group">
-                    <label>
-                        Priority: 
-                        <span [ngStyle]="{ 'color': inFocus.priority ? 'green' : 'red' }">
-                            {{inFocus.priority}}
-                        </span>
-                    </label>
-                    <button type="button" (click)="inFocus.priority = inFocus.priority ? false : true" tabindex="8">Change</button>
-                </div>
-                <div class="form-group">
-                    <label>
-                        Active: 
-                        <span [ngStyle]="{ 'color': inFocus.active ? 'green' : 'red' }">
-                            {{inFocus.active}}
-                        </span>
-                    </label>
-                    <button type="button" (click)="inFocus.active = inFocus.active ? false : true" tabindex="9">Change</button>
-                </div>
-            </div>
-
-
-            <div class="features">
-                <header>
-                    <h1>Features</h1>
-                </header>
-
-                <ul id="main-ul">
-                    <li *ngFor="let feature of inFocus.features; let i = index;">
-                        <span>{{feature}}</span>
-                        <span (click)="inFocus.features.splice(i, 1)">Delete</span>
-                    </li>
-
-                    <div class="add-new">
-                        <input type="text" name="newFeature" [(ngModel)]="newFeature" tabindex="10" (keyup.enter)="inFocus.features.push(newFeature)" placeholder="3000+ IPs in 50+ Countries">
-                        <button type="button" (click)="inFocus.features.push(newFeature)" tabindex="11">Add Feature</button>
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane-sm sidebar">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let product of products; let i = index" (click)="setInfocus(product, i)">
+                  <img class="img-circle media-object pull-left" [src]="'https://vpnfind.site' + product.imageURL" width="32" height="32">
+                  <div class="media-body">
+                    <strong>{{product.label}}</strong>
+                    <p>{{product.description}}</p>
+                  </div>
+                </li>
+              </ul>
+        </div>
+        <div class="pane">
+            
+            <div class="in-focus" *ngIf="inFocus">
+                <form>
+                    <header id="main-header">
+                        <h1>{{inFocus.label}}</h1>
+                    </header>
+        
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <label>Label</label>
+                            <input class="form-control" type="text" [(ngModel)]="inFocus.label" name="infocus-label" tabindex="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Affiliate Link</label>
+                            <input class="form-control" type="text" [(ngModel)]="inFocus.link" name="infocus-link" tabindex="2" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ImageURL</label>
+                            <input class="form-control" type="text" [(ngModel)]="inFocus.imageURL" name="infocus-imgurl" tabindex="3" required>
+                        </div>
                     </div>
-                </ul>
-            </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" type="text" [(ngModel)]="inFocus.description" name="infocus-description" tabindex="4" required></textarea>
+                    </div>
+        
+                    <div class="form-group row">
+                        <div class="form-group" *ngIf="inFocus.onSaleData.onSale">
+                            <label>Discount:</label>
+                            <input class="form-control" [(ngModel)]="inFocus.onSaleData.discount" name="infocus-discount" tabindex="6">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                On Sale: 
+                                <span [ngStyle]="{ 'color': inFocus.onSaleData.onSale ? 'green' : 'red' }">
+                                    {{inFocus.onSaleData.onSale}}
+                                </span>
+                            </label>
+                            <button class="btn btn-default" (click)="inFocus.onSaleData.onSale = inFocus.onSaleData.onSale ? false : true" tabindex="5">Change</button>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Free Option: 
+                                <span [ngStyle]="{ 'color': inFocus.freeOption ? 'green' : 'red' }">
+                                    {{inFocus.freeOption}}
+                                </span>
+                            </label>
+                            <button class="btn btn-default" type="button" (click)="inFocus.freeOption = inFocus.freeOption ? false : true" tabindex="7">Change</button>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Priority: 
+                                <span [ngStyle]="{ 'color': inFocus.priority ? 'green' : 'red' }">
+                                    {{inFocus.priority}}
+                                </span>
+                            </label>
+                            <button class="btn btn-default" type="button" (click)="inFocus.priority = inFocus.priority ? false : true" tabindex="8">Change</button>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Active: 
+                                <span [ngStyle]="{ 'color': inFocus.active ? 'green' : 'red' }">
+                                    {{inFocus.active}}
+                                </span>
+                            </label>
+                            <button class="btn btn-default" type="button" (click)="inFocus.active = inFocus.active ? false : true" tabindex="9">Change</button>
+                        </div>
+                    </div>
+        
+        
+                    <div class="features">
+                        <form class="add-new">
+                            <input class="form-control" type="text" name="newFeature" [(ngModel)]="newFeature" tabindex="10" (keyup.enter)="addFeature(newFeature)" placeholder="3000+ IPs in 50+ Countries">
+                            <button class="btn btn-primary" type="button" (click)="addFeature(newFeature)" tabindex="11">Add Feature</button>
+                        </form>
+        
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let feature of inFocus.features; let i = index;">
+                                <span>{{feature}}</span>
+                                <button (click)="inFocus.features.splice(i, 1)" class="btn btn-default">Delete</button>
+                            </li>
+                        </ul>
+                    </div>
 
-            <div class="message" *ngIf="error || success " [ngClass]="{ 'error': error, 'success': success}">
-                <button type="button" (click)="closeMessage()">Close</button>
-                <p *ngIf="message">{{message}}</p>
-            </div>
+                    <div class="button-group">
+                        <button class="btn btn-default" (click)="delete(inFocus)">Delete</button>
+                        <button class="btn btn-primary pull-right" (click)="update()" type="button" *ngIf="!inFocus.new" tabindex="12">Save</button>
+                        <button class="btn btn-primary pull-right" (click)="create()" type="button" *ngIf="inFocus.new" tabindex="12">Create</button>
+                    </div>
+                </form>
 
-            <div class="button-group">
-                <button (click)="submit()" type="button" *ngIf="!inFocus.new" tabindex="12">Submit</button>
-                <button (click)="create()" type="button" *ngIf="inFocus.new" tabindex="12">Create</button>
+                <!--
+                 <div class="preview">
+                    <app-card [product]="inFocus"></app-card>
+                 </div>
+                -->
             </div>
-        </form>
+        </div>
+      </div>
     </div>
-</div>
+
+    <footer class="toolbar toolbar-footer" *ngIf="error || success " >
+        <h1  [ngStyle]="{ 'color': error ? 'red' : 'green' }" class="title" *ngIf="message">{{message}}</h1>
+    </footer>
+  </div>

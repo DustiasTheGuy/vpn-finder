@@ -1,198 +1,83 @@
-.container {
+.sidebar {
+    width: 300px;
+}
+
+img {
+    object-fit: contain;
+    border-radius: 0;
+}
+
+.in-focus {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
     padding: 1em;
+    height: 100%;
 
-    #new-product {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 1em;
-        margin: 10px;
-    }
-
-    table, .in-focus {
-        width: 60%;
-    }
-
-    table {
-        height: auto;
-        border-collapse: collapse;
-
-        tbody {
-            tr {
-                transition: background-color 100ms ease;
-                cursor: pointer;
-                
-                &:hover {
-                    background-color: rgb(219, 219, 219);
-                }
-            }
-
-            tr.active {
-                background-color: rgb(219, 219, 219);
-            }
-        }
-        th {
-            text-align: left;
-            border: 1px solid black;
-            padding: 8px;
-        }
-    
-        td {
-            max-width: 100px;
-            text-align: left;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            padding: 8px;
-            border: 1px solid black;
-        }
-    }
-
-
-    .in-focus {
-        height: auto;
+    .preview {
         display: flex;
+        width: 100%;
         justify-content: center;
-        margin-top: 3em;
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+        margin-top: 4em;
+    }
 
-            .message {
-                padding: 1em;    
-                color: #ffffff;
-                margin-top: 1em;
-                position: relative;
+    form {
+        margin-left: 2em;
+        width: 40%;
 
-                button {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    margin: 10px;
+        .button-group {
+            margin-top: 2em;
+        }
+
+        .features {
+            ul {
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
             }
 
-            .message.error {
-                background-color: red;
-            }
-
-            .message.success {
-                background-color: green;
-            }
-
-            #main-header {
-                font-size: 32px;
+            .add-new {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                img {
-                    width: 128px;
-                    height: 64px;
-                }
-            }
-            .form-group.row {
-                flex-direction: row;
-                .form-group {
+                padding: .6em 0;
+                margin: 0;
+                input {
+                    flex-grow: 1;
                     margin-right: 10px;
                 }
             }
+        }
+
+        #main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+                object-fit: contain;
+                max-width: 128px;
+                max-height: 64px;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-group.row {
+            flex-direction: row;
+            align-items: center;
 
             .form-group {
-                margin: 10px 0;
-                display: flex;
-                flex-direction: column;
+                margin-right: 20px;
 
-                label {
-                    margin-bottom: 8px;
-                    font-size: 19px;
-                    display: flex;
-                    justify-content: space-between;
-                }
-
-                input, textarea {
-                    padding: 1em;
-                    border: .5px solid black;
-                    outline: none;
-                    transition: border 160ms ease;
-
-                    &:focus {
-                        border-color:rgb(226, 161, 21);
-                    }
-                }
-
-                button {
-                    width: 200px;
-                    padding: 1em;
-
-                    &:focus {
-                        background-color: lightgray;
-                    }
-                }
-
-            }
-
-            #main-ul {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-
-                li {
-                    background-color: rgb(243, 241, 241);
-                    padding: 1em;
-                    text-transform: capitalize;
-                    display: flex;
-                    justify-content: space-between;
-                    border-top: 1px solid lightgray;
-                    &:first-child {
-                        border: none;
-                    }
-
-                    span {
-
-                        &:last-child {
-                            color: rgb(199, 25, 25);
-                            cursor: pointer;
-                            &:hover {
-                                text-decoration: underline;
-                            }
-                        }
-                    }
-                }
-
-                .add-new {
-                    width: 100%;
-                    display: flex;
-                    margin-top: 1em;
-                    input, button {
-                        padding: 9px;
-                    }
-
-                    input {
-                        flex-grow: 1;
-                        margin-right: 5px;
-                    }
-                }
-            }
-  
-            .button-group {
-                display: flex;
-                justify-content: flex-end;
-                margin: 3em 0;
-                
-                button {
-                    padding: 9px;
-                    width: 160px;
+                &:last-child {
+                    margin-right: 0;
                 }
             }
         }
     }
 }
-

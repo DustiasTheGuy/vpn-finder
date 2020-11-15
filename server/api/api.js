@@ -12,6 +12,6 @@ router.get("/read/:id", require("./controllers/read-single-product"));
 
 /* modify or delete data */
 router.post("/update", require("./controllers/update-product"));
-router.post("/delete", require("./controllers/delete-product"));
+router.get("/delete/:id", require("./controllers/delete-product"));
  
 module.exports = router;

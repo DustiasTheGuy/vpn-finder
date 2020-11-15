@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReadService } from '../../services/read/read.service';
 import { UpdateService } from '../../services/update/update.service';
 import { CreateService } from '../../services/create/create.service';
+import { DeleteService } from '../../services/delete/delete.service';
 import { HttpResponse } from '../../interfaces/http.interface';
 import { Product } from '../../interfaces/product';
 
@@ -22,6 +23,7 @@ export class IndexComponent implements OnInit {
   public index: number = 0;
 
   constructor(
+    private deleteService: DeleteService,
     private createService: CreateService,
     private updateService: UpdateService,
     private readService: ReadService) {}
@@ -94,7 +96,14 @@ export class IndexComponent implements OnInit {
     this.inFocus = this.products[this.index];
   }
 
-  submit() {
+  addFeature(str: string) {
+    if(str.length === 0) return;
+
+    this.inFocus.features.push(str);
+    this.newFeature = undefined;
+  }
+
+  update() { 
     this.updateService.updateProduct(this.inFocus)
     .subscribe((response: HttpResponse) => {
       if(response.success) this.readProducts(() => this.setMessage(false, response.message));
@@ -105,8 +114,26 @@ export class IndexComponent implements OnInit {
   create() {
     this.createService.createDocument(this.inFocus)
     .subscribe((response: HttpResponse) => {
-      console.log(response);
-    })
+      if(response.success) this.readProducts(() => this.setMessage(false, response.message));
+      if(!response.success) this.setMessage(true, response.message);
+    });
+  }
+
+  delete(product) {
+    if(!confirm("Are you sure you wish to delete this product? This action CANNOT be undone.")) return;
+
+    if(product.new) {
+      let index = this.products.findIndex((element) => element.link === product.link);
+      this.products.splice(index, 1);
+      return;
+    }
+    
+    // Delete the product
+    this.deleteService.deleteOne(product._id)
+    .subscribe((response: HttpResponse) => {
+      if(response.success) this.readProducts(() => this.setMessage(false, response.message));
+      if(!response.success) this.setMessage(true, response.message);
+    });
   }
 }
 
@@ -115,7 +142,7 @@ export class IndexComponent implements OnInit {
     Expected data when creating a new document
 
     {
-        features: Array<string>,
+        features: Array<string>,  
         description: String,
         imageURL: String,
         link: String,
