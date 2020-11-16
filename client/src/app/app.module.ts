@@ -13,7 +13,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { OutpageComponent } from './pages/outpage/outpage.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import { HttpConfig } from './services/http.config';
+
+const config: SocketIoConfig = { url: new HttpConfig().getAddr(), options: {} };
 
 @NgModule({
   declarations: [

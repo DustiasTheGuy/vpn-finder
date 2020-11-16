@@ -6,6 +6,7 @@ import { DeleteService } from '../../services/delete/delete.service';
 import { HttpResponse } from '../../interfaces/http.interface';
 import { Product } from '../../interfaces/product';
 import * as CanvasJS from '../../../assets/canvasjs.min';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-index',
@@ -26,6 +27,7 @@ export class IndexComponent implements OnInit {
   public chart: any;
 
   constructor(
+    private socket: Socket,
     private deleteService: DeleteService,
     private createService: CreateService,
     private updateService: UpdateService,
@@ -33,14 +35,17 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.readProducts(() => this.inFocus = this.products[this.index]);
-    this.createChart()
+    this.createChart();
 
-    setInterval(() => {
+    this.socket.emit("get-connections", {});
+
+    this.socket.on('connections', (data) => {
+      console.log(data)
       this.dataPoints.push({
-        y: Math.ceil(Math.random() * this.dataPoints.length)
+        y: data
       })
       this.chart.render();
-    }, 1000)
+    });
   }
 
   readProducts(callback: Function) {  
