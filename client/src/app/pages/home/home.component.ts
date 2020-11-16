@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ReadService } from '../../services/read/read.service';
 import { HttpResponse } from '../../interfaces/http.interface';
+import { SocketsService } from '../../services/sockets/sockets.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,17 @@ export class HomeComponent implements OnInit {
   public products: Array<Product>;
   public renderedProducts: Array<Product>;
 
-  constructor(private readService: ReadService) {}
+  constructor(private readService: ReadService, private socketsService: SocketsService) {}
 
   ngOnInit(): void {
+    this.connect();
     this.readProducts();
   }
 
+  connect() {
+    this.socketsService.connect("aws");
+  }
+  
   readProducts() {
     this.readService.readProducts()
     .subscribe((response: HttpResponse) => {

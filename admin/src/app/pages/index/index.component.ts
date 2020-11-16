@@ -5,6 +5,7 @@ import { CreateService } from '../../services/create/create.service';
 import { DeleteService } from '../../services/delete/delete.service';
 import { HttpResponse } from '../../interfaces/http.interface';
 import { Product } from '../../interfaces/product';
+import * as CanvasJS from '../../../assets/canvasjs.min';
 
 @Component({
   selector: 'app-index',
@@ -21,6 +22,8 @@ export class IndexComponent implements OnInit {
   public success: boolean = false;
   public message: string;
   public index: number = 0;
+  public dataPoints: Array<any> = [];
+  public chart: any;
 
   constructor(
     private deleteService: DeleteService,
@@ -30,6 +33,14 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.readProducts(() => this.inFocus = this.products[this.index]);
+    this.createChart()
+
+    setInterval(() => {
+      this.dataPoints.push({
+        y: Math.ceil(Math.random() * this.dataPoints.length)
+      })
+      this.chart.render();
+    }, 1000)
   }
 
   readProducts(callback: Function) {  
@@ -41,6 +52,12 @@ export class IndexComponent implements OnInit {
         callback();
       }
     });
+  }
+
+  refresh() {
+    this.readProducts(() => {
+      console.log("Refresh")
+    })
   }
 
   closeMessage() {
@@ -134,6 +151,23 @@ export class IndexComponent implements OnInit {
       if(response.success) this.readProducts(() => this.setMessage(false, response.message));
       if(!response.success) this.setMessage(true, response.message);
     });
+  }
+
+
+  createChart() {
+    this.chart = new CanvasJS.Chart("chartContainer", {
+      zoomEnabled: true,
+      animationEnabled: true,
+      exportEnabled: true,
+      title: { text: "Online Users" },
+      data: [
+      {
+        type: "line",                
+        dataPoints: this.dataPoints
+      }]
+    });
+    
+    this.chart.render();
   }
 }
 

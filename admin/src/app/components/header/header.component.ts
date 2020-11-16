@@ -8,6 +8,8 @@ import { HttpConfig } from '../../services/http.config';
 })
 export class HeaderComponent implements OnInit {
   @Output() createNew = new EventEmitter<string>();
+  @Output() newRefresh = new EventEmitter<string>();
+
   public env: string;
 
   constructor() {
@@ -18,5 +20,9 @@ export class HeaderComponent implements OnInit {
 
   create() {
     this.createNew.emit("create");
+  }
+
+  refresh() {
+    this.newRefresh.emit("refresh")
   }
 }

@@ -2,7 +2,7 @@
     <app-jumbotron></app-jumbotron>
     <aside>
         <app-aside (filterProducts)="childUpdate($event)">
-            <p id="amount">Found: {{renderedProducts.length}}</p>
+            <p id="amount" *ngIf="renderedProducts">Found: {{renderedProducts.length}}</p>
         </app-aside>
     </aside>
     <div class="grid" *ngIf="renderedProducts">

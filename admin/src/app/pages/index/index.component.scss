@@ -1,83 +1,85 @@
 .sidebar {
-    width: 300px;
+    width: 500px;
+    max-width: auto;
+
 }
 
 img {
     object-fit: contain;
-    border-radius: 0;
 }
 
-.in-focus {
-    width: 100%;
-    padding: 1em;
-    height: 100%;
 
-    .preview {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-top: 4em;
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: 60% 40%;
+    padding: 2em;
+
+    table, #main-form, .container {
+        border: 1px solid rgb(214, 213, 213);
+        border-radius: 5px;
+        padding: 1em;
+        height: 100%;
+
+        &:hover {
+            border-color: lightblue;
+        }
     }
 
     form {
-        margin-left: 2em;
-        width: 40%;
-
-        .button-group {
-            margin-top: 2em;
-        }
-
-        .features {
-            ul {
-                li {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-            }
-
-            .add-new {
-                display: flex;
-                padding: .6em 0;
-                margin: 0;
-                input {
-                    flex-grow: 1;
-                    margin-right: 10px;
-                }
-            }
-        }
-
-        #main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            img {
-                object-fit: contain;
-                max-width: 128px;
-                max-height: 64px;
-            }
-        }
-
+        
         .form-group {
             display: flex;
             flex-direction: column;
             width: 100%;
+    
+            .form-control {
+                box-shadow: none;
+            }
         }
-
+    
         .form-group.row {
             flex-direction: row;
             align-items: center;
-
+    
             .form-group {
                 margin-right: 20px;
-
+    
                 &:last-child {
                     margin-right: 0;
                 }
             }
+        }
+    }
+    
+    .container {
+        p {
+            margin: 0;
+        }
+    }
+}
+
+
+.features {
+    ul {
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .add-new {
+        display: flex;
+        padding: .6em 0;
+        margin: 0;
+        input {
+            flex-grow: 1;
+            margin-right: 10px;
         }
     }
 }

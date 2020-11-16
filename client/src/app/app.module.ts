@@ -6,10 +6,14 @@ import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OutpageComponent } from './pages/outpage/outpage.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     HttpClientModule,
     FormsModule,
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [ AppComponent ]
