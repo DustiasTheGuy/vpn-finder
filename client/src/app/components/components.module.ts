@@ -7,16 +7,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 import { CardComponent } from './card/card.component';
-import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { LandingComponent } from './landing/landing.component';
 import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
 import { CookieConsentComponent } from './cookie-consent/cookie-consent.component';
 import { EmailListComponent } from './email-list/email-list.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     CardComponent, 
-    JumbotronComponent, 
+    LandingComponent,
     FooterComponent,
     AsideComponent,
     CookieConsentComponent,
@@ -32,7 +32,7 @@ import { EmailListComponent } from './email-list/email-list.component';
   ], 
   exports: [ 
     CardComponent, 
-    JumbotronComponent, 
+    LandingComponent, 
     FooterComponent,
     AsideComponent,
     CookieConsentComponent,

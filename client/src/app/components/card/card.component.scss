@@ -4,12 +4,14 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 
-    0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     background-color: #ffffff;
-
+    transition: 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
     #image-container {
         position: relative;
         color: #ffffff;
@@ -24,43 +26,11 @@ section {
             }
         } 
 
-        .discount {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: rgba(13, 73, 163, 0.863);
-            color: #ffffffd5;
-            padding: 1em;
-        }
-
-        .link {
-            position: absolute;
-            width: 100%;
-            background-color: rgba(15, 190, 24, 0);
-            top: 50%;
-            height: 100%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: .3em;
-            transition: background-color 200ms linear;
-            cursor: pointer;
-            i {
-                margin-left: -150%;
-                transition: margin-left 200ms linear;
-                font-size: 24px;
-            }
-        }
-
         img {
             height: 100%;
             width: 100%;
-            transition: all 125ms ease-in;
-            cursor: pointer;
             object-fit: contain;
             padding: 1em;
-        
         }
     }
 

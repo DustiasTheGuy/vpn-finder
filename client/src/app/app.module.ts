@@ -21,7 +21,7 @@ const config: SocketIoConfig = { url: new HttpConfig().getAddr(), options: {} };
   declarations: [
     AppComponent,
     HomeComponent,
-    OutpageComponent,
+    OutpageComponent, 
     PageNotFoundComponent
   ],
   imports: [

@@ -1,16 +1,31 @@
 <div class="container">
-    <app-jumbotron></app-jumbotron>
-    <aside>
-        <app-aside (filterProducts)="childUpdate($event)">
-            <p id="amount" *ngIf="renderedProducts">Found: {{renderedProducts.length}}</p>
-        </app-aside>
-    </aside>
-    <div class="grid" *ngIf="renderedProducts">
-        <app-card 
-        *ngFor="let product of renderedProducts" 
-        [product]="product" 
-        [ngStyle]="{ 'display': product.active ? 'block' : 'none' }">
-        </app-card>
+    <app-landing></app-landing>
+
+    <!--
+    <div class="row">
+        <aside>
+            <app-aside (filterProducts)="childUpdate($event)">
+            
+                    <p id="amount" *ngIf="renderedProducts">Found: {{renderedProducts.length}}</p>
+           
+            </app-aside>
+        </aside>
+    </div>
+    -->
+    <div class="jumbotron">
+        <div class="content">
+            <h1>Our Current Offers</h1>
+        </div>
+    </div>
+
+    <div class="row" id="grid">
+        <div class="grid" *ngIf="renderedProducts">
+            <app-card 
+            *ngFor="let product of renderedProducts" 
+            [product]="product" 
+            [ngStyle]="{ 'display': product.active ? 'block' : 'none' }">
+            </app-card>
+        </div>
     </div>
 </div>
 

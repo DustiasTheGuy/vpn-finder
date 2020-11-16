@@ -1,18 +1,24 @@
 <div class="container" *ngIf="!acceptCookies">
     <div class="inner-container">
-        <h2>
-            Please read our cookie policy.
-            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/cookie-106-554136.png">
-        </h2>
-        <p>
-            This website uses cookies in order to provide a better user experience.
-        </p>
-            
-        <a (click)="readPolicy()">cookie policy</a>
+        <div class="content">
+            <h2>
+                Please read our cookie policy.
+            </h2>
+            <p>
+                Is it ok if we store cookies? 
+                <a (click)="readPolicy()">cookie policy</a>
+            </p>
+        </div>
 
         <div class="actions">
-            <button (click)="accept()">Accept Cookies And Close</button>
+            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/cookie-106-554136.png">
+
+            <button (click)="accept()">
+                Yes
+                <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
         </div>
+
     </div>
 </div>
 
@@ -104,7 +110,12 @@
     <p>vpnfind does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
    
     <div class="actions">
-        <button id="closeBtn" (click)="readPolicy()">Close</button>
-        <button (click)="accept()">Accept Cookies And Close</button>
+        <div>
+            <button class="revoke" (click)="revoke()" *ngIf="acceptCookies">Revoke Consent</button>
+        </div>
+        <div>
+            <button id="closeBtn" (click)="readPolicy()">Close</button>
+            <button class="accept" (click)="accept()">Accept Cookies And Close</button>
+        </div>
     </div>
 </div>

@@ -1,0 +1,117 @@
+.jumbotron {
+    height: 100vh;
+    background-image: url("/assets/images/backgrounds/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding: 1em;
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        nav {
+            a {
+                margin: 0 10px;
+                color: #ffffff;
+                cursor: pointer;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }    
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        height: 100%;
+        h1, p {
+            color: #ffffff;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        .call-to-action {
+            padding: 1em;
+            border: none;
+            background-color: #ffffff;
+            margin-top: 2em;
+            width: 200px;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+
+            &:hover {
+                background-color: #eeeeee;
+            }
+        }
+    }
+}
+
+/*
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
+*/
+
+@media only screen and (max-width: 1750px) and (min-width: 1390px) {
+    .jumbotron {
+        section { 
+            p {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1391px) and (min-width: 940px) {
+    .jumbotron {
+        section {
+            p {
+                width: 70%;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 941px) and (min-width: 600px) {
+    .jumbotron {
+        section {
+            margin-left: 0;
+            text-align: center;
+            p {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .jumbotron {
+        section {
+            margin-left: 0;
+            text-align: center;
+            p {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -24,4 +24,10 @@ export class CookieConsentComponent implements OnInit {
   }
 
   readPolicy() { this.readCookiePolicy = !this.readCookiePolicy ? true : false }
+
+  revoke() {
+    this.acceptCookies = false;
+    localStorage.setItem("acceptCookies", this.acceptCookies ? "1" : "0")
+    this.readCookiePolicy = false;
+  }
 }
