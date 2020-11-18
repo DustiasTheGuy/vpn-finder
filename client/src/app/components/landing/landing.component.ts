@@ -20,10 +20,7 @@ export class LandingComponent implements OnInit {
   }
 
   callToAction() { this.scrollTo(document.getElementById("main-content"))}
-  contact() { 
-    this.scrollTo(document.getElementById("contact-form"))
-    setTimeout(() => { document.getElementById("message").focus() }, 1000)
-  }
+  contact() { this.scrollTo(document.getElementById("contact-form"))}
   toggleEmailForm() { this.stateService.toggleForm(true)}
   togglePrivacyDocs() { this.stateService.togglePrivacy(true)}
 }

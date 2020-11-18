@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../../services/state/state.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,18 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   public message: string;
+  public email: string;
+  public name: string;
 
-  constructor() { }
+  constructor(private stateService: StateService) { }
 
   ngOnInit(): void {
   }
 
-  sendMessage(msg: string) {
-    console.log(msg)
+  sendMessage() {
+    if(!this.stateService.validateEmail(this.email)) {
+      // Invalid email
+    }; 
   }
 
   goUp() {
    document.getElementById("main-navigation")
    .scrollIntoView({ behavior: "smooth", block: "end"})
   }
+
+  toggleEmailForm() { this.stateService.toggleForm(true)}
+  togglePrivacyDocs() { this.stateService.togglePrivacy(true)}
 }

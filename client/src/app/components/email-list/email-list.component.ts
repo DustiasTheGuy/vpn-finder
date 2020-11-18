@@ -21,13 +21,10 @@ export class EmailListComponent implements OnInit {
     this.stateService.onToggle().subscribe((newState: boolean) => { this.showEmailForm = newState }); // Listen for event in jumbotron component
     this.showEmailForm = window.localStorage.getItem("showEmailForm") === "0" ? false : true; // apply saved state 
   }
-  validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
+
 
   joinMailList(email: string) {
-    if(!this.validateEmail(email)) {
+    if(!this.stateService.validateEmail(email)) {
       this.errorMessage = "You've entered an invalid email";
       setTimeout(() => this.errorMessage = undefined, 4800);
     } else {
