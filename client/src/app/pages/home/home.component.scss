@@ -3,24 +3,29 @@
     flex-direction: column;
     height: 100%;
 
-    .jumbotron { 
-        padding: 1em;
-        background-color: #ffffff;
-        
+
+    .align {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 2em;
         .content {
-            display: block;
-            height: 100%;
-            color: #000000;
-        }
-    }
-    
-    .row {
-        padding: 1em;
-        
-        .grid {
-            grid-gap: 1em;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            width: 80%;
+            
+            .jumbotron {
+                h1 {
+                    font-size: 3em;
+                    color: #535353;
+                    text-align: right;
+                }
+            }
+            .row {
+                .grid {
+                    grid-gap: 1em;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                } 
+            }
         }
     }
 }
@@ -33,7 +38,6 @@
 @media only screen and (max-width: 1391px) and (min-width: 940px) {
 
 }
-
 
 @media only screen and (max-width: 941px) and (min-width: 600px) {
 

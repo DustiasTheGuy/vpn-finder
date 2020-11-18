@@ -13,7 +13,9 @@ export class CardComponent implements OnInit {
 
   constructor(private createService: CreateService, private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.product["showFeatures"] = false;
+  }
 
   visitLink(product) {
     this.createService.addView(product._id)

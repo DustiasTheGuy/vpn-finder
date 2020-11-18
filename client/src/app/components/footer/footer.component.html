@@ -1,13 +1,24 @@
-<div class="container">
-    <div class="item">
-        <ul>
-            <li><a>About</a></li>
-            <li><a>Contact</a></li>
-            <li><a>Github</a></li>
-        </ul>
-    </div>
-
-    <div class="item">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta sit labore nostrum ipsum est minima aliquam laudantium accusantium dolorem! Reprehenderit.</p>
+<div class="actions">
+    <div class="back-up-container" (click)="goUp()">
+        <i class="fa fa-chevron-up"></i>
     </div>
 </div>
+
+<footer>
+    <div class="block">
+        <form id="contact-form">
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" placeholder="Your Message..." [(ngModel)]="message" (keyup.enter)="sendMessage(message)"></textarea>
+            </div>
+    
+            <div class="button-group">
+                <button (click)="sendMessage(message)">Send Message</button>
+            </div>
+        </form>
+    </div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+</footer>

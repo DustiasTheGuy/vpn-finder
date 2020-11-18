@@ -12,13 +12,18 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  callToAction() {
-    document.getElementById("grid")
-    .scrollIntoView({ 
-      behavior: "smooth" 
+  scrollTo(element: HTMLElement) {
+    element.scrollIntoView({ 
+      behavior: "smooth",
+      
     });
   }
 
-  toggleEmailForm() { this.stateService.toggleForm(true) }
-  togglePrivacyDocs() { this.stateService.togglePrivacy(true) }
+  callToAction() { this.scrollTo(document.getElementById("main-content"))}
+  contact() { 
+    this.scrollTo(document.getElementById("contact-form"))
+    setTimeout(() => { document.getElementById("message").focus() }, 1000)
+  }
+  toggleEmailForm() { this.stateService.toggleForm(true)}
+  togglePrivacyDocs() { this.stateService.togglePrivacy(true)}
 }

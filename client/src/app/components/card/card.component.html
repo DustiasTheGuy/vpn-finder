@@ -1,5 +1,5 @@
 <section *ngIf="product" (click)="visitLink(product)">
-  <a target="_blank" id="image-container">
+  <a id="image-container">
     <img [src]="product.imageURL">
   </a>
 
@@ -9,12 +9,5 @@
         {{feature}}
       </li>
     </ul>
-
-    <!--
-    <header (click)="visitLink(product)">
-      <h1>{{product.label}}</h1>
-    </header>
-    -->
   </div>
-
 </section>  

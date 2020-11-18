@@ -10,7 +10,7 @@ import { StateService } from '../../services/state/state.service';
 })
 export class EmailListComponent implements OnInit {
   public email: string;
-  public label: string = "Join our email list!";
+  public errorMessage: string;
   public showEmailForm: boolean = true;
 
   constructor(
@@ -28,15 +28,15 @@ export class EmailListComponent implements OnInit {
 
   joinMailList(email: string) {
     if(!this.validateEmail(email)) {
-      this.label = "You've entered an invalid email";
-      setTimeout(() => this.label = "Join our email list!", 3000);
+      this.errorMessage = "You've entered an invalid email";
+      setTimeout(() => this.errorMessage = undefined, 4800);
     } else {
       this.createService.addUser({ email: email.toLowerCase() })
       .subscribe((response: HttpResponse) => {
         if(response.success) {
-          this.label = response.message;
+          this.errorMessage = response.message;
           this.email = undefined;
-          setTimeout(() => this.label = "Join our email list!", 3000);
+          setTimeout(() => this.toggleEmailForm(), 4800);
         }
       })
     }

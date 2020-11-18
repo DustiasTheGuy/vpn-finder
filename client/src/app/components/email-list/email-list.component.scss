@@ -11,13 +11,21 @@
     align-items: center;
     justify-content: center;
 
+
     form {
         background-color: #ffffff;
         display: flex;
         flex-direction: column;
-        padding: 3em;
-        width: 50%;
+        padding: 2em;
         position: relative;
+
+        .message {
+            padding: .6em .6em;
+            display: block;
+            width: 100%;
+            background-color: rgb(224, 222, 66);
+            color: #000000;
+        }
 
         i {
             position: absolute;
@@ -35,7 +43,7 @@
         .form-group {
            display: flex;
            flex-direction: column;
-
+           padding: 1em 0;
            label {
                margin-bottom: 8px;
                font-size: 30px;

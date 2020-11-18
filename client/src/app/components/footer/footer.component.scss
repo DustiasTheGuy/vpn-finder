@@ -1,36 +1,83 @@
-.container {
-    background-color: #3333337e;
+.actions {
     display: flex;
-    justify-content: space-between;
-    .item {
-        padding: 2em;
-        color: #ffffff;
-        width: 50%;
+    justify-content: flex-end;
+    .back-up-container {
+        margin-bottom: -24px;
+        margin-right: 24px;
+        width: 48px;
+        height: 48px;
+        background-color: #ffffff;
+        color: #525252;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: #525252;
+    min-height: 360px;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+
+    .block {
+        padding: 1em;
+        width: 100%;
+        display: block;
+        border: 1px solid #ffffff;
+    }
+
+
+    form {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
 
-            li {
-                padding: .425em;
-                a {
-                    font-size: 19px;
-                    font-style: italic;
-                    text-decoration: none;
-                    transition: color 125ms linear;
-                    &:hover {
-                        text-decoration: underline;
-                        color: rgb(189, 189, 190);
-                        cursor: pointer;
-                    }
+        .form-group {
+            display: inherit;
+            flex-direction: inherit;
+            padding: .77em;
+
+            &:focus-within {
+                label {
+                    color: #ffffff;
+                }
+            }
+            
+            textarea {
+                outline: none;
+                height: 160px;
+                padding: .77em;
+                resize: none;
+            }
+
+            label {
+                margin-bottom: 8px;
+                color: rgb(139, 139, 139);
+            }
+        }
+
+        .button-group {
+            display: inherit;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: calc(.77em / 2) .77em;
+
+            button {
+                padding: .6em;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                background-color: #ac1805;
+                color: #ffffff;
+                border-radius: 4px;
+                &:hover {
+                    background-color: #a01807;
                 }
             }
         }
-        p {
-            margin: 0;
-        }        
     }
 }
