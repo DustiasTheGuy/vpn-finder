@@ -4,7 +4,7 @@
     .back-up-container {
         margin: 0 1em 1em 0;
         padding: 1em;
-        background-color: #ac1805;
+        background-color: #e82020;
         color: #ffffff;
         border-radius: 50%;
         display: flex;
@@ -13,7 +13,7 @@
         cursor: pointer;
 
         &:hover {
-            background-color: #383838;
+            background-color: #d61c1c;
         }
         
         i {
@@ -24,32 +24,49 @@
 
 footer {
     width: 100%;
-    background-color: #ac1805;
+    background-color: #ffffff;
     min-height: 360px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 2fr 1fr;
     grid-gap: 1em;
-
+    padding: .8em;
+    
     .block {
         width: 100%;
         //border: 1px solid #ffffff;
-        color: #ffffff;
+        color: #000000;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 2em;
+
+        .content {
+            text-align: right;
+            color: rgb(131, 131, 131);
+        }
+
+        img {
+            max-height: 300px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
         ul {
             padding: 0;
             margin: 0;
             list-style: none;
             li {
+                display: flex;
+                justify-content: flex-end;
+
                 a {
-                    color: #ffffff;
-                    text-decoration: underline;
+                    color: #000000;
                     cursor: pointer;
+                    text-decoration: none;
                     
                     &:hover {
-                       color: rgb(202, 202, 202);
+                       text-decoration: underline;
+                       color: rgb(55, 55, 55);
                     }
                 }
             }
@@ -72,7 +89,7 @@ footer {
         .nested {
             &:focus-within {
                 label {
-                    font-weight: bold;
+                    color: lightblue;
                 }
             }
         }
@@ -86,8 +103,7 @@ footer {
                 flex-grow: 1;
                 padding: .6em;
                 outline: none;
-                border-radius: 3px;
-                border: none;
+                border: 1px solid rgb(204, 204, 204);
             }
             
             textarea {
@@ -95,13 +111,12 @@ footer {
                 height: 160px;
                 padding: .77em;
                 resize: none;
-                border-radius: 3px;
-                border: none;
+                border: 1px solid rgb(204, 204, 204);
             }
 
             label {
                 margin-bottom: 8px;
-                color: rgb(255, 255, 255);
+                color: rgb(130, 130, 130);
                 transition: color 165ms cubic-bezier(0.075, 0.82, 0.165, 1);
             }
         }
@@ -117,13 +132,31 @@ footer {
                 border: none;
                 outline: none;
                 cursor: pointer;
-                background-color: #ffffff;
-                color: #000000;
+                background-color: #e82020;
+                color: #ffffff;
                 border-radius: 4px;
                 &:hover {
-                    background-color: #eeeeee;
+                    background-color: #d81b1b;
                 }
             }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+    footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 1670px) and (min-width: 900px) {
+    footer {
+        grid-template-columns: 1fr 1fr;
+
+        .block:nth-child(2) {
+            grid-row: 2;
+            grid-column: 1/3;
         }
     }
 }
