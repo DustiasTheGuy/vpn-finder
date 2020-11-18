@@ -6,50 +6,41 @@
 
 <footer>
     <div class="block">
-        <form id="contact-form">
-
-            <div class="form-group row">
-                <div class="form-group nested">               
-                    <label for="name">Your Name</label>
-                    <input placeholder="Mark Johnson" type="text" tabindex="1" name="name" [(ngModel)]="name" required>
-                </div>
-                <div class="form-group nested">
-                    <label for="email">Your Email</label>
-                    <input placeholder="email@gmail.com" type="email" name="email" tabindex="2" [(ngModel)]="email" required>
-                </div>
-            </div>
-
-
-            <div class="form-group nested">
-                <label for="message">Message</label>
-                <textarea 
-                tabindex="3" 
-                name="message" 
-                id="message" 
-                placeholder="Your Message..." 
-                [(ngModel)]="message" 
-                (keyup.enter)="sendMessage()"
-                required></textarea>
-            </div>
-    
-            <div class="button-group">
-                <button (click)="sendMessage()">Send Message</button>
-            </div>
-        </form>
+        <div class="image-container">
+            <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+            <img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+            <img src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+            <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+            <img src="https://images.pexels.com/photos/792034/pexels-photo-792034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+            <img src="https://images.pexels.com/photos/164425/pexels-photo-164425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+        </div>
     </div>
-    <div class="block">
-        <img src="https://images.pexels.com/photos/5872365/pexels-photo-5872365.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-    </div>
-    <div class="block">
-        <ul>
-            <li><a (click)="togglePrivacyDocs()">Privacy Policy</a></li>
-            <li><a (click)="toggleEmailForm()">Newsletter</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Virtual_private_network">What is a VPN?</a></li>
-        </ul>
 
+    <div class="block">
         <div class="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui totam molestiae, animi doloribus reprehenderit quas non, soluta deserunt commodi vel similique saepe id velit. Veritatis reprehenderit impedit repudiandae odit laudantium saepe incidunt, architecto necessitatibus dolore asperiores adipisci explicabo? Reiciendis suscipit iure ea, possimus non hic tenetur sunt assumenda omnis quae!</p>
+            <nav>
+                <a (click)="togglePrivacyDocs()">Privacy Policy</a>
+                <a (click)="toggleEmailForm()">Newsletter</a>
+                <a href="https://en.wikipedia.org/wiki/Virtual_private_network">What is a VPN?</a>
+            </nav>
+
+            <p>
+                vpnfind.site is a website for comparing VPN services. 
+                We are more than glad to help you with any questions regarding VPN's. 
+                If you would like a sample do not hesitate to contact us. 
+                Our mission is to help consumers become more aware of security and the value of their privacy.
+                If you have any issues with the VPN providers listed on this website please contact us.                
+            </p>
+
+            <div>
+                <p><i class="fa fa-envelope-o" aria-hidden="true"></i> Isak@vpnfind.site</p>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Glimåkra, Sweden</p>
+            </div>
+        </div>
+
+        <div class="block-footer">
             <p>vpnfind.site &copy; 2020</p>
+                
         </div>
     </div>
 </footer>
