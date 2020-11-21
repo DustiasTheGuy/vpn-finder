@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "admin"
+    }
+  },
+  "defaultProject": "admin",
+  "cli": {
+    "analytics": "4100107c-54bd-4311-9418-91cdab4cd484"
+  }
 }

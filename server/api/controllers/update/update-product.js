@@ -1,4 +1,4 @@
-const Product = require("../models/product");
+const Product = require("../../models/product");
 
 module.exports = (req, res) => {
     Product.findByIdAndUpdate({_id: req.body._id}, req.body, (err, result) => {

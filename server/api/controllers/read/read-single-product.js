@@ -1,4 +1,4 @@
-const Product = require("../models/product");
+const Product = require("../../models/product");
 
 module.exports = (req, res) => {  // Query a single product, primarily used when sending a user to a link
     Product.findOne({_id: req.params.id}, (err, document) => {

@@ -20,7 +20,7 @@ export class LandingComponent implements OnInit {
   }
 
   callToAction() { this.scrollTo(document.getElementById("main-content"))}
-  contact() { this.scrollTo(document.getElementById("contact-form"))}
+  contact() { this.scrollTo(document.getElementById("main-footer"))}
   toggleEmailForm() { this.stateService.toggleForm(true)}
   togglePrivacyDocs() { this.stateService.togglePrivacy(true)}
 }

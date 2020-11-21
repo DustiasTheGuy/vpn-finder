@@ -1,0 +1,79 @@
+
+<div class="container">
+
+    <form>
+        <a id="go-back" routerLink="/">Back</a>
+        <h1 class="form-title">Send Us A Message!</h1>
+
+        <div class="form-group">
+            <label class="label-input" for="email">Email <i class="fas fa-envelope"></i></label>
+            <input 
+            type="email" 
+            placeholder="Email" 
+            id="email" 
+            name="email" 
+            [(ngModel)]="formData.email"
+            minlength="3">
+        </div>
+        <div class="form-group">
+            <label class="label-input" for="name">Full Name <i class="fas fa-user"></i></label>
+            <input 
+            type="text" 
+            placeholder="Full Name" 
+            id="name" 
+            name="name" 
+            [(ngModel)]="formData.name"
+            minlength="1">
+        </div>
+        <div class="form-group" style="margin-bottom: 10px;">
+            <label class="label-textarea" for="message">Message <i class="fas fa-comment-alt"></i></label>
+            <textarea 
+            type="text" 
+            placeholder="Your message.." 
+            id="message" 
+            name="message" 
+            [(ngModel)]="formData.message" 
+            minlength="20" 
+            maxlength="499"></textarea>
+            <span class="characters" *ngIf="formData.message.length < 499">{{499 - formData.message.length}}</span>
+            <span class="characters" *ngIf="formData.message.length === 499">Max</span>
+            <input #file type="file" id="fileUpload" (change)="addFiles($event)" multiple>
+            <i class="fa fa-paperclip" aria-hidden="true" title="Upload File" (click)="file.click()"></i>
+        </div>
+
+        <div class="attatchments" *ngIf="attachments.length > 0">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>File Size</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let a of attachments; let i = index">
+                        <td class="file-name">{{a.name}}</td>
+                        <td>{{ parseBytes(a.size) }} kb</td>
+                        <td><a (click)="attachments.splice(i, 1)">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+ 
+        </div>
+
+        <div class="message" *ngIf="formState.message" [ngStyle]="{ 
+            'background-color': formState.error ? '#f8d7da' : '#d4edda',
+            'border-color': formState.error ? '#f5c6cb' : '#c3e6cb' 
+        }">
+            <p [ngStyle]="{ 'color': formState.error ? '#721c24' : '#155724;' }">
+                {{formState.message}}
+            </p>
+        </div>
+
+        <div class="button-group">
+            <button (click)="send()">Send</button>
+        </div>
+    </form>
+</div>

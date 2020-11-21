@@ -1,0 +1,15 @@
+<nav [ngClass]="{ 'open': menuOpen }">
+    <div class="links">
+        <a routerLink="/" (click)="menuOpen = false">Home</a>
+        <a routerLink="/products" (click)="menuOpen = false">Products</a>
+        <a routerLink="/create-product" (click)="menuOpen = false">New Product</a>
+        <a routerLink="/inbox" (click)="menuOpen = false">Inbox</a>
+    </div>
+</nav>
+
+<span class="menu-trigger" [ngClass]="{ 'open': menuOpen }">
+    <i *ngIf="!menuOpen" (click)="menuOpen = !menuOpen ? true : false" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+    <i *ngIf="menuOpen" (click)="menuOpen = !menuOpen ? true : false" class="fa fa-times fa-2x" aria-hidden="true"></i>
+</span>
+
+<div class="filler" [ngClass]="{ 'show': menuOpen }" (click)="menuOpen = !menuOpen ? true : false"></div>

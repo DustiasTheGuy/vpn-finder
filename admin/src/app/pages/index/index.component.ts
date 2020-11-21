@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ReadService } from '../../services/read/read.service';
-import { UpdateService } from '../../services/update/update.service';
-import { CreateService } from '../../services/create/create.service';
-import { DeleteService } from '../../services/delete/delete.service';
-import { HttpResponse } from '../../interfaces/http.interface';
-import { Product } from '../../interfaces/product';
-import * as CanvasJS from '../../../assets/canvasjs.min';
 import { Socket } from 'ngx-socket-io';
+import * as moment from 'moment';
+import { Charts } from './charts.data';
+import { ReadService } from '../../services/read/read.service';
+import { HttpResponse } from '../../interfaces/http.interface';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-index',
@@ -15,182 +14,93 @@ import { Socket } from 'ngx-socket-io';
 })
 
 export class IndexComponent implements OnInit {
-  public products: Array<Product>;
-  public inFocus: Product;
-  public newFeature: string;
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false
+  };
+  public barChartLabels: Label[] = [];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = false;
 
-  public error: boolean = false;
-  public success: boolean = false;
-  public message: string;
-  public index: number = 0;
-  public dataPoints: Array<any> = [];
-  public chart: any;
+  public barChartData: ChartDataSets[] = [
+    { data: [], label: 'Views' },
+  ];
 
-  constructor(
-    private socket: Socket,
-    private deleteService: DeleteService,
-    private createService: CreateService,
-    private updateService: UpdateService,
-    private readService: ReadService) {}
+  public barChartColors: Color[] = [
+    { // grey
+      backgroundColor: 'rgba(66, 135, 245, .35)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+    }
+  ]
+
+  public lineChartData: ChartDataSets[] = [
+    { data: [], label: 'Website Visitors' },
+  ];
+  public lineChartLabels: Label[] = [];
+  public lineChartOptions: (ChartOptions & { annotation: any }) = {
+    responsive: true,
+    maintainAspectRatio: false,
+    annotation: null,
+    scales : {
+      yAxes: [ { ticks: { stepSize: 1 } } ]
+    }
+
+  };
+
+  public lineChartLegend = true;
+  public lineChartType: ChartType = 'line';
+  
+  public lineChartColors: Color[] = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.4)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+    }
+  ]
+
+  constructor(private readService: ReadService, private socket: Socket) {}
 
   ngOnInit(): void {
-    this.readProducts(() => this.inFocus = this.products[this.index]);
-    this.createChart();
-
-    this.socket.emit("get-connections", {});
-
+    
     this.socket.on('connections', (data) => {
-      console.log(data)
-      this.dataPoints.push({
-        y: data
-      })
-      this.chart.render();
+      this.lineChartData[0].data.push(data);
+      this.lineChartLabels.push(``)
+    });
+
+    this.readProducts();
+    this.socket.emit("get-connections", {});
+  }
+
+  readProducts() {
+    this.barChartLabels = [];
+    this.barChartData[0].data = [];
+
+    this.readService.readProducts().subscribe((response: HttpResponse) => {
+      let data = [];
+
+      response.data.forEach(product => {
+        data.push({ label: product.label, views: product.views })
+      });
+
+      data.sort((a, b) => a.views - b.views);
+      data.forEach(product => {
+        this.barChartLabels.push(product.label);
+        this.barChartData[0].data.push(product.views);
+      });
     });
   }
 
-  readProducts(callback: Function) {  
-    this.readService.readProducts()
-    .subscribe((response: HttpResponse) => {
-      if(response.success) {
-        response.data.forEach(element => element["new"] = false);
-        this.products = response.data;
-        callback();
-      }
-    });
-  }
+  refresh(chart: string) {
+    switch(chart) {
+      case "line":  this.socket.emit("get-connections", {});
+      break;
+      case "bar": this.readProducts();
+      break;
 
-  refresh() {
-    this.readProducts(() => {
-      console.log("Refresh")
-    })
-  }
-
-  closeMessage() {
-    this.message = undefined;
-    this.error = false;
-    this.success = false;
-  }
-
-  setMessage(error: boolean, message: string) {
-    this.message = message;
-    if(error) {
-      this.error = true;
-      this.success = false;
-    } else if(!error) {
-      this.error = false;
-      this.success = true;
-    };
-
-    setTimeout(() => {
-      this.message = undefined;
-      this.error = false;
-      this.success = false;
-    }, 5000);
-  }
-
-  setInfocus(product, index) { 
-    this.inFocus = product;
-    this.index = index; 
-  }
-
-  addValue(obj) {
-    obj.value.push(obj.temp);
-    obj.temp = undefined;
-    return;
-  }
-
-  newProduct() {
-    let product = {
-      imageURL: "/assets/images/products/placeholder.png",
-      label: "Best VPN Provider",
-      description: "A little description",
-      link: `https://moneymaking.net`,
-      freeOption: false,
-      priority: false,
-      new: true,
-      active: true,
-      moneyBack: false,
-      onSaleData: { onSale: false, discount: 0 },
-      features: []
-    };
-
-    this.products.push(product);
-    this.inFocus = this.products[this.index];
-  }
-
-  addFeature(str: string) {
-    if(str.length === 0) return;
-
-    this.inFocus.features.push(str);
-    this.newFeature = undefined;
-  }
-
-  update() { 
-    this.updateService.updateProduct(this.inFocus)
-    .subscribe((response: HttpResponse) => {
-      if(response.success) this.readProducts(() => this.setMessage(false, response.message));
-      if(!response.success) this.setMessage(true, response.message);
-    });
-  }
-
-  create() {
-    this.createService.createDocument(this.inFocus)
-    .subscribe((response: HttpResponse) => {
-      if(response.success) this.readProducts(() => this.setMessage(false, response.message));
-      if(!response.success) this.setMessage(true, response.message);
-    });
-  }
-
-  delete(product) {
-    if(!confirm("Are you sure you wish to delete this product? This action CANNOT be undone.")) return;
-
-    if(product.new) {
-      let index = this.products.findIndex((element) => element.link === product.link);
-      this.products.splice(index, 1);
-      return;
     }
-    
-    // Delete the product
-    this.deleteService.deleteOne(product._id)
-    .subscribe((response: HttpResponse) => {
-      if(response.success) this.readProducts(() => this.setMessage(false, response.message));
-      if(!response.success) this.setMessage(true, response.message);
-    });
   }
 
-
-  createChart() {
-    this.chart = new CanvasJS.Chart("chartContainer", {
-      zoomEnabled: true,
-      animationEnabled: true,
-      exportEnabled: true,
-      title: { text: "Online Users" },
-      data: [
-      {
-        type: "line",                
-        dataPoints: this.dataPoints
-      }]
-    });
-    
-    this.chart.render();
-  }
 }
-
-
-/*
-    Expected data when creating a new document
-
-    {
-        features: Array<string>,  
-        description: String,
-        imageURL: String,
-        link: String,
-        label: String,
-        freeOption: Boolean,
-        moneyBack: Boolean,
-        onSaleData: {
-            onSale: Boolean,
-            discount: Number
-        }
-    }
-*/

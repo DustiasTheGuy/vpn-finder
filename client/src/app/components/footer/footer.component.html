@@ -1,46 +1,54 @@
 <div class="actions">
     <div class="back-up-container" (click)="goUp()">
-        <i class="fa fa-chevron-up"></i>
+        <i class="fas fa-chevron-up"></i>
     </div>
 </div>
 
-<footer>
-    <div class="block">
-        <div class="image-container">
-            <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <img src="https://images.pexels.com/photos/279810/pexels-photo-279810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <img src="https://images.pexels.com/photos/792034/pexels-photo-792034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <img src="https://images.pexels.com/photos/164425/pexels-photo-164425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+<footer id="main-footer">
+    <div class="grid">
+        <div class="block">
+            <div>
+                <h3>About</h3>
+                <p>
+                    vpnfind.site is a website for comparing VPN and security services. 
+                    We are more than glad to help you with any questions regarding VPN's. 
+                    If you would like a sample do not hesitate to contact us. 
+                    Our mission is to help consumers become more aware of security and the value of their privacy.
+                    If you have any issues with the VPN providers listed on this website please contact us.
+                    We will do our best in assisting you through any issues you might have related to security.                
+                </p>
+            </div>
+        </div>
+    
+        <div class="block">
+            <nav>
+                <h3>Navigation</h3>
+                <a routerLink="contact">Contact Us</a>
+                <a href="https://en.wikipedia.org/wiki/Virtual_private_network">What is a VPN?</a>
+                <a (click)="togglePrivacyDocs()">Our Privacy Policy</a>
+                <a (click)="toggleEmailForm()">Subscribe to our newsletter</a>
+            </nav>
+        </div>
+
+        <div class="block">
+            <nav>
+                <h3>Categories</h3>
+                <a>Unix Security</a>
+                <a>Network Security</a>
+                <a>Windows Security</a>
+                <a>Mobile Device Security</a>
+            </nav>
         </div>
     </div>
 
-    <div class="block">
-        <div class="content">
-            <nav>
-                <a (click)="togglePrivacyDocs()">Privacy Policy</a>
-                <a (click)="toggleEmailForm()">Newsletter</a>
-                <a href="https://en.wikipedia.org/wiki/Virtual_private_network">What is a VPN?</a>
-            </nav>
+    <hr>
 
-            <p>
-                vpnfind.site is a website for comparing VPN services. 
-                We are more than glad to help you with any questions regarding VPN's. 
-                If you would like a sample do not hesitate to contact us. 
-                Our mission is to help consumers become more aware of security and the value of their privacy.
-                If you have any issues with the VPN providers listed on this website please contact us.                
-            </p>
-
-            <div>
-                <p><i class="fa fa-envelope-o" aria-hidden="true"></i> Isak@vpnfind.site</p>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Glimåkra, Sweden</p>
-            </div>
+    <div class="container-bottom">
+        <div>
+            <span>Copyright <i class="fas fa-copyright"></i> All Rights Reserved By Vpnfind</span>
         </div>
-
-        <div class="block-footer">
-            <p>vpnfind.site &copy; 2020</p>
-                
+        <div>
+            <span>contact@vpnfind.com <i class="fas fa-envelope"></i></span>
         </div>
     </div>
 </footer>

@@ -19,4 +19,8 @@ export class CreateService {
   addView(target) {
     return this.httpClient.get(`${this.serverAddr}/api/view/${target}`)
   }
+
+  sendMessage(data) {
+    return this.httpClient.post(`${this.serverAddr}/api/send-message`, data)
+  }
 }

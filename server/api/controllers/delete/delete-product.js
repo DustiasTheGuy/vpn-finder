@@ -1,4 +1,4 @@
-const Product = require("../models/product");
+const Product = require("../../models/product");
 
 module.exports = (req, res) => {
     Product.findByIdAndDelete(req.params.id, (err, deleted) => {

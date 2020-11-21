@@ -14,6 +14,7 @@ import { OutpageComponent } from './pages/outpage/outpage.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 import { HttpConfig } from './services/http.config';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const config: SocketIoConfig = { url: new HttpConfig().getAddr(), options: {} };
 
@@ -22,7 +23,7 @@ const config: SocketIoConfig = { url: new HttpConfig().getAddr(), options: {} };
     AppComponent,
     HomeComponent,
     OutpageComponent, 
-    PageNotFoundComponent
+    PageNotFoundComponent, ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
+import { RouterModule } from '@angular/router';
 import { CardComponent } from './card/card.component';
 import { LandingComponent } from './landing/landing.component';
 import { FooterComponent } from './footer/footer.component';
@@ -28,7 +28,8 @@ import { EmailListComponent } from './email-list/email-list.component';
     MatCardModule,
     MatButtonModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ], 
   exports: [ 
     CardComponent, 
