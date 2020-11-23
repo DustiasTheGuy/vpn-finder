@@ -1,37 +1,54 @@
 <div class="container">
-    <div class="column">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Label</th>
-                    <th>Views</th>
-                    <th>Priority</th>
-                    <th>On Sale</th>
-                    <th>Money Back</th>
-                    <th>Affiliate Link</th>
-                    <th>Image URL</th>
-                    <th>Free Option</th>
-                    <th>Description</th>
-                    <th>Active</th>
-                </tr>
-            </thead>
-    
-            <tbody *ngIf="products">
-                <tr *ngFor="let product of products" (click)="navigate(product)">
-                    <td>{{product._id}}</td>
-                    <td>{{product.label}}</td>
-                    <td>{{product.views}}</td>
-                    <td>{{product.priority}}</td>
-                    <td>{{product.onSaleData.onSale}}</td>
-                    <td>{{product.moneyBack}}</td>
-                    <td>{{product.link}}</td>
-                    <td>{{product.imageURL}}</td>
-                    <td>{{product.freeOption}}</td>
-                    <td>{{product.description.substring(0, 20)}}</td>
-                    <td>{{product.active}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="inner-container">
+        <h1>Current Products</h1>
+
+        <div class="grid">
+            <div *ngFor="let product of products" (click)="navigate(product)">
+                <p>
+                    <span>ID:</span> 
+                    <span>{{product._id}}</span>
+                </p>
+                <p>
+                    <span>Label:</span> 
+                    <span>{{product.label}}</span>
+                </p>
+                <p>
+                    <span>Views:</span> 
+                    <span>{{product.views}}</span>
+                </p>
+                <p>
+                    <span>Priority:</span> 
+                    <span>{{product.priority}}</span>
+                </p>
+                <p>
+                    <span>On Sale:</span>
+                    <span>{{product.onSaleData.onSale}}</span>
+                </p>
+                <p>
+                    <span>Money Back:</span>
+                    <span>{{product.moneyBack}}</span>
+                </p>
+                <p>
+                    <span>Affiliate Link:</span> 
+                    <span>{{product.link}}</span>
+                </p>
+                <p>
+                    <span>ImageURL:</span> 
+                    <span>{{product.imageURL}}</span>
+                </p>
+                <p>
+                    <span>Free Option:</span> 
+                    <span>{{product.freeOption}}</span>
+                </p>
+                <p>
+                    <span>Description:</span> 
+                    <span>{{product.description.substring(0, 20)}}</span>
+                </p>
+                <p>
+                    <span>Active:</span> 
+                    <span>{{product.active}}</span>
+                </p>
+            </div>
+        </div>
     </div>
 </div>

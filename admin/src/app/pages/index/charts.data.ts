@@ -2,6 +2,11 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { DatePipe } from '@angular/common';
 
+declare interface DataPoint {
+    length: number;
+    time: Label;
+}
+
 export class LineChart {
 
     constructor(private datePipe: DatePipe) {}
@@ -32,9 +37,9 @@ export class LineChart {
         }
     ];
 
-    public updateData(dataPoint, label) {
-        this.lineChartData[0].data.push(dataPoint);
-        this.lineChartLabels.push(label);
+    public updateData(dataPoint: DataPoint) {
+        this.lineChartData[0].data.push(dataPoint.length);
+        this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'shortTime'));
         this.lineChartData[0].label = `Website Visitors - Last updated ${this.datePipe.transform(Date.now(), 'short')}`;
     }
 
@@ -74,8 +79,8 @@ export class BarChart {
         }
     ]
     
-    public updateData(dataPoint, label) {
-        this.barChartData[0].data.push(dataPoint);
+    public updateData(length, label) {
+        this.barChartData[0].data.push(length);
         this.barChartLabels.push(label);
         this.barChartData[0].label = `Product Views - Last Updated ${this.datePipe.transform(Date.now(), 'short')}`;
     }

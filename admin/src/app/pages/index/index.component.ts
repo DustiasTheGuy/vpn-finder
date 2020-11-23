@@ -26,11 +26,16 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.socket.on('history', (data) => {
+      console.log(data);
       this.lineChart.resetData();
-      data.forEach(dataPoint => this.lineChart.updateData(dataPoint, ''));
+      data.forEach(dataPoint => {
+        this.lineChart.updateData(dataPoint);
+      });
     });
 
-    this.socket.on('connections', (data) => this.lineChart.updateData(data, ''));
+    this.socket.on('connections', (dataPoint) => {
+      this.lineChart.updateData(dataPoint);
+    });
 
     this.readProducts();
     this.socket.emit("get-connections");
