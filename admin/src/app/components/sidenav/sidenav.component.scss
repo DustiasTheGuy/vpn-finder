@@ -1,3 +1,5 @@
+$navwidth: 260px;
+
 nav {
     position: fixed;
     left: 0;
@@ -9,19 +11,26 @@ nav {
     z-index: 3;
     overflow: hidden;
     transition: all 225ms ease-in-out;
-
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     .links {
-        width: 200px;
-
+        width: $navwidth;
+        margin-top: 100px;
         a {
             display: block;
             padding: 1em;
             width: 100%;
-            color: #ffffff;
+            color: #8b8b8b;
             cursor: pointer;
             font-size: 17px;
             text-decoration: none;
-
+            transition: background-color 140ms ease;
+            outline: none;
+            
+            &:focus {
+                background-color: #202020;
+            }
             &:hover {
                 background-color: #202020;
             }
@@ -30,26 +39,27 @@ nav {
 }
 
 nav.open {
-    width: 200px;
+    width: $navwidth;
     opacity: 1;
 }
 
 .menu-trigger.open {
-    margin-left: 210px;
+    margin-left: calc(10px + #{$navwidth});
 }
 
 .menu-trigger {
     position: fixed;
     top: 0;
     left: 0;
-    margin: 10px;
+    margin: 110px 10px 10px 10px;
     transition: margin 225ms ease-in-out;
     z-index: 3;
+    color: #333333;
     i {
         cursor: pointer;
 
         &:hover {
-            color: gray;
+            color: #272727;
         }
     }
 }

@@ -15,6 +15,7 @@ router.post("/send-message", require("./controllers/create/create-message"));
 router.get("/read", require("./controllers/read/read-many-products"));
 router.get("/read/:id", require("./controllers/read/read-single-product"));
 router.get("/read-message/:id", require("./controllers/read/read-message"));
+router.get("/read-messages", require("./controllers/read/read-messages"));
 
 /* modify or delete data */
 router.get("/delete/:id", require("./controllers/delete/delete-product"));

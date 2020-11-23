@@ -2,34 +2,31 @@
     <div class="charts">
         <div>
             <canvas baseChart 
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [colors]="barChartColors"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
-          </canvas>
+            [datasets]="barChart.barChartData"
+            [labels]="barChart.barChartLabels"
+            [options]="barChart.barChartOptions"
+            [colors]="barChart.barChartColors"
+            [legend]="barChart.barChartLegend"
+            [chartType]="barChart.barChartType">
+            </canvas>
 
           <button (click)="refresh('bar')">              
               <i class="fa fa-refresh"></i>
           </button>
         </div>
         <div>
-
             <canvas baseChart 
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"></canvas>
+            [datasets]="lineChart.lineChartData"
+            [labels]="lineChart.lineChartLabels"
+            [options]="lineChart.lineChartOptions"
+            [colors]="lineChart.lineChartColors"
+            [legend]="lineChart.lineChartLegend"
+            [chartType]="lineChart.lineChartType">
+            </canvas>
 
             <button (click)="refresh('line')">
                 <i class="fa fa-refresh"></i>
             </button>
         </div>
-
-        <div></div>
-        <div></div>
     </div>
 </div>

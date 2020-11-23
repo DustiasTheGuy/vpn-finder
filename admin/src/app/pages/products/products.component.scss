@@ -1,21 +1,43 @@
 .container {
     width: 100%;
     height: 100%;
-    padding: 2em;
-    table {
-        padding: 1em;
-        width: 100%;
-        text-align: left;
-        border-collapse: collapse;
-        th, td {
-            border: 1px solid rgb(161, 161, 161);
-            padding: 8px;
-        }
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    .column {
+        width: 90%;
 
-        tbody {
-            tr {
-                &:hover {
-                    background-color: lightgray;
+        table {
+            padding: 1em;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            th, td {
+                border: 1px solid rgb(161, 161, 161);
+                padding: 8px;
+            }
+    
+            th {
+                border-top: none;
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+    
+            tbody {
+                tr {
+                    td {
+                        font-size: 14px;
+
+                        &:last-child {
+                            border-right: none;
+                        }
+                    }
+    
+                    &:hover {
+                        background-color: lightgray;
+                    }
                 }
             }
         }

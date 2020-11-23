@@ -22,11 +22,14 @@ let createFile = (file, url) => {
             };
 
             setTimeout(() => { // remove the files after 20 minutes
-                fs.unlink("./public/assets/files/" + file.name, (err) => {
-                    if(err) {
-                        console.log(err);
-                    };
-                });
+
+                try {
+                    fs.unlink("./public/assets/files/" + file.name);    
+                
+                } catch(err) {
+                    console.log(err);
+                    console.log(`${file.name} has most likely already been removed`);
+                };
 
             }, 1000 * 1200); // 10 min
 

@@ -2,7 +2,6 @@ const Message = require("../../models/message");
 const shared = require("../shared");
 
 module.exports = (req, res) => {
-
     Message.findOne({_id: req.params.id}, (err, document) => {
         if(err) {
             return res.json({
@@ -21,8 +20,7 @@ module.exports = (req, res) => {
             });
 
         } else {
-
-
+            
             if(document.files.length > 0) {
                 let promises = [];
                 document.files.forEach(file => {
@@ -40,6 +38,15 @@ module.exports = (req, res) => {
                         data: document
                     });
                 });
+
+            } else {
+                res.json({
+                    message: null,
+                    success: true,
+                    statusCode: 200,
+                    data: document
+                });  
+
             };
         };
     });

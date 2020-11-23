@@ -1,0 +1,17 @@
+header {
+    background-color: #333333;
+    padding: 1em;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    p {
+        margin: 0;
+        color: #8b8b8b;
+    }
+}

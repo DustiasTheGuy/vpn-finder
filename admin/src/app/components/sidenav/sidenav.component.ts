@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class SidenavComponent implements OnInit {
   public menuOpen: boolean = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    window.addEventListener("keydown", (e) => {
+      if(e.code === "Escape") {
+        this.menuOpen = !this.menuOpen ? true : false;
+      };
+    });
   }
 
 }
+ 
