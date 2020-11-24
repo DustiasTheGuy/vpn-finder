@@ -19,7 +19,8 @@ app.use(bodyParser.json());
 app.use(express.static('./public')); // serve static content from the public folder
 
 /* request handling */
-app.use('/api', require('./api/api')); // any request that has to do with json 
+app.use('/website', require('./api/website/api')); // anything related to the website
+app.use('/forum', require('./api/forum/api'));
 io.on('connection', (socket) => socketAPI(socket, io));
 app.get('*', (req, res) => res.sendFile('index.html', { root: './public' }));
 

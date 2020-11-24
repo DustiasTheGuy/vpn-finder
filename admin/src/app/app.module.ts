@@ -18,7 +18,10 @@ import { EditProductComponent } from './pages/edit-product/edit-product.componen
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 
-const config: SocketIoConfig = { url: new HttpConfig().getAddr(), options: {} };
+const config: SocketIoConfig = { 
+  url: !new HttpConfig().getEnv() ? 'http://localhost:3000' : 'https://vpnfind.site', 
+  options: {} 
+};
 
 @NgModule({
   declarations: [

@@ -1,39 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
-import { ComponentsModule } from './components/components.module';
-import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { OutpageComponent } from './pages/outpage/outpage.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
-import { HttpConfig } from './services/http.config';
-import { ContactComponent } from './pages/contact/contact.component';
-
-const config: SocketIoConfig = { url: new HttpConfig().getAddr(), options: {} };
+import { WebsiteModule } from './website/website.module';
+import { ForumModule } from './forum/forum.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    OutpageComponent, 
-    PageNotFoundComponent, ContactComponent
+    AppComponent, 
+    PageNotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
-    ComponentsModule,
-    HttpClientModule,
-    FormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    SocketIoModule.forRoot(config)
+    WebsiteModule,
+    ForumModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

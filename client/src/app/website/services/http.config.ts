@@ -6,5 +6,5 @@ export class HttpConfig {
   constructor() {}
 
   public getAddr(): string { return this.prod ? this.prodAddr : this.devAddr }
-  public getEnv(): string  { return this.prod ? "Production" : "Development" }
+  public getEnv(): boolean { return this.prod }
 }

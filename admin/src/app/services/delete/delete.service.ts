@@ -13,6 +13,6 @@ export class DeleteService {
   }
 
   deleteOne(id) {
-    return this.httpClient.get(`${this.serverAddr}/api/delete/${id}`);
+    return this.httpClient.get(`${this.serverAddr}/delete/${id}`);
   }
 }

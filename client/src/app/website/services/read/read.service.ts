@@ -5,10 +5,8 @@ import { HttpConfig } from '../http.config';
 @Injectable({
   providedIn: 'root'
 })
-
 export class ReadService {
   private serverAddr: string;
-
   constructor(private httpClient: HttpClient) {
     this.serverAddr = new HttpConfig().getAddr();
   }
@@ -19,13 +17,5 @@ export class ReadService {
   
   readProduct(id: string) {
     return this.httpClient.get(`${this.serverAddr}/read/${id}`)
-  }
-
-  readMessages() {
-    return this.httpClient.get(`${this.serverAddr}/read-messages`)
-  }
-
-  readMessage(id) {
-    return this.httpClient.get(`${this.serverAddr}/read-message/${id}`)
   }
 }
