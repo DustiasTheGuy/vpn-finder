@@ -8,6 +8,7 @@ MongoDB, Express, Angular 9.1, Node.js
 
 ## Installation
 
+check .gitignore if you need to create configure something
 npm install client, admin, server
 
 ```bash
