@@ -9,26 +9,24 @@ import { RouterModule } from '@angular/router';
 
 import { CardComponent } from './card/card.component';
 import { LandingComponent } from './landing/landing.component';
-import { FooterComponent } from './footer/footer.component';
-import { AsideComponent } from './aside/aside.component';
 import { CookieConsentComponent } from './cookie-consent/cookie-consent.component';
 import { EmailListComponent } from './email-list/email-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({ 
   declarations: [
     CardComponent, 
     LandingComponent,
-    FooterComponent,
-    AsideComponent,
     CookieConsentComponent,
-    EmailListComponent
+    EmailListComponent,
+    FooterComponent
   ],
   imports: [ 
     BrowserModule, 
     MatTooltipModule,
     MatCardModule,
     MatButtonModule,
-    CommonModule,
+    CommonModule, 
     FormsModule,
     RouterModule
   ], 
@@ -36,10 +34,9 @@ import { EmailListComponent } from './email-list/email-list.component';
     CardComponent, 
     LandingComponent, 
     FooterComponent,
-    AsideComponent,
     CookieConsentComponent,
     EmailListComponent
   ]
 })
 
-export class ComponentsModule {}
+export class WebsiteComponentsModule {}

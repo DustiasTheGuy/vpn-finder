@@ -1,4 +1,5 @@
 server/node_modules
 server/package-lock.json
+server/private.key
 admin/node_modules
 client/node_modules

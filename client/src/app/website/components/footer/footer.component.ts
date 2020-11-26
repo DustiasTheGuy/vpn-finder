@@ -20,12 +20,14 @@ export class FooterComponent implements OnInit {
   sendMessage() {
     if(!this.stateService.validateEmail(this.email)) {
       // Invalid email
-    }; 
+    };  
   }
 
   goUp() {
-   document.getElementById("main-navigation")
-   .scrollIntoView({ behavior: "smooth", block: "end"})
+   document.getElementById("ajiwtoqowjt").scrollIntoView({
+     behavior: "smooth",
+     block: "start"
+   });
   }
 
   toggleEmailForm() { this.stateService.toggleForm(true)}

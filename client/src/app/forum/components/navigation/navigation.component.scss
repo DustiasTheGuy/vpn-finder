@@ -1,20 +1,63 @@
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: #ffffff;
+    align-items: center;
+    background-color: #26272b;
+    border-bottom: 1px solid #353535;
+    padding: 2em;
 
-    .link-group {
-        a {
-            padding: 2em;
-            display: inline-block;
-            color: #333333;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 180ms ease-in-out;
+    .search {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-grow: 1;
+        position: relative;
 
-            &:hover {
-                background-color: rgb(238, 238, 238);
+        &:focus-within {
+            .search-results {
+                height: 500px;
             }
+        }
+
+        input {
+            width: 20%;
+            transition: width 300ms ease;
+            border: 2px solid transparent;
+            outline: none;
+            background-color: #ffffff;
+            padding: .5em;
+            font-size: 17px;
+            &:focus {
+                width: 50%;
+            }
+        }
+
+        .search-results {
+            position: absolute;
+            width: 50%;
+            height: 0;
+            overflow: hidden;
+            background-color: #3b3b3b;
+            z-index: 2;
+            top: 100%;
+            transition-property: height;
+            transition-delay: 300ms;
+            transition-timing-function: ease-out;
+            transition-duration: 300ms;
+        }
+    }
+
+    a {
+        display: inline-block;
+        color: rgb(115, 115, 115);
+        text-decoration: none;
+        cursor: pointer;
+        text-transform: uppercase;
+
+
+        &:hover {
+            text-decoration: underline;
+            color: rgb(94, 94, 94);
         }
     }
 }

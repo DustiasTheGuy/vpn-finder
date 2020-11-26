@@ -1,4 +1,4 @@
-const User = require("../../models/user");
+const Email = require("../../models/email");
 
 module.exports = (req, res) => {
 
@@ -29,7 +29,7 @@ module.exports = (req, res) => {
             });
 
         } else {
-            new User({
+            new Email({
                 email: req.body.email
             }).save(err => {
 

@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { AppRoutingModule } from '../app-routing.module';
 
-import { ComponentsModule } from './components/components.module';
+import { WebsiteComponentsModule } from './components/components.module';
 import { WebsiteComponent } from './website.component'; // root component
 import { OutpageComponent } from './pages/outpage/outpage.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -33,7 +33,7 @@ const config: SocketIoConfig = {
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ComponentsModule,
+    WebsiteComponentsModule,
     AppRoutingModule
   ]
 })

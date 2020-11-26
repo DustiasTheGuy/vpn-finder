@@ -3,11 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppComponent } from './app.component';
-
 import { WebsiteModule } from './website/website.module';
 import { ForumModule } from './forum/forum.module';
+
+import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
@@ -23,7 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     WebsiteModule,
     ForumModule
   ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+  exports: [],
+  bootstrap: [ AppComponent ],
 })
 export class AppModule {}

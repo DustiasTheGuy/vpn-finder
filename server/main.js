@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const fileupload = require("express-fileupload");
 const cors = require("cors");
 const serverConfig = require("./config");
-const socketAPI = require('./socket/socket');
+const socketAPI = require('./api/socket/socket');
 const app = express();
 
 const http = require('http').createServer(app);
@@ -20,8 +20,13 @@ app.use(express.static('./public')); // serve static content from the public fol
 
 /* request handling */
 app.use('/website', require('./api/website/api')); // anything related to the website
+
 app.use('/forum', require('./api/forum/api'));
-io.on('connection', (socket) => socketAPI(socket, io));
+
+io.on('connection', (socket) => {
+    socketAPI(socket, io)
+});
+
 app.get('*', (req, res) => res.sendFile('index.html', { root: './public' }));
 
 http.listen(3000, () => {

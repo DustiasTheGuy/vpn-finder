@@ -1,8 +1,10 @@
-<div class="actions">
-    <div class="back-up-container" (click)="goUp()">
-        <i class="fas fa-chevron-up"></i>
+<!--
+    <div class="actions">
+        <div class="back-up-container" (click)="goUp()">
+            <i class="fas fa-chevron-up"></i>
+        </div>
     </div>
-</div>
+-->
 
 <footer id="main-footer">
     <div class="grid">
@@ -33,10 +35,10 @@
         <div class="block">
             <nav>
                 <h3>Categories</h3>
-                <a routerLink="forum">Forum</a>
-                <a>Network Security</a>
-                <a>Windows Security</a>
-                <a>Mobile Device Security</a>
+                <a routerLink="/forum" fragment="index">Forum Index</a>
+                <a routerLink="/forum" fragment="security">Security Related</a>
+                <a routerLink="/forum" fragment="vpn">Virtual Private Networks</a>
+                <a routerLink="/forum" fragment="faq">Frequently Asked Questions</a>
             </nav>
         </div>
     </div>

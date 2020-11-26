@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
 /*
@@ -6,9 +6,12 @@ const router = express.Router();
 */
 
 
-router.get('/', (req, res) => {
-    res.json({});
-});
- 
+/* Create new data */
+router.post('/create-topic', require('./controllers/create/create-topic'));
+router.post('/create-user', require('./controllers/create/create-user'));
+
+
+/* Read existing data */
+router.post('/sign-in', require('./controllers/read/authenticate-user'));
 
 module.exports = router;  
