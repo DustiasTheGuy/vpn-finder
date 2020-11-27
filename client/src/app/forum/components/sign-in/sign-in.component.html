@@ -1,0 +1,16 @@
+<form>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" placeholder="email@gmail.com" name="email" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" placeholder="***********" name="password" [(ngModel)]="password" (keyup.enter)="signIn()">
+
+        <a (click)="toggleSignUp()">Don't have an account?</a>
+    </div>
+
+    <div class="button-group">
+        <button (click)="signIn()">Sign In</button>
+    </div>
+</form>

@@ -2,6 +2,7 @@ const User = require('../../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+const globalVars = require('../global-vars').globalVars;
 
 module.exports = (req, res) => {
     if(!req.body.email) {
@@ -61,6 +62,9 @@ module.exports = (req, res) => {
                                     data: null
                                 });
                             };
+
+                            //globalVars.onlineUsers.push(document._id);
+                            globalVars.addUser(document._id);
 
                             return res.json({
                                 message: null,

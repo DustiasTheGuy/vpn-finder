@@ -3,6 +3,32 @@ aside {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
-    padding: 1em;
+    border-left: 1px solid lightgray;
+
+    #user-unauthorized {
+        padding: 1em;
+    }
+
+    #user-authorized {
+        nav {
+            display: flex;
+            flex-direction: column;
+            div {
+                a {
+                    padding: 1em;
+                    border-bottom: 1px solid lightgray;
+                    text-align: left;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-decoration: none;
+                    color: gray;
+                    &:hover {
+                        background-color: #e7e7e7;
+                    }
+                }
+            }
+        }
+    }
 }

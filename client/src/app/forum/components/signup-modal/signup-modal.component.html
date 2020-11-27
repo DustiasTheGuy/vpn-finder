@@ -1,8 +1,9 @@
-<div class="container" [ngClass]="{ 'open': modalOpen }">
+<div class="container" [ngClass]="{ 'show': modalOpen }">
     <div class="modal">
-        <div class="content">
-            <a (click)="modalOpen = false">close</a>
-            <h2>Sign Up</h2>
-        </div>
+
     </div>
+</div>
+
+<div class="filler" [ngClass]="{ 'show': modalOpen }" (click)="modalOpen = false">
+
 </div>

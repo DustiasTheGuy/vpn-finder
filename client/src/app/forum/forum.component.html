@@ -2,37 +2,20 @@
     <app-navigation></app-navigation>
 
     <main>
-        <app-aside id="aside-navigation">
-            <nav>
-                <a routerLink="/forum">Forum</a>
-                <a routerLink="/forum/create">New Topic</a>
-            </nav>
-        </app-aside>
         <div id="main" main>
             <router-outlet></router-outlet>
         </div>
-        <app-aside id="aside-login">
-            <form>
-                <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="text" placeholder="email@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="password" placeholder="***********">
 
-                    <a (click)="toggleSignIn()">Don't have an account?</a>
-                </div>
-
-                <div class="button-group">
-                    <button>Sign In</button>
-                </div>
-            </form>
+        <app-aside id="aside-login" *ngIf="!stateService.authorized()">
+            <app-sign-in></app-sign-in>
         </app-aside>
+
+        <app-aside *ngIf="stateService.authorized()" [user]="user"></app-aside>
+
     </main>
 
     <app-footer></app-footer>
 </div>
 
 
-<app-signup-modal></app-signup-modal>
+<app-signup-modal></app-signup-modal> 

@@ -1,0 +1,63 @@
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    .information {
+        text-align: center;
+        margin-top: 200px;
+        font-weight: bold;
+    }
+
+    form {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.85em;
+
+        .form-title {
+            color: gray;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin: 1em 0;
+
+            &:focus-within {
+                label {
+                    color: rgb(44, 161, 201);
+                }
+
+                input, textarea, select {
+                    border-color: rgb(44, 161, 201);
+                }
+            }
+
+            label {
+                margin-bottom: 7px;
+                transition: all 190ms ease-in-out;
+            }
+
+            input, textarea, select {
+                padding: .6em;
+                font-size: 17px;
+                border: 1px solid rgb(196, 196, 196);
+                outline: none;
+                transition: all 190ms ease-in-out;
+            }
+
+            textarea {
+                resize: vertical;
+                height: 300px;
+            }
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

@@ -1,15 +1,15 @@
 .container {
     width: 100%;
     height: 100%;
+
+
     .inner-container {
-        margin-bottom: 2em;
         &:last-child {
             margin: 0;
         }
 
         .table-header {
             text-align: left;
-            margin: 2em 0;
             display: none;
             .table-title {
                 text-transform: uppercase;
@@ -28,28 +28,28 @@
 
         .table {
             height: 100%;
+            padding: 1em;
+
             .thead {
                 border-bottom: 1px solid lightgray;
             }
 
             .tbody {
-                height: 500px;
-                overflow: auto;
                 display: block;
-                overflow-y: overlay;
             }
 
             .tr {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 text-align: left;
+                padding: 4px;
                 h4, p {
                     margin: 0;
-                    padding: 8px;
-                }
+                } 
 
                 h4 {
                     text-transform: uppercase;
+                    padding: 8px 0;
                 }
             }
         }

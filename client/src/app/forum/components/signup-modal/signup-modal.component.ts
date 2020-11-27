@@ -13,7 +13,7 @@ export class SignupModalComponent implements OnInit {
   constructor(private stateService: StateService) { }
 
   ngOnInit(): void {
-    this.stateService.stateUpdateLoginModal()
+    this.stateService.stateUpdateSignUpModal()
     .subscribe((newState: boolean) => {
       this.modalOpen = newState;
     });

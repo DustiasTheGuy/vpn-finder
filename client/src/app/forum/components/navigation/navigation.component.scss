@@ -4,9 +4,9 @@ nav {
     align-items: center;
     background-color: #26272b;
     border-bottom: 1px solid #353535;
-    padding: 2em;
+    padding: 1em;
 
-    .search {
+    .search { 
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -17,7 +17,7 @@ nav {
             .search-results {
                 height: 500px;
             }
-        }
+        } 
 
         input {
             width: 20%;
