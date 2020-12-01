@@ -1,4 +1,5 @@
 const User = require('../../models/user');
+const Topic = require('../../models/topic');
 const globalVars = require('../global-vars').globalVars;
 
 module.exports = (req, res) => {
@@ -19,7 +20,7 @@ module.exports = (req, res) => {
         });
 
     } else {
-        User.findOne({_id: req.auth}, (err, document) => {
+        User.findOne({_id: req.auth}).lean().exec((err, document) => {
             if(err) {
                 return res.json({
                     message: 'Internal Server Error',
@@ -37,13 +38,26 @@ module.exports = (req, res) => {
                 });
     
             } else {
-                document.password = undefined;
-    
-                return res.json({
-                    message: null,
-                    success: true,
-                    statusCode: 200,
-                    data: document
+                delete document["password"];
+
+                Topic.find({userID: req.auth}, (err, documents) => {
+                    document["topics"] = documents;
+                    
+                    if(err || !documents) {
+                        return res.json({
+                            message: null,
+                            success: true,
+                            statusCode: 200,
+                            data: document
+                        });
+                    };
+
+                    return res.json({
+                        message: null,
+                        success: true,
+                        statusCode: 200,
+                        data: document
+                    });
                 });
             };
         });

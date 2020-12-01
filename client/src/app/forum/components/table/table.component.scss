@@ -1,0 +1,44 @@
+section {
+    background-color: #ffffff;
+    
+    .row {
+        display: grid;
+        grid-template-columns: 4fr 2fr 1fr 1fr;
+        padding: 1em;
+        outline: none;
+        color: #4c4c4c;
+        border-bottom: 1px solid #ebebeb;
+        font-size: .938em;
+        line-height: 1.4;
+        transition: background-color 35ms ease-in-out;
+
+        .topic {
+            justify-content: flex-start;
+        }
+
+        span {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            
+            i {
+                margin-left: 5px;
+            }
+        }
+
+        &:hover {
+            background-color: whitesmoke;
+        }
+
+        &:focus {
+            outline: 1px solid lightblue;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

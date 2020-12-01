@@ -29,9 +29,11 @@ module.exports = (req, res) => {
         new Topic({
             topic: req.body.topic,
             category: req.body.category,
-            body: req.body.body
+            body: req.body.body,
+            userID: req.auth // applied by middleware
         }).save(err => {
             if(err) {
+                console.log(err);
                 return res.json({
                     message: "An error occured while saving document",
                     success: false,

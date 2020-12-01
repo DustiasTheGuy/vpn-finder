@@ -53,21 +53,21 @@ form {
 
     .button-group {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         margin-top: 8px;
         
         button {
-            width: 50%;
+            width: 100%;
             border-radius: 5px;
             border: none;
             outline: none;
-            padding: 9px;
+            padding: 6px;
             background-color: #333333;
             color: #c0c0c0;
             cursor: pointer;
             transition: all 160ms ease-in;
             text-transform: uppercase;
-            
+
             &:hover {
                 background-color: #252525;      
             }

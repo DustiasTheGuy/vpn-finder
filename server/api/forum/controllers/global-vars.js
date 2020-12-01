@@ -15,7 +15,6 @@ class GlobalVars {
     };
 
     isOnline(id) {
-        console.log(this.onlineUsers);
         return this.onlineUsers.includes(id.toString());
     };
 }

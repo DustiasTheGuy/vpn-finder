@@ -5,6 +5,7 @@ import { HttpConfig } from '../http.config';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ReadService {
   private serverAddr: string;
 
@@ -13,12 +14,24 @@ export class ReadService {
   }
 
   signIn(data) {
-    return this.httpClient.post(`${this.serverAddr}/sign-in`, data)
+    return this.httpClient.post(`${this.serverAddr}/sign-in`, data);
   }
 
   readUser() {
     return this.httpClient.get(`${this.serverAddr}/read-user`, {
       headers: { 'Authorization': localStorage.getItem('token') }
-    })
+    });
+  }
+
+  readTopics(query) {
+    return this.httpClient.post(`${this.serverAddr}/load-topics`, query);
+  }
+
+  readTopic(id: string) {
+    return this.httpClient.get(`${this.serverAddr}/load-topic/${id}`);
+  }
+
+  search(searchStr: string) {
+    return this.httpClient.get(`${this.serverAddr}/search/${searchStr}`);
   }
 }

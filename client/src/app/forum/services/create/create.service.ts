@@ -13,4 +13,21 @@ export class CreateService {
     this.serverAddr = new HttpConfig().getAddr();
   }
 
+  createTopic(data) {
+    return this.httpClient.post(`${this.serverAddr}/create-topic`, data, {
+      headers: { 'Authorization': localStorage.getItem('token') }
+    })
+  }
+
+  uploadFile(data) {
+    return this.httpClient.post(`${this.serverAddr}/upload-file`, data, {
+      headers: { 'Authorization': localStorage.getItem('token') }
+    })
+  }
+
+  createReply(data) {
+    return this.httpClient.post(`${this.serverAddr}/create-reply`, data, {
+      headers: { 'Authorization': localStorage.getItem('token') }
+    })
+  }
 }

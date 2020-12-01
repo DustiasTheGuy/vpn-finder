@@ -10,7 +10,7 @@ let ext = (mimetype) => {
     };
 };
 
-let createFile = (file, url) => {
+let createFile = (file, url, removeAfter) => {
     return new Promise((resolve, reject) => {
         fs.writeFile("./public/assets/files/" + file.name, file.data, (err) => {
             if(err) {
@@ -21,17 +21,19 @@ let createFile = (file, url) => {
                 });
             };
 
-            setTimeout(() => { // remove the files after 20 minutes
+            if(removeAfter) {
+                setTimeout(() => { // remove the files after 20 minutes
 
-                try {
-                    fs.unlink("./public/assets/files/" + file.name);    
-                
-                } catch(err) {
-                    console.log(err);
-                    console.log(`${file.name} has most likely already been removed`);
-                };
-
-            }, 1000 * 1200); // 10 min
+                    try {
+                        fs.unlink("./public/assets/files/" + file.name);    
+                    
+                    } catch(err) {
+                        console.log(err);
+                        console.log(`${file.name} has most likely already been removed`);
+                    };
+    
+                }, 1000 * 1200); // 10 min
+            };
 
             resolve({
                 success: true,

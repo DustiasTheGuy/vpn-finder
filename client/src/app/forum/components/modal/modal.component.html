@@ -1,0 +1,5 @@
+<div class="container" (click)="closeModal()" [ngClass]="{ 'show': modalOpen, 'hide': !modalOpen }">
+    <div class="content" (click)="prevent();$event.stopPropagation()">
+        <ng-content></ng-content>
+    </div>
+</div>

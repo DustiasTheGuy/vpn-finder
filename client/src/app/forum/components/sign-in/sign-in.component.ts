@@ -11,7 +11,7 @@ import { HttpResponse } from '../../interfaces/http.interface';
 export class SignInComponent implements OnInit {
   public email: string = 'MyeqtQxWtqwt@gmail.com';
   public password: string = 'helloworld123';
-
+  public showSignUpModal: boolean = false;
   constructor(private stateService: StateService, private readService: ReadService) { }
 
   ngOnInit(): void {
@@ -34,9 +34,4 @@ export class SignInComponent implements OnInit {
       return
     })
   }
-
-  toggleSignUp() {
-    this.stateService.toggleSignUpModal(true);
-  }
-
 }

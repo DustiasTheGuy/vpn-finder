@@ -11,6 +11,7 @@
     "express-fileupload": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.13",
+    "mongoose-fuzzy-searching": "^2.0.2",
     "socket.io": "^2.1.1"
   },
   "devDependencies": {},

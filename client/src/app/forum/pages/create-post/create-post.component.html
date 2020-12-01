@@ -1,34 +1,29 @@
 <div class="container">
-    <div class="information" *ngIf="!user">
-        <p>You must be signed in to create a new topic</p>
-    </div>
-    
-    <form *ngIf="user">
-        <h2 class="form-title">Create Post</h2>
+    <form>
+        <h2 class="form-title">Create Topic</h2>
 
         <div class="form-group">
-            <label for="">Topic</label>
-            <input type="text">
+            <label for="topic">Topic</label>
+            <input name="topic" type="text" [(ngModel)]="formFields.topic">
+            <div class="breadcrumbs">
+                <span *ngFor="let crumb of breadCrumbs" (click)="formFields.topic = crumb">{{crumb}}</span>
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="">Category</label>
-            <select name="" id="">
-                <option value="">Something</option>
-                <option value="">Something</option>
-                <option value="">Something</option>
-                <option value="">Something</option>
-                <option value="">Something</option>
+            <label for="category">Category</label>
+            <select name="category" id="category" [(ngModel)]="formFields.category" (change)="categoryChange(formFields.category)">
+                <option *ngFor="let category of categories">{{category}}</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="">Body</label>
-            <textarea name="" id=""></textarea>
+            <label for="body">Body</label>
+            <textarea name="body" id="body" [(ngModel)]="formFields.body"></textarea>
         </div>
 
         <div class="button-group">
-            <button>Create Topic</button>
+            <button (click)="submit()">Create Topic</button>
         </div>
     </form>
 </div>

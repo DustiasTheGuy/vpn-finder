@@ -7,10 +7,16 @@
         <label for="password">Password</label>
         <input type="password" placeholder="***********" name="password" [(ngModel)]="password" (keyup.enter)="signIn()">
 
-        <a (click)="toggleSignUp()">Don't have an account?</a>
+        <a (click)="showSignUpModal = true">Don't have an account?</a>
     </div>
 
     <div class="button-group">
         <button (click)="signIn()">Sign In</button>
     </div>
 </form>
+
+<app-modal [modalOpen]="showSignUpModal" (modalCloseEvent)="showSignUpModal = false">
+
+    <h1 class="modal-title">Sign Up</h1>
+
+</app-modal> 

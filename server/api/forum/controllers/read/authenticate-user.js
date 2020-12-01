@@ -63,9 +63,9 @@ module.exports = (req, res) => {
                                 });
                             };
 
-                            //globalVars.onlineUsers.push(document._id);
                             globalVars.addUser(document._id);
-
+                            console.log(globalVars.onlineUsers);
+                            
                             return res.json({
                                 message: null,
                                 success: true,

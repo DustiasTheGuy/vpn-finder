@@ -3,26 +3,32 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { ForumComponentsModule } from './components/components.module';
-import { WebsiteComponentsModule } from '../website/components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ForumComponent } from './forum.component';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
-import { IndexComponent } from './pages/index/index.component'; // root component
+import { IndexComponent } from './pages/index/index.component';
+import { TopicComponent } from './pages/topic/topic.component'; // root component
+import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { MyTopicsComponent } from './pages/my-topics/my-topics.component';
+import { CanActivateRouteGuard } from './services/guards/can-activate.guard';
 
 @NgModule({
   declarations: [
     ForumComponent,
     CreatePostComponent,
-    IndexComponent
+    IndexComponent,
+    TopicComponent,
+    AccountSettingsComponent,
+    MyTopicsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ForumComponentsModule,
-    WebsiteComponentsModule
-  ]
+    ForumComponentsModule
+  ],
+  providers: [ CanActivateRouteGuard ]
 })
 
 export class ForumModule { }

@@ -1,0 +1,8 @@
+<section>
+    <div class="row" *ngFor="let index of tableData" [routerLink]="'/forum/' + index._id" [queryParams]="{ title: index.topic }">
+      <span title="Topic" class="topic">{{index.topic}}</span>
+      <span title="Category">{{index.category}}</span>
+      <span>{{index.repliesLength}} <i class="far fa-comments"></i></span>
+      <span>{{index.views}} <i class="far fa-eye"></i></span>
+    </div>
+  </section>

@@ -1,17 +1,22 @@
 <aside>
-    <div id="user-authorized"> 
-        <nav> 
-            <div>
-                <a routerLink="/forum"><span>Browse Forum</span></a>
-                <a routerLink="/forum/create"><span>Create New Topic</span></a>
-                <a><span>My Topics (3)</span></a>
-                <a><span>Account Settings</span></a>
-                <a *ngIf="user" (click)="stateService.signOut()">Sign Out <i class="fas fa-sign-out-alt"></i></a>
-            </div>
-        </nav>
-    </div>
-
     <div *ngIf="!user" id="user-unauthorized">
         <ng-content></ng-content>
     </div>
+
+    <div *ngIf="user" id="user-authorized">
+        <div class="thumbnail" (click)="file.click()">
+            <img [src]="configureImageURL(user.imageURL)" alt="Profile Image">
+            <input type="file" (change)="upload($event)" accept="image/*" #file>
+
+            <div class="on-hover">
+                <i class="fas fa-upload fa-2x"></i>
+            </div>
+        </div>
+
+        <div class="column">
+            <p>{{user.email}}</p>
+            <p>{{user.created | date: 'mediumDate'}}</p>
+        </div>
+    </div>
 </aside>
+ 

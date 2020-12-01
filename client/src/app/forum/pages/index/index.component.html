@@ -1,29 +1,3 @@
 <div class="container">
-
-    <div class="inner-container" *ngFor="let index of categories" [id]="index.id">
-      <header class="table-header">
-        <h1 class="table-title">{{index.category}}</h1>
-        <p class="table-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, excepturi!</p>
-      </header>
-
-      <div class="table">
-        <div class="thead">
-          <div class="tr">
-            <h4>Topic</h4> 
-            <h4>Created</h4> 
-            <h4>Responses</h4> 
-            <h4>Last Response</h4>
-          </div>
-        </div>
-        <div class="tbody">
-          <div class="tr" *ngFor="let topic of index.topics">
-            <p><a href="/forum">should I get a vpn?</a></p>
-            <p>2018-02-14</p>
-            <p>26</p>
-            <p>2020-11-24</p>
-          </div>
-        </div>
-      </div>
-    </div>
- 
+  <app-table *ngIf="tableData" [tableData]="tableData"></app-table>
 </div>

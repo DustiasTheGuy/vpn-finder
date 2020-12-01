@@ -25,7 +25,7 @@ module.exports = (req, res) => {
                 let promises = [];
                 document.files.forEach(file => {
                     file["data"] = file.data.buffer;
-                    promises.push(shared.createFile(file, req.headers.host));
+                    promises.push(shared.createFile(file, req.headers.host, true));
                 });
 
                 Promise.all(promises).then(response => {

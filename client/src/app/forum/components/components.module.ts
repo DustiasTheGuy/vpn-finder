@@ -4,17 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
 import { AsideComponent } from './aside/aside.component';
-import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ModalComponent } from './modal/modal.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     NavigationComponent,
     AsideComponent,
-    SignupModalComponent,
+    ModalComponent,
     SignInComponent,
+    BreadcrumbsComponent,
+    TableComponent,
   ],
-  imports: [
+  imports: [  
     CommonModule,
     RouterModule,
     FormsModule
@@ -22,8 +26,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
   exports: [
     NavigationComponent,
     AsideComponent,
-    SignupModalComponent,
-    SignInComponent
+    ModalComponent,
+    SignInComponent,
+    BreadcrumbsComponent,
+    TableComponent
   ]
 })
 

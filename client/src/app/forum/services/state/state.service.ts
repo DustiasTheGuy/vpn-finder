@@ -4,31 +4,20 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { HttpClient } from '@angular/common/http';
 import { HttpConfig } from '../http.config';
 import { User } from '../../interfaces/user.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class StateService {
-  private showLoginModal: Subject<boolean>;
   private serverAddr: string;
   private userState: Subject<User>;
 
-  constructor(private httpClient: HttpClient) {
-    this.showLoginModal = new Subject<boolean>();
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.userState = new Subject<any>();
     this.serverAddr = new HttpConfig().getAddr();
   }
-
-  /* Email form stuff */
-  public toggleSignUpModal(state: boolean): void { 
-    this.showLoginModal.next(state) 
-  }
-
-  public stateUpdateSignUpModal(): Observable<boolean> { 
-    return this.showLoginModal 
-  }
-  
   /* User stuff */
   public updateUserState(state: User): void { // update the user state globaly
     this.userState.next(state);
@@ -45,17 +34,19 @@ export class StateService {
 
   public authorized(): boolean {
     let helper = new JwtHelperService();
-    let token = localStorage.getItem('token')
+    let token = localStorage.getItem('token');
     let isExpired = helper.isTokenExpired(token);
 
     return !isExpired;
   }
 
   public signOut() {
-    this.httpClient.get(`${this.serverAddr}/sign-out`, { headers: { 'Authorization': localStorage.getItem('token')}})
+    this.httpClient.get(`${this.serverAddr}/sign-out`, { 
+    headers: { 'Authorization': localStorage.getItem('token')}})
     .subscribe(response => {
       window.localStorage.removeItem('token');
       this.updateUserState(null);
-    })
+      this.router.navigate(['/forum']);
+    });
   }
 }
