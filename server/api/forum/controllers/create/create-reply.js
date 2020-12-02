@@ -1,5 +1,7 @@
 const Topic = require('../../models/topic');
 const Reply = require('../../models/reply');
+const User = require('../../models/user');
+
 module.exports = (req, res) => {
     if(!req.body.reply) {
         return res.json({
@@ -64,17 +66,18 @@ async function addReply(data) {
     return new Promise((resolve, reject) => {
         Topic.findOne({_id: data.topicID})
         .lean().exec((err, document) => {
-
             if(err) reject(err);
+        
+            User.findOne({_id: data.auth}, (err, doc) => {
+                new Reply({
+                    reply: data.reply,
+                    parentID: data.parentID,
+                    user: { imageURL: doc.imageURL, email: doc.email }
+                }).save(err => {
+                    if(err) reject(err);
     
-            new Reply({
-                reply: data.reply,
-                parentID: data.parentID,
-                userID: data.auth,
-            }).save(err => {
-                if(err) reject(err);
-
-                resolve(document);
+                    resolve(document);
+                });
             });
         });
     });

@@ -64,12 +64,14 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    z-index: 5;
+    
     .message {
         background-color: #ffffff;
         border-radius: 10px;
         color: black;
         padding: 2em;
+        z-index: 5;
     }
 }
 

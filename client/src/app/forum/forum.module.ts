@@ -11,6 +11,7 @@ import { TopicComponent } from './pages/topic/topic.component'; // root componen
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 import { MyTopicsComponent } from './pages/my-topics/my-topics.component';
 import { CanActivateRouteGuard } from './services/guards/can-activate.guard';
+import { DndDirective } from './pages/create-post/dnd.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CanActivateRouteGuard } from './services/guards/can-activate.guard';
     IndexComponent,
     TopicComponent,
     AccountSettingsComponent,
-    MyTopicsComponent
+    MyTopicsComponent,
+    DndDirective
   ],
   imports: [
     CommonModule,

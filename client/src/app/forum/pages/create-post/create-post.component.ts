@@ -6,6 +6,7 @@ import { HttpResponse } from '../../interfaces/http.interface';
 import { Categories } from '../../categories';
 import { CreateService } from '../../services/create/create.service';
 
+
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -59,5 +60,9 @@ export class CreatePostComponent implements OnInit {
       case this.categories[2]: return this.breadCrumbs = [ 'Should I buy a VPN?', 'What is the best VPN?' ];
       case this.categories[3]: return this.breadCrumbs = [ 'I have a question', 'I need help!'];
     };
+  }
+
+  upload(files) {
+    console.log(files);
   }
 }

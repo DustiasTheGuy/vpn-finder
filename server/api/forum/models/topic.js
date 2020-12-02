@@ -7,6 +7,7 @@ const TopicSchema = new mongoose.Schema({
     body: { type: String, required: true },
     userID: { type: String, required: true },
     created: { type: Date, default: Date.now },
+    imageURLs: { type: Array, default: [] },
     repliesLength: { type: Number, default: 0 },
     views: { type: Number, default: 0},
     lastResponse: {

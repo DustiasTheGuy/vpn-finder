@@ -17,6 +17,14 @@
             </select>
         </div>
 
+        <div class="file-upload" (filesUploaded)="upload($event)" appDnd>
+            <div class="content" (click)="fileUpload.click()">
+                <i class="fas fa-upload"></i>
+                <h3>drag and drop files here</h3>
+                <input (change)="upload($event.target.files)" type="file" multiple #fileUpload>
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="body">Body</label>
             <textarea name="body" id="body" [(ngModel)]="formFields.body"></textarea>

@@ -18,36 +18,62 @@ module.exports = (req, res) => {
             delete document["topic_fuzzy"];
             delete document["body_fuzzy"];
 
-            findUser(document.userID)
-            .then((user) => {
-                document["user"] = user;
+            let promises = [
+                findUser(document.userID),
+                findReplies(req.params.id),
+                addView(document)
+            ];
 
-                Reply.find({parentID: req.params.id}).lean().exec((err, replies) => {
-                    queryChildren(replies)
-                    .then(repliesWithNested => {
-                        document.replies = repliesWithNested;
-    
-                        Topic.updateOne({_id: document._id}, { views: document.views += 1 }, (err, raw) => {
-                            if(err) {
-                                return res.json({
-                                    message: 'Internal Server Error',
-                                    success: false,
-                                    statusCode: 200,
-                                    data: null
-                                });
-                            };
-            
-                            return res.json({
-                                message: null,
-                                success: true,
-                                statusCode: 200,
-                                data: document
-                            });
-                        });
+            Promise.all(promises)
+            .then(values => {
+                document["user"] = values[0];
+                fetchNestedReplies(values[1])
+                .then(response => {
+                    document["replies"] = response;
+                    return res.json({
+                        message: null,
+                        success: true,
+                        statusCode: 200,
+                        data: document
                     });
-                });
-            })
+                })
+            });
         };
+    });
+};
+
+async function fetchNestedReplies(array) {
+    let promises = [];
+
+    return new Promise((resolve, reject) => {
+        array.forEach(element => promises.push(findReplies(element._id)));
+
+        Promise.all(promises).then(result => {
+            array.forEach((element, index) => element.replies = result[index]);
+
+            return resolve(array);
+        });
+    });
+};
+
+async function findReplies(parentID) {
+    return new Promise((resolve, reject) => {
+        Reply.find({parentID: parentID}).lean().exec((err, replies) => {
+            if(err) return reject(err);
+            if(!replies) return resolve(null);
+
+            return resolve(replies);
+        });
+    });
+};
+
+async function addView(document) {
+    return new Promise((resolve, reject) => {
+        Topic.updateOne({_id: document._id}, { views: document.views += 1 }, (err, raw) => {
+            if(err) return reject(false);
+
+            return resolve(true);
+        });
     });
 };
 
@@ -63,44 +89,5 @@ async function findUser(id) {
 
             return resolve(document);
         });
-    });
-};
-
-async function queryChildren(array) {
-    return new Promise((resolve, reject) => {
-        hasChildren(array)
-        .then(response => resolve(response))
-        .catch(response => queryChildren(response));
-    });
-};
-
-async function hasChildren(array) {
-    return new Promise((resolve, reject) => {
-        for(let i = 0; i < array.length; i++) {
-
-            findUser(array[i].userID)
-            .then((user) => {
-                array[i]["user"] = user;
-            
-                Reply.find({parentID: array[i]._id}).lean().exec((err, documents) => {
-                    if(documents.length > 0) {
-
-                        documents
-                        .forEach(nested => 
-                        findUser(nested.userID)
-                        .then((nestedUser) => 
-                        nested["user"] = nestedUser));
-
-                        array[i]["replies"] = documents;
-                        
-                    } else {
-
-                        array[i]["replies"] = [];
-                    };
-    
-                    if(i === array.length - 1) resolve(array);
-                });
-            });
-        };
     });
 };
