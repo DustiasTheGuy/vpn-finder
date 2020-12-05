@@ -1,3 +1,5 @@
+@import '../../../../variables.scss';
+
 .container {
     display: flex;
     flex-direction: column;
@@ -13,23 +15,49 @@
             width: 80%;
             
             .jumbotron {
+                margin: 4em 0;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
                 h1 {
-                    font-size: 3em;
-                    color: #535353;
-                    text-align: right;
+                    color: $text4;
+                    font-size: 3.2rem;
+                    text-align: center;
+                    margin: 0;
+                }
+
+                p {
+                    width: 50%;
                 }
             }
+
             .row {
                 .grid {
-                    grid-gap: 1em;
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                    grid-gap: 6em;
+                    grid-template-columns: repeat(3, 1fr);
+                    align-items: start;
+
+                    app-card {
+                        height: 100%;
+                    }
                 } 
             }
         }
     }
 }
 
+@keyframes bounce {
+    from {
+        transform: translateY(-4px);
+    }
+
+    to {
+        transform: translateY(12px);
+    }
+}
 
 @media only screen and (max-width: 1750px) and (min-width: 1390px) {
 

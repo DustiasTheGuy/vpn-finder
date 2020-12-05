@@ -1,8 +1,17 @@
 <section>
-    <div class="row" *ngFor="let index of tableData" [routerLink]="'/forum/' + index._id" [queryParams]="{ title: index.topic }">
-      <span title="Topic" class="topic">{{index.topic}}</span>
-      <span title="Category">{{index.category}}</span>
-      <span>{{index.repliesLength}} <i class="far fa-comments"></i></span>
-      <span>{{index.views}} <i class="far fa-eye"></i></span>
+    <header>
+      <span>Topic</span>
+      <span>Category</span>
+      <span><i class="far fa-images"></i></span>
+      <span><i class="far fa-comments"></i></span>
+      <span><i class="far fa-eye"></i></span>
+    </header>
+
+    <div class="row" *ngFor="let index of tableData" [routerLink]="'/forum/topic/' + index._id" [queryParams]="{ title: index.topic }">
+      <span>{{index.topic}}</span>
+      <span>{{index.category}}</span>
+      <span>{{index.imageURLs.length}}</span>
+      <span>{{index.repliesLength}}</span>
+      <span>{{index.views}}</span>
     </div>
   </section>

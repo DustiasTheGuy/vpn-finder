@@ -2,75 +2,65 @@
     <p>Just a moment.. loading topic</p>
 </div>
 
-<div class="container" *ngIf="ajax_completed">
+<div class="container" *ngIf="ajax_completed && topic">
     <div class="content"> 
         <section>
-            <h1>{{topic.topic}}</h1>
-            <p>{{topic.body}}</p>
+            <header>
+                <h1>{{topic.topic}}</h1>
+                <p title="topic was created">{{topic.created | date: 'medium' }} <i class="far fa-calendar-alt"></i></p>
+            </header>
+            <div class="body">
+                <p>{{topic.body}}</p>
+            </div>
 
-            <img src="https://images.pexels.com/photos/442573/pexels-photo-442573.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+            <div class="images" *ngIf="topic.imageURLs">
+                <a class="image" *ngFor="let img of topic.imageURLs; let i = index" (click)="toggleImageViewer(img)" target="_blank" title="Open in new tab">
+                    <img [src]="configureImageURL(img)" alt="An image">
+                </a>
+            </div>
+
+            <div class="image-viewer" [ngClass]="{ 'show': imageViewer.show }" (click)="toggleImageViewer(undefined)">
+                <div class="image-viewer-content" (click)="$event.stopPropagation(); false">
+                    <img [src]="configureImageURL(imageViewer.image)" alt="An image">
+                </div>
+            </div>
         </section>
     </div>
 
-    <div class="replies" *ngIf="topic.replies">
-        <form id="main-form">
-            <textarea [(ngModel)]="databinding" [placeholder]="stateService.authorized() ? 'leave a comment...' : 'Sign in to leave a comment'" name="comment" id="comment" [disabled]="!stateService.authorized()"></textarea>
-            
-            <div class="button-group" [ngStyle]="{ 'display': stateService.authorized() ? 'flex' : 'none' }">
-                <button (click)="sendReply(topic._id, databinding)">Send</button>
-            </div>
-        </form>
+    <div class="reply-section">
 
-
-        <section>
-            <div class="reply" *ngFor="let reply of topic.replies; let i = index">
-                <div class="reply-inner main-level">
-
-                    <div class="row">
-                        <img [src]="configureImageURL(reply.user.imageURL)">
-                        <span>
-                            <span style="margin-right:8px;" *ngIf="topic.userID === reply.user._id">Author</span>
-                            <span style="margin-right:8px;">{{reply.user.email}}</span>
-                            <span>{{reply.created | date: 'medium'}}</span>
-                        </span>
-                    </div>
-    
-                    <div class="body">
-                        <p>{{reply.reply}}</p>
-                    </div>
-    
-                    <div class="row">
-                        <input
-                        (focusout)="showInput(reply, i)"
-                        [id]="'input-' + i" 
-                        placeholder="Enter something.." 
-                        type="text" 
-                        [ngClass]="{ 'showInput': reply.showInput }" 
-                        [(ngModel)]="reply.databinding" 
-                        (keyup.enter)="sendReply(reply._id, reply.databinding)">
-                        <span></span>
-                        <a (click)="showInput(reply, i)">Reply</a>
-                    </div>
-
+        <div class="content">
+            <form id="main-form">
+                
+                <div class="user-photo">
+                    <img *ngIf="stateService.authorized()" [src]="configureImageURL(user.imageURL)">
                 </div>
 
-                <div class="reply-inner nested" *ngFor="let nestedReply of reply.replies; let j = index" [ngClass]="{ 'firstElement': j === 0, 'notFirst': j != 0}">
-                    <div class="row">
-                        <img [src]="configureImageURL(nestedReply.user.imageURL)">
-                        <span>
-                            <!-- <span>Reply to: {{reply.reply.substring(0, 20)}}</span> -->
-                            <span style="margin-right:8px;" *ngIf="topic.userID === nestedReply.user._id">Author</span>
-                            <span style="margin-right:8px;">{{nestedReply.user.email}}</span>
-                            <span>{{nestedReply.created | date: 'medium'}}</span>
-                        </span>
-                    </div>
+                <input 
+                [(ngModel)]="databinding" 
+                [placeholder]="stateService.authorized() ? 'leave a reply...' : 'Sign in to leave a reply'" 
+                name="comment" 
+                id="comment" 
+                [disabled]="!stateService.authorized()">
+                
+                <button [ngStyle]="{ 'display': stateService.authorized() ? 'flex' : 'none' }" (click)="sendReply(topic._id, databinding)">
+                    <i class="fas fa-share"></i>
+                </button>
+            </form>
     
-                    <div class="body">
-                        <p>{{nestedReply.reply}}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
+            <section *ngIf="topic.replies">
+                <header>
+                    <p>{{topic.replies.length}} replies</p>
+                </header>
+                <app-reply 
+                *ngFor="let reply of topic.replies" 
+                [reply]="reply" 
+                (newItemEvent)="newReply($event)">
+                </app-reply>
+            </section>
+        </div>
+
     </div>
 </div>
  

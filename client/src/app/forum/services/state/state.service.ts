@@ -13,11 +13,14 @@ import { Router } from '@angular/router';
 export class StateService {
   private serverAddr: string;
   private userState: Subject<User>;
+  private sidenavState: Subject<boolean>;
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.userState = new Subject<any>();
+    this.userState = new Subject<User>();
+    this.sidenavState = new Subject<boolean>();
     this.serverAddr = new HttpConfig().getAddr();
   }
+
   /* User stuff */
   public updateUserState(state: User): void { // update the user state globaly
     this.userState.next(state);
@@ -25,6 +28,14 @@ export class StateService {
 
   public userStateChanges(): Observable<User> {
     return this.userState; // subscribe to this for any changes to user object
+  }
+
+  public updateSidenavState(state: boolean): void {
+    this.sidenavState.next(state);
+  }
+
+  public getSidenavState(): Observable<boolean> {
+    return this.sidenavState;
   }
 
   public validateEmail(email) {
@@ -46,7 +57,7 @@ export class StateService {
     .subscribe(response => {
       window.localStorage.removeItem('token');
       this.updateUserState(null);
-      this.router.navigate(['/forum']);
+      this.router.navigate(['/forum/sign-in']);
     });
   }
 }

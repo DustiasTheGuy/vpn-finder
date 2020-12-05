@@ -28,7 +28,7 @@ export class OutpageComponent implements OnInit, OnDestroy {
           this.timout = setTimeout(() => window.location.href = response.data.link, 5000)
         }
       })
-    })
+    });
   }
 
   ngOnDestroy() {

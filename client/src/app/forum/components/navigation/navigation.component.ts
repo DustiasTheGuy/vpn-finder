@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ReadService } from '../../services/read/read.service';
 import { HttpResponse } from '../../interfaces/http.interface';
-import { Router } from '@angular/router';
+import { StateService } from '../../services/state/state.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,10 +14,16 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
   public searchStr: string;
   public searchResults: any[] = [];
+  public sidenavState: boolean = false;
 
-  constructor(private readService: ReadService, private router: Router) {}
+  constructor(
+    public stateService: StateService,
+    private readService: ReadService, 
+    private router: Router) {}
 
   ngOnInit(): void {
+    this.stateService.getSidenavState()
+    .subscribe(newState => this.sidenavState = newState);
   }
 
   search(searchStr: string) {

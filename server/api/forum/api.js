@@ -41,6 +41,7 @@ router.use((req, res, next) => {
 router.get('/read-user', require('./controllers/read/read-user'));
 router.get('/sign-out', require('./controllers/update/sign-out'));
 router.post('/upload-file', require('./controllers/create/create-image'));
+router.post('/upload-files', require('./controllers/create/upload-files'));
 router.post('/create-reply', require('./controllers/create/create-reply'));
 router.post('/create-topic', require('./controllers/create/create-topic'));
 

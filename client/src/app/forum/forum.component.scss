@@ -1,11 +1,12 @@
+@import '../../variables.scss';
+
 .container {
     min-width: 100%;
     min-height: 100%;
+    background-color: $bg3;
     main {
         min-width: 100%;
         min-height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 6fr;
 
         #main {
             min-width: 100%;
@@ -16,6 +17,6 @@
     footer {
         height: 300px;
         width: 100%;
-        background-color: #333333;
+        background-color: $bg1;
     }
 }

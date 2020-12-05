@@ -1,0 +1,94 @@
+@import '../../../../variables.scss';
+
+.reply {
+    display: flex;
+    margin: 2em 0;
+    width: 100%;
+    .user-photo {
+        img {
+            width: 32px;
+        }
+    }
+
+    .content {
+        flex-grow: 1;
+        margin-left: 13px;
+        width: 100%;
+        header {
+            span {
+                margin-right: 8px;
+            }
+
+            .email {
+                font-weight: 500;
+            }
+
+            .date {
+                font-size: 15px;
+                color: $text2;
+            }
+        }
+
+        section {
+            width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        footer {
+
+            .show-replies-trigger {
+                margin-right: 10px;
+            }
+
+            a {
+                text-decoration: none;
+                cursor: pointer;
+                margin: 10px 0;
+                i {
+                    margin-right: 6px;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .nested-reply {
+                display: flex;
+                margin: 2em 0 2em 1em;
+
+                &:last-child {
+                    margin-bottom: 1em;
+                }
+            }
+
+            .reply-form.show {
+                opacity: 1;
+                width: 500px;
+                height: 45px;
+                line-height: unset;
+            }
+
+            .reply-form {
+                display: flex;
+                align-items: center;
+                opacity: 0;
+                transition: all 200ms ease-in;
+                overflow: hidden;
+                height: 0;
+                width: 0;
+                line-height: 0;
+
+                input {
+                    display: block;
+                    border: 1px solid $border2;
+                    margin-top: 1em;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 6px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

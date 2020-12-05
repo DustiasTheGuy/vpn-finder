@@ -1,6 +1,5 @@
 const User = require('../../models/user');
 const shared = require('../../../website/controllers/shared');
-const { response } = require('express');
 
 module.exports = (req, res) => {
     User.findOne({_id: req.auth}, (err, document) => {

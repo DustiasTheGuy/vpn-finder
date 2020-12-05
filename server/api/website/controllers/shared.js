@@ -5,6 +5,7 @@ let ext = (mimetype) => {
         case "image/jpeg": return "jpeg";
         case "image/jpg": return "jpg";
         case "image/png": return "png";
+        case "image/gif": return "gif";
         case "text/plain": return "txt";
         default: "txt";
     };
@@ -38,7 +39,8 @@ let createFile = (file, url, removeAfter) => {
             resolve({
                 success: true,
                 err: null,
-                data:  url + "/assets/files/" + file.name
+                data:  url + "/assets/files/" + file.name,
+                name: file.name
             });
         });
     });

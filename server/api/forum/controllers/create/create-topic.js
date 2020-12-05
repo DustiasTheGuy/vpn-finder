@@ -3,7 +3,7 @@ const Topic = require('../../models/topic');
 module.exports = (req, res) => {
     if(!req.body.topic) {
         return res.json({
-            message: "You forgot to enter a topic",
+            message: 'You forgot to enter a topic',
             success: false,
             statusCode: 200,
             data: null
@@ -11,7 +11,7 @@ module.exports = (req, res) => {
 
     } else if(!req.body.category) {
         return res.json({
-            message: "You forgot to pick a category",
+            message: 'You forgot to pick a category',
             success: false,
             statusCode: 200,
             data: null
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
 
     } else if(!req.body.body) {
         return res.json({
-            message: "You forgot to enter a body",
+            message: 'You forgot to enter a body',
             success: false,
             statusCode: 200,
             data: null
@@ -30,12 +30,13 @@ module.exports = (req, res) => {
             topic: req.body.topic,
             category: req.body.category,
             body: req.body.body,
-            userID: req.auth // applied by middleware
+            userID: req.auth, // applied by middleware
+            imageURLs: req.body.images || []
         }).save(err => {
             if(err) {
                 console.log(err);
                 return res.json({
-                    message: "An error occured while saving document",
+                    message: 'An error occured while saving document',
                     success: false,
                     statusCode: 200,
                     data: null
@@ -43,7 +44,7 @@ module.exports = (req, res) => {
             };
 
             return res.json({
-                message: null,
+                message: 'Your topic has been created',
                 success: true,
                 statusCode: 200,
                 data: null

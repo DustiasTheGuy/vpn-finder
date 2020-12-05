@@ -1,0 +1,56 @@
+<div class="container">
+    <form>
+        <header>
+            <h1 class="form-title">Create Topic</h1>
+            <p>this is where you can create a new topic</p>
+        </header>
+
+        <div class="form-group">
+            <label for="topic">Topic</label>
+            <input name="topic" type="text" [(ngModel)]="formFields.topic" placeholder="Topic *">
+
+            <div class="breadcrumbs">
+                <span *ngFor="let crumb of breadCrumbs" (click)="formFields.topic = crumb">{{crumb}}</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category" [(ngModel)]="formFields.category" (change)="categoryChange(formFields.category)">
+                <option *ngFor="let category of categories">{{category}}</option>
+            </select>
+        </div>
+
+        <div class="file-upload" (filesUploaded)="upload($event)" appDnd>
+            <div class="content">
+                <i class="fas fa-upload"></i>
+                <p>drop images here</p>
+                <input (change)="upload($event.target.files)" type="file" accept="image/*" multiple #fileUpload>
+
+                <button (click)="fileUpload.click()">Browse Files <i class="far fa-folder"></i></button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea name="body" id="body" [(ngModel)]="formFields.body" placeholder="Enter something..."></textarea>
+        </div>
+
+        <div class="button-group">
+            <button (click)="submit()">Create Topic</button>
+        </div>
+    </form>
+
+    <div class="images">
+        <div class="image" *ngFor="let img of formFields.images; let i = index" (click)="formFields.images.splice(i, 1)" title="Remove">
+            <img [src]="configureImageURL(img)">
+            <i class="fas fa-trash"></i>
+        </div>
+    </div>
+</div>
+
+<div class="alert" [ngClass]="{ 'show': alert.show }" (click)="alert.show = false">
+    <div class="content" [style.backgroundColor]="alert.backgroundColor">
+        <p [style.color]="alert.color">{{alert.data}}</p>
+    </div>
+</div>

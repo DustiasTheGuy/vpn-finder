@@ -1,0 +1,22 @@
+<aside>
+    <div *ngIf="!user" id="user-unauthorized">
+        <p>Loading...</p>
+    </div>
+
+    <div *ngIf="user" id="user-authorized">
+        <div class="thumbnail" (click)="file.click()">
+            <img [src]="configureImageURL(user.imageURL)" alt="Profile Image">
+            <input type="file" (change)="upload($event)" accept="image/*" #file>
+
+            <div class="on-hover">
+                <i class="fas fa-upload fa-2x"></i>
+            </div>
+        </div>
+
+        <div class="column">
+            <p>{{user.email}}</p>
+            <p>{{user.created | date: 'mediumDate'}}</p>
+        </div>
+    </div>
+</aside>
+ 

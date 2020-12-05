@@ -1,11 +1,18 @@
-<section *ngIf="product" (click)="visitLink(product)">
-  <img id="image-container" [src]="product.imageURL">
+<div class="card">
+  <div class="thumbnail">
+    <img id="image-container" [src]="product.imageURL">
+  </div>
 
-  <ul>
-    <li *ngFor="let feature of product.features">
-      {{feature}}
-    </li>
-  </ul>
+  <div class="body">
+    <h2>{{product.label}}</h2>
 
+    <div class="features">
+      <p *ngFor="let feature of product.features">{{feature}}</p>
+    </div>
 
-</section>  
+    <button (click)="visitLink(product)">
+      <span class="text">Explore</span>
+      <span class="icon"><i class="fas fa-arrow-circle-right"></i></span>
+    </button>
+  </div>
+</div>

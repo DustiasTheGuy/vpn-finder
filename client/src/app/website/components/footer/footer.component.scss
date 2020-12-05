@@ -1,38 +1,17 @@
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    .back-up-container {
-        margin: 0 1em 1em 0;
-        padding: 1em;
-        background-color:#26272b;
-        color: #ffffff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+@import '../../../../variables.scss';
 
-        &:hover {
-            background-color:#16171a;
-        }
-        
-        i {
-            font-size: 19px;
-        }
-    }
-}
 
 footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color:#26272b;
-    color:#737373;
+    background-color: $bg1;
+    color:$text2;
     padding: 2em;
 
     hr {
-        border-top-color:#bbb;
+        border-top-color: $border2;
         opacity: 0.5;
         width: 75%;
     }
@@ -62,14 +41,15 @@ footer {
         grid-gap: 1em;
         width: 75%;
         padding: 1em 0;
-        
+        color: $text3;
+
         h3, p {
             margin: 0;
         }
 
         h3 {
             text-transform: uppercase;
-            color: #ffffff;
+            color: $text2;
             margin-bottom: 5px;
             font-size: 20px;
         }
@@ -80,9 +60,7 @@ footer {
             align-items: center;
         }
         p {
-            a {
-                color: inherit;
-            }
+            color: inherit;
         }
 
         nav {

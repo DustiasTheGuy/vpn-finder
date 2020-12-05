@@ -1,26 +1,35 @@
+@import '../../../../variables.scss';
+
 section {
-    background-color: #ffffff;
-    
+    background-color: $bg3;
+    text-align: left;
+
+    header {
+        display: grid;
+        grid-template-columns: 4fr 2fr 1fr 1fr 1fr;
+        padding: .75em 1em;
+        border-bottom: 1px solid $border2;
+        span {
+            color: $text1;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+    }
+
     .row {
         display: grid;
-        grid-template-columns: 4fr 2fr 1fr 1fr;
+        grid-template-columns: 4fr 2fr 1fr 1fr 1fr;
         padding: 1em;
         outline: none;
-        color: #4c4c4c;
-        border-bottom: 1px solid #ebebeb;
+        color: $text1;
+        border-bottom: 1px solid $border2;
         font-size: .938em;
         line-height: 1.4;
         transition: background-color 35ms ease-in-out;
 
-        .topic {
-            justify-content: flex-start;
-        }
 
         span {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             
@@ -30,11 +39,11 @@ section {
         }
 
         &:hover {
-            background-color: whitesmoke;
+            background-color: $bg2;
         }
 
         &:focus {
-            outline: 1px solid lightblue;
+            outline: 1px solid $lb;
         }
 
         &:last-child {

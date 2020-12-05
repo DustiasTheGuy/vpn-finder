@@ -25,9 +25,19 @@ export class CreateService {
     })
   }
 
+  uploadFiles(data) {
+    return this.httpClient.post(`${this.serverAddr}/upload-files`, data, {
+      headers: { 'Authorization': localStorage.getItem('token') }
+    })
+  }
+  
   createReply(data) {
     return this.httpClient.post(`${this.serverAddr}/create-reply`, data, {
       headers: { 'Authorization': localStorage.getItem('token') }
     })
+  }
+
+  signUp(data) {
+    return this.httpClient.post(`${this.serverAddr}/sign-up`, data);
   }
 }

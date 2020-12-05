@@ -18,8 +18,10 @@ import { EditProductComponent } from './pages/edit-product/edit-product.componen
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 
+const httpConfig = new HttpConfig().getEnv();
+
 const config: SocketIoConfig = { 
-  url: !new HttpConfig().getEnv() ? 'http://localhost:3000' : 'https://vpnfind.site', 
+  url: httpConfig === 'Development' ? 'http://localhost:3000' : 'https://vpnfind.site', 
   options: {} 
 };
 

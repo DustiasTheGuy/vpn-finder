@@ -19,6 +19,10 @@ export class TopicComponent implements OnInit {
   public databinding: string;
   private env: boolean;
   public ajax_completed: boolean = false; // determines if content should be rendered
+  public imageViewer = {
+    show: false,
+    image: undefined
+  }
 
   constructor(
     private createService: CreateService,
@@ -26,18 +30,32 @@ export class TopicComponent implements OnInit {
     private readService: ReadService, 
     private activatedRoute: ActivatedRoute) {
       this.env = new HttpConfig().getEnv();
-    }
+  }
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(params => 
-    this.readTopic(params.id));
+    this.readTopic(params.id, () => {
+      this.ajax_completed = true
+    }));
 
     this.stateService.userStateChanges().subscribe(newState => 
     this.user = newState);
 
     this.readService.readUser().subscribe((response: HttpResponse) => 
     this.stateService.updateUserState(response.data));
+
   } 
+
+
+  toggleImageViewer(img: string) {
+    this.imageViewer.image = img;
+    this.imageViewer.show = !this.imageViewer.show ? true : false
+  } 
+
+  newReply(data) {
+    this.sendReply(data.parentID, data.reply);
+  }
 
   sendReply(parentID, reply) {
     this.createService.createReply({
@@ -47,8 +65,11 @@ export class TopicComponent implements OnInit {
     }).subscribe((response: HttpResponse) => {
       parentID === this.topic._id ? this.databinding = undefined : reply = undefined;
       
-      this.readTopic(this.topic._id);
-    })
+      this.readTopic(this.topic._id, () => {
+        console.log("Data refreshed...");
+        this.ajax_completed = true;
+      });
+    });
   }
 
   configureImageURL(imageURL: string): string {
@@ -57,12 +78,11 @@ export class TopicComponent implements OnInit {
     'https://vpnfind.site/assets/files/' + imageURL;
   }
 
-  readTopic(id: string) {
+  readTopic(id: string, cb) {
     this.ajax_completed = false;
     this.readService.readTopic(id).subscribe((response: HttpResponse) => 
     this.topic = response.data, () => 
-    console.log(new Error("Failed fetching data")), () => 
-    this.ajax_completed = true);
+    console.log(new Error("Failed fetching data")), () => cb());
   }
  
   showInput(reply, index) {

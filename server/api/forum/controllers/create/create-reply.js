@@ -28,6 +28,7 @@ module.exports = (req, res) => {
             auth: req.auth
         }).then(document => {
             Topic.updateOne({_id: document._id}, { 
+                lastResponse: { created: Date.now(), userID: req.auth },
                 repliesLength: document.repliesLength += 1,
             }, (err, raw) => {
                 console.log(err);

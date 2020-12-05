@@ -1,10 +1,13 @@
+@import '../../../../variables.scss';
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #26272b;
+    background-color: $bg1;
     padding: 1em;
-
+    height: 75px;
+    
     .search { 
         display: flex;
         align-items: center;
@@ -23,20 +26,22 @@ nav {
             transition: width 300ms ease;
             border: 2px solid transparent;
             outline: none;
-            background-color: #ffffff;
+            background-color: $bg3;
             padding: .5em;
             font-size: 17px;
+            border-radius: 7px;
             &:focus {
                 width: 50%;
             }
         }
 
         .search-results {
+            color: $text1;
             position: absolute;
             width: 50%;
             height: 0;
             overflow: hidden;
-            background-color: #ffffff;
+            background-color: $bg3;
             z-index: 2;
             top: 100%;
             margin-top: 5px;
@@ -50,10 +55,10 @@ nav {
             overflow: auto;
 
             .result {
-                border-bottom: 1px solid lightgray;
+                border-bottom: 1px solid $border2; 
                 padding: 1em;
-                display: flex;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: 3fr 2fr 1fr 1fr;
 
                 span {
                     margin: 0 10px;
@@ -69,26 +74,25 @@ nav {
                 }
 
                 &:hover {
-                    background-color: whitesmoke;
+                    background-color: $bg2;
                 }
             }
         }
     }
 
     div {
-        color: rgb(115, 115, 115);
-
+        display: flex;
+        align-items: center;
         a {
+            width: 50px;
             display: inline-block;
-            color: inherit;
+            color: $text3;
             text-decoration: none;
             cursor: pointer;
             text-transform: uppercase;
-    
-    
+            margin-right: 25px;
             &:hover {
                 text-decoration: underline;
-                color: rgb(94, 94, 94);
             }
         }
     }

@@ -1,6 +1,9 @@
 <nav>
     <div>
-        <a routerLink="/"><span>vpnfind.site</span></a>
+        <a (click)="stateService.updateSidenavState(!this.sidenavState ? true : false)">
+            <i *ngIf="!sidenavState" class="fas fa-bars fa-2x"></i>
+            <i *ngIf="sidenavState" class="fas fa-times fa-2x"></i>
+        </a>
     </div>
 
     <div class="search">
@@ -10,7 +13,7 @@
             <div class="result" *ngFor="let result of searchResults" (click)="navigate(result._id)">
                 <span title="Topic" class="topic">{{result.topic}}</span>
                 <span title="Category">{{result.category}}</span>
-                <span>{{result.replies}} <i class="far fa-comments"></i></span>
+                <span>{{result.repliesLength}} <i class="far fa-comments"></i></span>
                 <span>{{result.views}} <i class="far fa-eye"></i></span>
             </div>
         </div>

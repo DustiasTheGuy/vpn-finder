@@ -3,20 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
-import { AsideComponent } from './aside/aside.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { ModalComponent } from './modal/modal.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 import { TableComponent } from './table/table.component';
-
+import { ReplyComponent } from './reply/reply.component';
+ 
 @NgModule({
   declarations: [
     NavigationComponent,
-    AsideComponent,
     ModalComponent,
-    SignInComponent,
-    BreadcrumbsComponent,
+    SidenavComponent,
     TableComponent,
+    ReplyComponent,
   ],
   imports: [  
     CommonModule,
@@ -25,11 +23,10 @@ import { TableComponent } from './table/table.component';
   ],
   exports: [
     NavigationComponent,
-    AsideComponent,
     ModalComponent,
-    SignInComponent,
-    BreadcrumbsComponent,
-    TableComponent
+    SidenavComponent,
+    TableComponent,
+    ReplyComponent
   ]
 })
 

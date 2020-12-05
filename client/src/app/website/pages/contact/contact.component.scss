@@ -1,3 +1,5 @@
+@import '../../../../variables.scss';
+
 .container {
     width: 100%;
     height: 100vh;
@@ -13,16 +15,13 @@
         display: flex;
         flex-direction: column;
         
-        #go-back {
-            color: rgb(36, 163, 209);
-
-            &:hover {
-                color: rgb(33, 147, 189);
-            }
-        }
-        
         .form-title {
-            color: gray;
+            color: $text1;
+        }
+
+        #go-back {
+            display: inline-block;
+            width: 50px;
         }
 
         .message {
@@ -45,25 +44,25 @@
 
             &:focus-within {
                 input, textarea {
-                    border-color: rgb(44, 158, 196);
+                    border-color: $lb;
                 }
 
                 label.label-input, label.label-textarea {
-                    color: rgb(44, 158, 196);
+                    color: $lb;
                     bottom: 100%;
                 }
 
                 .characters {
                     left: 100%;
                     margin-left: 5px;
-                    background-color: rgba(44, 158, 196, 1);
+                    background-color: $lb;
                 }
             }
 
             label {
                 margin-bottom: 8px;
                 font-size: 17px;
-                color: gray;
+                color: $text1;
                 transition: color 160ms ease;
                 font-weight: bold;
                 position: absolute;
@@ -86,7 +85,7 @@
             input, textarea {
                 padding: .6em;
                 outline: none;
-                border: 2px solid gray;
+                border: 2px solid $border2;
                 resize: none;
                 transition: border-color 160ms ease;
                 font-size: 17px;
@@ -108,8 +107,8 @@
                 z-index: 2;
                 padding: 10px;
                 transition: all 200ms linear;
-                color: #ffffff;
-                background-color: rgba(44, 158, 196, 0.4);
+                color: $text3;
+                background-color: $lb;
             }
 
             #fileUpload {
@@ -127,7 +126,7 @@
                 z-index: 2;
                 margin: 15px;
                 cursor: pointer;
-                color: rgb(43, 44, 44);   
+                color: $text1;   
                 transition: transform 100ms linear; 
                 &:hover {
                     transform: rotate(180deg);
@@ -147,7 +146,7 @@
 
             th, td {
                 padding: 5px;
-                border: 1px solid black;
+                border: 1px solid $border1;
 
                 &:last-child {
                     text-align: right;
@@ -177,13 +176,13 @@
                 border-radius: 4px;
                 border: none;
                 outline: none;
-                background-color: rgb(58, 168, 58);
-                color: #ffffff;
+                background-color: $success;
+                color: $text3;
                 cursor: pointer;
                 transition: background-color 160ms ease-in;
 
                 &:hover {
-                    background-color: rgb(52, 146, 52);
+                    background-color: $success_hover;
                 }
             }
         }

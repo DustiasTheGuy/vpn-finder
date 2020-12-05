@@ -2,14 +2,9 @@
     <app-navigation></app-navigation>
 
     <main>
-        <app-aside id="aside-login" *ngIf="!stateService.authorized()">
-            <app-sign-in></app-sign-in>
-        </app-aside>
-
-        <app-aside *ngIf="stateService.authorized()" [user]="user"></app-aside>
+        <app-sidenav [user]="user"></app-sidenav>
 
         <div id="main" main>
-            <app-breadcrumbs [user]="user"></app-breadcrumbs>
             <router-outlet></router-outlet>
         </div>
     </main>

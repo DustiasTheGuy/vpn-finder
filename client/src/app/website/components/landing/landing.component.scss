@@ -1,6 +1,8 @@
+@import '../../../../variables.scss';
+
 .jumbotron {
     height: 100vh;
-    background-image: url("/assets/images/backgrounds/bg.jpg");
+    background-image: url("/assets/images/backgrounds/mountains-toned.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -13,7 +15,7 @@
         nav {
             a {
                 margin: 0 10px;
-                color: #ffffff;
+                color: $text3;
                 cursor: pointer;
                 text-decoration: none;
                 &:hover {
@@ -33,7 +35,7 @@
         
         .content {
             h1, p {
-                color: #ffffff;
+                color: $text3;
                 margin: 0;
             }
     
@@ -52,8 +54,8 @@
                 .call-to-action {
                     padding: 1em;
                     border: none;
-                    background-color: #ac1805;
-                    color: #cccccc;
+                    background-color: $success;
+                    color: $text3;
                     margin-top: 2em;
                     width: 200px;
                     font-weight: 700;
@@ -64,8 +66,7 @@
                     animation: pump 1s ease-in infinite alternate;
                     transition: all 200ms ease;
                     &:hover {
-                        animation-play-state: paused;
-                        background-color: #a01807;
+                        background-color: $success_hover;
                     }
                 }
             }

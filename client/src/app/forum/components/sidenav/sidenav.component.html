@@ -1,0 +1,67 @@
+<nav [ngClass]="{ 'open': sidenavState }">
+    <div class="link-group">
+        <a (click)="navigate('/forum')">
+            <span>Forum</span>
+        </a>  
+
+        <div class="link-group-nested">
+            <a class="link-group-title" (click)="accountMenuOpen = !accountMenuOpen ? true : false">
+                <span>Account</span>
+                <i *ngIf="!accountMenuOpen" class="fas fa-chevron-down"></i>
+                <i *ngIf="accountMenuOpen" class="fas fa-chevron-up"></i>
+            </a>
+
+            <div class="link-group" *ngIf="accountMenuOpen">
+                <a (click)="stateService.authorized() ? navigate('/forum/account/create') : alert()">
+                    <span>New Topic</span>
+                </a>
+        
+                <a (click)="stateService.authorized() ? navigate('/forum/account/my-topics') : alert()">
+                    <span>My Topics</span>
+                </a>
+        
+                <a (click)="stateService.authorized() ? navigate('/forum/account/settings') : alert()">
+                    <span>Settings</span>
+                </a>  
+            </div>
+        </div>
+
+
+        <a *ngIf="!stateService.authorized()" (click)="navigate('/forum/sign-in')">
+            <span>Sign In</span>
+        </a>
+
+        <a *ngIf="!stateService.authorized()" (click)="navigate('/forum/sign-up')">
+            <span>Sign Up</span>
+        </a>
+
+        <a *ngIf="stateService.authorized()" (click)="stateService.signOut();stateService.updateSidenavState(false)">
+            <span>Sign Out</span>
+            <i class="fas fa-sign-out-alt"></i> 
+        </a>
+        <a *ngIf="!stateService.authorized()" style="visibility: hidden;">
+            <span>Sign Out</span>
+            <i class="fas fa-sign-out-alt"></i> 
+        </a> 
+    </div>
+
+    <div class="link-group">
+        <a routerLink="https://vpnfind.site">
+            <span>vpnfind.site &copy; 2020</span>
+        </a>
+    </div>
+</nav>    
+
+
+<div class="filler" [ngClass]="{ 'open': sidenavState }" (click)="stateService.updateSidenavState(!this.sidenavState ? true : false)"></div>
+
+<div class="alert" *ngIf="showAlert" (click)="showAlert = false">
+    <div class="message">
+        <p>You must be signed in to view that page </p>
+
+        <button (click)="navigate('/forum/sign-in')">
+            <span>Sign In </span> 
+            <i class="fas fa-sign-in-alt"></i>
+        </button>
+    </div>
+</div>

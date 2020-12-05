@@ -1,37 +1,95 @@
+@import '../../../../variables.scss';
 
-section {    
+.card {
+    width: 100%;
     height: 100%;
+    background-color: $bg3;
+    border-radius: .4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: #ffffff;
-    transition: 0.3s;
-    cursor: pointer;
-    
+    transition: .2s;
+
     &:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    
-    img {
-        height: 250px;
-        width: 100%;
-        object-fit: contain;
-        padding: 1em;
+        transform: translateY(-.5%);
+        box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
     }
 
-    
-    ul {
+    .thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-            text-align: center;
-            padding: 1em;
-            text-transform: capitalize;
+        height: 18rem;
+        background-image: url("/assets/images/backgrounds/mountains.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        img {
+            width: 50%;
+            height: 50%;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+    }
+
+    .body {
+        padding: 2em;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+
+        h2 {
+            font-size: 32px;
+            font-weight: 500;
+            color: $text4;
+            margin: 0;
+        }
+
+        .features {
+            color: $text4;
+        }
+
+        button {
+            display: block;
             width: 100%;
+            padding: .75em;
+            font-size: 1rem;
+            text-align: center;
+            color: $text3;
+            background-color: $bg1;
+            border: none;
+            border-radius: 3px;
+            transition: 0.2s;
+            cursor: pointer;
+            margin-top: 1em;
+
+            span {
+                transition: all 200ms ease-in;
+            }
+
+            .text {
+                margin-right: 4px;
+            }
+
+            .icon {
+                margin-left: 4px;
+            }
+
+            &:hover {
+                .icon {
+                    margin-left: 8px;
+                }
+
+                .text {
+                    margin-right: 8px;
+                }
+            }
         }
     }
 }
-

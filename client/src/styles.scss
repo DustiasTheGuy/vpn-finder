@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&family=Raleway&family=Roboto&display=swap');
+@import './variables.scss';
 
 /*
     font-family: 'Lato', sans-serif;
@@ -21,11 +22,26 @@ html, body {
 
 body {
     margin: 0;
-    background-color: rgb(238, 238, 238);
+    background-color: $bg3;
     font-family: 'Roboto', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1.2px;
     text-transform: capitalize;
+    color: $text4;
 }
+
+p, input {
+    color: $text4;
+}
+ 
+a {
+    color: rgb(6, 95, 212);
+    text-decoration: none;
+
+    &:hover {
+        color: rgb(6, 90, 199);
+    }
+}
+
