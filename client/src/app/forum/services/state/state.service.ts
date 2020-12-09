@@ -43,6 +43,7 @@ export class StateService {
     return re.test(String(email).toLowerCase());
   }
 
+
   public authorized(): boolean {
     let helper = new JwtHelperService();
     let token = localStorage.getItem('token');

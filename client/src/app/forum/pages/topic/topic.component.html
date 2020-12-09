@@ -3,7 +3,7 @@
 </div>
 
 <div class="container" *ngIf="ajax_completed && topic">
-    <div class="content"> 
+    <div class="main-content"> 
         <section>
             <header>
                 <h1>{{topic.topic}}</h1>
@@ -19,9 +19,24 @@
                 </a>
             </div>
 
-            <div class="image-viewer" [ngClass]="{ 'show': imageViewer.show }" (click)="toggleImageViewer(undefined)">
-                <div class="image-viewer-content" (click)="$event.stopPropagation(); false">
-                    <img [src]="configureImageURL(imageViewer.image)" alt="An image">
+            <div *ngIf="topic.imageURLs && topic.imageURLs.length > 0" class="image-viewer" [ngClass]="{ 'show': imageViewer.show }" (click)="imageViewer.show = false">
+                <div class="image-viewer-content" (click)="$event.stopPropagation(); false" [ngStyle]="{ 'background-color': customStyles.completed }">
+                    <i class="fas fa-times fa-2x" (click)="imageViewer.show = false"></i>
+                    
+                    <div class="bg-container" [ngStyle]="{ 'background-image': 'url(' + configureImageURL(topic.imageURLs[imageViewer.index]) + ')'}">
+                        <div class="actions">
+                            <button [disabled]="imageViewer.index <= 0" (click)="imageViewer.index = imageViewer.index - 1">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button [disabled]="imageViewer.index >= topic.imageURLs.length - 1" (click)="imageViewer.index = imageViewer.index + 1">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="customize">
+                        <input type="range" [(ngModel)]="customStyles.bgAlpha" (change)="customize()" min="0" max="1" step="0.01">
+                        <input type="range" [(ngModel)]="customStyles.bgColor" (change)="customize()" min="0" max="255" step="2.5">
+                    </div>
                 </div>
             </div>
         </section>

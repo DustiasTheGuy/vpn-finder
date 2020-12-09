@@ -47,12 +47,16 @@
         h2 {
             font-size: 32px;
             font-weight: 500;
-            color: $text4;
+            color: $text2;
             margin: 0;
         }
 
         .features {
-            color: $text4;
+            color: $text2;
+
+            p {
+                color: inherit;
+            }
         }
 
         button {
@@ -61,8 +65,8 @@
             padding: .75em;
             font-size: 1rem;
             text-align: center;
-            color: $text3;
-            background-color: $bg1;
+            color: $text1;
+            background-color: $bg2;
             border: none;
             border-radius: 3px;
             transition: 0.2s;

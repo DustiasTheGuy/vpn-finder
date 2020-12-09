@@ -3,7 +3,8 @@ export class Categories {
         "Frequently Asked Questions",
         "Security Related",
         "Virtual Private Networks",
-        "General Questions"
+        "General Questions",
+        "Other"
     ];
 
     private tableData: table[] = [

@@ -10,7 +10,9 @@
             <input name="topic" type="text" [(ngModel)]="formFields.topic" placeholder="Topic *">
 
             <div class="breadcrumbs">
-                <span *ngFor="let crumb of breadCrumbs" (click)="formFields.topic = crumb">{{crumb}}</span>
+                <span *ngFor="let crumb of breadCrumbs" (click)="formFields.topic = crumb" [ngClass]="{ 'active': crumb === formFields.topic }">
+                    {{crumb}}
+                </span>
             </div>
         </div>
 

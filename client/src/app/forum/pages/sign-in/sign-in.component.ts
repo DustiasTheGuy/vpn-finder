@@ -11,15 +11,17 @@ import { HttpResponse } from '../../interfaces/http.interface';
 })
 
 export class SignInComponent implements OnInit {
-  public email: string = 'MyeqtQxWtqwt@gmail.com';
-  public password: string = 'helloworld123';
+  public email: string;
+  public password: string;
 
   constructor(
     private router: Router,
     private stateService: StateService, 
     private readService: ReadService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.autoFill();
+  }
 
   signIn() {
     if(!this.stateService.validateEmail(this.email)) return;
@@ -34,10 +36,15 @@ export class SignInComponent implements OnInit {
       .subscribe((userObject: HttpResponse) => {
         this.stateService.updateUserState(userObject.data); // update user object
         this.stateService.updateSidenavState(true);
-        this.router.navigate(['/forum'])
+        this.router.navigate(['/forum/account/my-topics'])
       });
 
       return
     });
+  }
+
+  autoFill() {
+    this.email = 'MyeqtQxWtqwt@gmail.com';
+    this.password = 'helloworld123';
   }
 }

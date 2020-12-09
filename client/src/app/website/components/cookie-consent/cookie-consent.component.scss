@@ -12,7 +12,7 @@
     margin: 20px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-radius: 5px;
-    border: 1px solid $border1;
+    border: 1px solid $border2;
 
     .inner-container {
         position: relative;
@@ -24,7 +24,7 @@
         .content {
             
             h2, p {
-                color: $text1;
+                color: $text3;
                 margin: 0;
             }
     
@@ -54,7 +54,7 @@
                 cursor: pointer;
                 border: none;
                 background-color: $lb;
-                color: $text3;
+                color: $text2;
                 border-radius: 5px;
                 width: 160px;
                 margin-right: 6px;
@@ -80,12 +80,16 @@
         top: 0;
         right: 0;
         margin: 20px;
-        color: $lb;
+        color: $text2;
         cursor: pointer;
  
         &:hover {
             color: $lb_hover;
         }
+    }
+
+    ul {
+        color: $text3;
     }
 
     .actions {
@@ -111,12 +115,12 @@
             
             .accept {
                 background-color: $success;
-                color: $text3;
+                color: $text2;
             }
 
             .revoke {
                 background-color: $danger;
-                color: $text3;
+                color: $text2;
                 margin-right: 5px;
             } 
         }

@@ -6,9 +6,9 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: $bg1;
-    color:$text2;
+    background-color: $bg3;
     padding: 2em;
+    color: $text3;
 
     hr {
         border-top-color: $border2;
@@ -41,7 +41,6 @@ footer {
         grid-gap: 1em;
         width: 75%;
         padding: 1em 0;
-        color: $text3;
 
         h3, p {
             margin: 0;
@@ -49,17 +48,15 @@ footer {
 
         h3 {
             text-transform: uppercase;
-            color: $text2;
             margin-bottom: 5px;
             font-size: 20px;
+            color: $text2;
         }
 
         .block {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        p {
             color: inherit;
         }
 

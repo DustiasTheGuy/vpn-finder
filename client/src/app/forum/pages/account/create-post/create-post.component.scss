@@ -32,20 +32,23 @@
     padding: 2em;
 
     .breadcrumbs {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 8px;
+        padding: 8px 0;
+
+        span.active {
+            background-color: rgba($bg1, 0.85);
+        }
 
         span {
-            &:first-child {
-                margin-left: 0;
-            }
-
-            color: $text3;
+            border-radius: 6px;
+            color: $text2;
             padding: 5px 15px;
-            margin: 8px;
             background-color: $bg1;
             cursor: pointer;
             transition: background-color 150ms ease-in;
+            text-align: center;
 
             &:hover {
                 background-color: rgba($bg1, 0.85);
@@ -65,8 +68,6 @@
             background-color: $bg2;
             padding: 1em;
             height: 200px;
-            border: 1px solid transparent;
-            transition: border-color 180ms ease;
             position: relative;
 
             .fa-trash {
@@ -75,23 +76,22 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: rgba(170, 3, 3, 0);
-                transition: color 130ms ease-in;
+                transition: color 130ms linear;
             }
 
             &:hover {
-                border-color: $danger;
-                
                 .fa-trash {
                     color: $danger;
                 }
 
                 img {
-                    opacity: 0.3;
+                    opacity: 0.6;
                 }
             }
 
             img {
-                transition: opacity 255ms ease-in;
+                transition: opacity 130ms linear;
+                opacity: 1;
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
@@ -146,16 +146,17 @@
         }
 
         .file-upload.fileover { /* when a file is being dragged over container */
-            background-color: $success;
+            border-color: $success;
             color: $text3;
+            animation-play-state: running;
         }
 
         .file-upload {
             flex-direction: column;
             align-items: center;
-            border: 1px dashed $border1;
+            border: 5px solid $bg2_hover;
             margin: 1em;
-            transition: background-color 180ms ease-in;
+            transition: all 180ms ease-in;
 
             .content {
                 display: flex;
@@ -164,8 +165,13 @@
                 color: $text1;
                 font-size: 24px;
 
-                p {
+                i {
+                    color: $text3;
+                }
+
+                p { 
                     margin: 10px 0;
+                    color: $text3;
                 }
 
                 input {
@@ -177,13 +183,18 @@
 
                 button {
                     border: none;
-                    color: $text3;
+                    color: $text2;
                     background-color: $bg1;
                     padding: 1em;
                     width: 200px;
                     outline: none;
                     cursor: pointer;
                     transition: background-color 180ms ease-in;
+
+                    i {
+                        color: $text2;
+                    }
+                    
                     &:hover {
                         background-color: rgba($bg1, 0.7);
                     }
@@ -196,7 +207,7 @@
             justify-content: flex-end;
             button {
                 border: none;
-                color: $text3;
+                color: $text2;
                 background-color: $bg1;
                 padding: 1em;
                 width: 200px;

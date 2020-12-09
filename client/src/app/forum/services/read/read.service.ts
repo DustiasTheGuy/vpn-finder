@@ -34,4 +34,8 @@ export class ReadService {
   search(searchStr: string) {
     return this.httpClient.get(`${this.serverAddr}/search/${searchStr}`);
   }
+
+  loadProducts() {
+    return this.httpClient.get(`${this.serverAddr}/load-products`);
+  }
 }

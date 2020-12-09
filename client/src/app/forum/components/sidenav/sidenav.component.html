@@ -27,15 +27,15 @@
         </div>
 
 
-        <a *ngIf="!stateService.authorized()" (click)="navigate('/forum/sign-in')">
+        <a (click)="navigate('/forum/sign-in')" *ngIf="!stateService.authorized()">
             <span>Sign In</span>
         </a>
 
-        <a *ngIf="!stateService.authorized()" (click)="navigate('/forum/sign-up')">
+        <a (click)="navigate('/forum/sign-up')" *ngIf="!stateService.authorized()">
             <span>Sign Up</span>
         </a>
 
-        <a *ngIf="stateService.authorized()" (click)="stateService.signOut();stateService.updateSidenavState(false)">
+        <a (click)="stateService.signOut();stateService.updateSidenavState(false)" *ngIf="stateService.authorized()">
             <span>Sign Out</span>
             <i class="fas fa-sign-out-alt"></i> 
         </a>
@@ -46,7 +46,7 @@
     </div>
 
     <div class="link-group">
-        <a routerLink="https://vpnfind.site">
+        <a routerLink="/">
             <span>vpnfind.site &copy; 2020</span>
         </a>
     </div>

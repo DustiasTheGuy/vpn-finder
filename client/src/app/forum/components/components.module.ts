@@ -7,6 +7,8 @@ import { ModalComponent } from './modal/modal.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TableComponent } from './table/table.component';
 import { ReplyComponent } from './reply/reply.component';
+import { FooterComponent } from './footer/footer.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
  
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ReplyComponent } from './reply/reply.component';
     SidenavComponent,
     TableComponent,
     ReplyComponent,
+    FooterComponent,
+    JumbotronComponent,
   ],
   imports: [  
     CommonModule,
@@ -26,7 +30,9 @@ import { ReplyComponent } from './reply/reply.component';
     ModalComponent,
     SidenavComponent,
     TableComponent,
-    ReplyComponent
+    ReplyComponent,
+    FooterComponent,
+    JumbotronComponent
   ]
 })
 

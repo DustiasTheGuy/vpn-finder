@@ -15,7 +15,7 @@
         nav {
             a {
                 margin: 0 10px;
-                color: $text3;
+                color: $text2;
                 cursor: pointer;
                 text-decoration: none;
                 &:hover {
@@ -35,7 +35,7 @@
         
         .content {
             h1, p {
-                color: $text3;
+                color: $text2;
                 margin: 0;
             }
     
@@ -55,7 +55,7 @@
                     padding: 1em;
                     border: none;
                     background-color: $success;
-                    color: $text3;
+                    color: $text2;
                     margin-top: 2em;
                     width: 200px;
                     font-weight: 700;

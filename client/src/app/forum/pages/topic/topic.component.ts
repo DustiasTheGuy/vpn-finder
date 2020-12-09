@@ -18,10 +18,16 @@ export class TopicComponent implements OnInit {
   public user: User;
   public databinding: string;
   private env: boolean;
+  public customStyles = {
+    bgAlpha: '.78',
+    bgColor: '0',
+    completed: ''
+  }
+
   public ajax_completed: boolean = false; // determines if content should be rendered
   public imageViewer = {
     show: false,
-    image: undefined
+    index: 0
   }
 
   constructor(
@@ -33,6 +39,7 @@ export class TopicComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.customize();
 
     this.activatedRoute.params.subscribe(params => 
     this.readTopic(params.id, () => {
@@ -47,9 +54,19 @@ export class TopicComponent implements OnInit {
 
   } 
 
+  customize() {
+    let color = this.customStyles.bgColor;
+    this.customStyles.completed = `
+    rgba(
+      ${color}, 
+      ${color},
+      ${color},
+      ${this.customStyles.bgAlpha}
+    )`
+  }
 
   toggleImageViewer(img: string) {
-    this.imageViewer.image = img;
+    this.imageViewer.index = this.topic.imageURLs.indexOf(img);
     this.imageViewer.show = !this.imageViewer.show ? true : false
   } 
 

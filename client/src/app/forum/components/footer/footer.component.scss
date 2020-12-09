@@ -1,0 +1,82 @@
+@import '../../../../variables.scss';
+
+footer {
+    width: 100%;
+    height: 270px;
+    background-color: $bg3;
+    color: $text3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+    .container {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+
+        hr {
+            border-top-color: $border2;
+            opacity: 0.5;
+            width: 100%;
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .row {
+            flex-direction: row;
+        }
+
+        .sb {
+            justify-content: space-between;
+        }
+
+        .container-inner {
+            display: flex;
+            justify-content: space-between;
+            
+            &:first-child {
+                padding: 1em 0;
+            }
+
+            .container-group {
+                display: flex;
+
+                width: 100%;
+
+                h4 {
+                    margin: 0 0 6px 0;
+                    text-transform: uppercase;
+                    color: $text2;
+                    font-size: 20px;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                .list {
+                    padding: 0 2em;
+
+                    .list-items {
+                        display: flex;
+                        flex-direction: column;
+                        text-transform: capitalize;
+
+                        .list-item {
+                            display: inline-block;
+                            color: inherit;
+                            cursor: pointer;
+                            
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

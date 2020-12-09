@@ -62,7 +62,7 @@
             label {
                 margin-bottom: 8px;
                 font-size: 17px;
-                color: $text1;
+                color: $lb;
                 transition: color 160ms ease;
                 font-weight: bold;
                 position: absolute;
@@ -107,7 +107,7 @@
                 z-index: 2;
                 padding: 10px;
                 transition: all 200ms linear;
-                color: $text3;
+                color: $text2;
                 background-color: $lb;
             }
 
@@ -177,7 +177,7 @@
                 border: none;
                 outline: none;
                 background-color: $success;
-                color: $text3;
+                color: $text2;
                 cursor: pointer;
                 transition: background-color 160ms ease-in;
 

@@ -22,18 +22,20 @@ html, body {
 
 body {
     margin: 0;
-    background-color: $bg3;
+    background-color: $bg2;
     font-family: 'Roboto', sans-serif;
+    overflow: auto;
+    z-index: 100;
 }
 
 h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1.2px;
     text-transform: capitalize;
-    color: $text4;
+    color: $text3;
 }
 
 p, input {
-    color: $text4;
+    color: $text3;
 }
  
 a {

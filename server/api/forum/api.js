@@ -15,6 +15,7 @@ router.post('/load-topics', require('./controllers/read/read-topics'));
 router.get('/load-topic/:id', require('./controllers/read/read-topic'));
 router.post('/sign-in', require('./controllers/read/authenticate-user'));
 router.post('/sign-up', require('./controllers/create/create-user'));
+router.get('/load-products', require('./controllers/read/read-products'));
 
 router.use((req, res, next) => {
     let privateKey = fs.readFileSync('private.key');

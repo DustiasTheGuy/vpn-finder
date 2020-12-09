@@ -21,7 +21,8 @@ export const ForumRoutes: Routes = [
         children: [
             { path: 'create', component: CreatePostComponent },
             { path: 'settings', component: SettingsComponent },
-            { path: 'my-topics', component: MyTopicsComponent }
+            { path: 'my-topics', component: MyTopicsComponent },
+            { path: '**', redirectTo: '/forum/account/settings', pathMatch: 'full' }
         ]
     }
 ];

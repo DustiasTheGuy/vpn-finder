@@ -1,24 +1,38 @@
 <div class="container">
-    <form>
-        <h3>Sign Up</h3>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" placeholder="email@gmail.com" name="email" [(ngModel)]="email">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" placeholder="***********" name="password" [(ngModel)]="password" (keyup.enter)="signUp()">
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" placeholder="***********" name="confirm" [(ngModel)]="confirm" (keyup.enter)="signUp()">
+    <div class="form-container">
+        <form>
+            <h3>Sign Up</h3>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" placeholder="email@gmail.com" name="email" [(ngModel)]="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" placeholder="***********" name="password" [(ngModel)]="password" (keyup.enter)="signUp()">
+            </div>
     
-            <a routerLink="/forum/sign-in">Already have an account?</a>
-        </div>
+            <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <input type="password" placeholder="***********" name="confirm" [(ngModel)]="confirm" (keyup.enter)="signUp()">
+        
+                <div class="links">
+                    <a routerLink="/forum/sign-in">Already have an account?</a>
+                </div>
+            </div>
+    
+            <div class="button-group">
+                <button (click)="signUp()">Sign Up</button>
+            </div>
+        </form>
 
-        <div class="button-group">
-            <button (click)="signUp()">Sign Up</button>
-        </div>
-    </form>
+        <nav>
+            <a routerLink="/">vpnfinder.site</a>
+            <span>-</span>
+            <a routerLink="/forum">Forum</a>
+            <span>-</span>
+            <a>Password Recovery</a>
+        </nav>
+    </div>
+
+    <div class="image-container"></div>
 </div>

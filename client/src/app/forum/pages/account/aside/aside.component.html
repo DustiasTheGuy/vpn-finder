@@ -14,8 +14,23 @@
         </div>
 
         <div class="column">
-            <p>{{user.email}}</p>
-            <p>{{user.created | date: 'mediumDate'}}</p>
+            <div>
+                <p>{{user.created | date: 'mediumDate'}} <i class="far fa-calendar"></i></p>
+                <a routerLink="/forum/account/settings"> 
+                    <span>{{user.email}}</span>
+                    <i class="far fa-envelope"></i>
+                </a>
+                <a (click)="stateService.signOut()">
+                    <span>Sign Out</span> 
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+
+            <nav>
+                <a routerLink="/forum/account/create">New Topic</a>
+                <a routerLink="/forum/account/my-topics">My Topics</a>
+                <a routerLink="/forum/account/settings">Settings</a>
+            </nav>
         </div>
     </div>
 </aside>

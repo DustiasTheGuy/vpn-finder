@@ -35,6 +35,6 @@ export class NavigationComponent implements OnInit {
   }
 
   navigate(ID: string) {
-    this.router.navigate([`/forum/${ID}`]);
+    this.router.navigate([`/forum/topic/${ID}`]);
   }
 }

@@ -1,15 +1,52 @@
 <section>
+    <div class="filters">
+      <select [(ngModel)]="selectedCategory" (change)="filterByCategory(selectedCategory)">
+        <option value="0">All</option>
+        <option *ngFor="let c of categories; let i = index" [value]="i+1">{{c}}</option>
+      </select>
+
+      <select [(ngModel)]="selectedFilter" (change)="filterByValue(selectedFilter)">
+        <option *ngFor="let n of 
+        [
+          'Date', 
+          'Views', 
+          'Images', 
+          'Activity', 
+          'Replies'
+        ]; let i = index" 
+        [value]="i">{{n}}</option>
+      </select>
+
+      
+        <button (click)="applyFilters()">Apply Filter</button>
+      
+    </div>
+
     <header>
       <span>Topic</span>
       <span>Category</span>
-      <span><i class="far fa-images"></i></span>
-      <span><i class="far fa-comments"></i></span>
-      <span><i class="far fa-eye"></i></span>
+      <span class="clickable" (click)="filterByValue('0')">
+        Date
+        <i class="fas" [ngClass]="{ 'fa-chevron-down': !reversedTracker[0], 'fa-chevron-up': reversedTracker[0]}"></i>
+      </span>
+      <span class="clickable" (click)="filterByValue('2')">
+        <i class="far fa-images"></i>
+        <i class="fas" [ngClass]="{ 'fa-chevron-down': !reversedTracker[2], 'fa-chevron-up': reversedTracker[2]}"></i>
+      </span>
+      <span class="clickable" (click)="filterByValue('4')">
+        <i class="far fa-comments"></i>
+        <i class="fas" [ngClass]="{ 'fa-chevron-down': !reversedTracker[4], 'fa-chevron-up': reversedTracker[4]}"></i>
+      </span>
+      <span class="clickable" (click)="filterByValue('1')">
+        <i class="far fa-eye"></i>
+        <i class="fas" [ngClass]="{ 'fa-chevron-down': !reversedTracker[1], 'fa-chevron-up': reversedTracker[1]}"></i>
+      </span> 
     </header>
 
     <div class="row" *ngFor="let index of tableData" [routerLink]="'/forum/topic/' + index._id" [queryParams]="{ title: index.topic }">
       <span>{{index.topic}}</span>
       <span>{{index.category}}</span>
+      <span>{{index.created | date: 'short'}}</span>
       <span>{{index.imageURLs.length}}</span>
       <span>{{index.repliesLength}}</span>
       <span>{{index.views}}</span>

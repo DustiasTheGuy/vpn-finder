@@ -1,22 +1,20 @@
 /* Color theme */
 
+
 $text1: rgb(0, 0, 0);
 $text2: #eff0f1;
-$text3: #eff0f1;
-$text4: rgb(64, 64, 64);
+$text3: rgb(128, 128, 128);
 
 
 $bg1: #34558b;
-$bg2: #eff0f1;
-$bg3: #e9e9e9;
+$bg2: rgb(255, 255, 255); 
+$bg3: #333333;
 
-$border1: #000000;
-$border2:lightgray;
-$border3: #ffffff; 
+$border1: #34558b;;
+$border2: rgb(211, 211, 211); 
+$border3: #333333;
 
-
-
-
+$bg2_hover: rgb(233, 233, 233);
 
 $success: rgb(58, 168, 58);
 $success_hover:  rgb(52, 146, 52);

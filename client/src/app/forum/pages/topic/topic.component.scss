@@ -8,22 +8,20 @@
 }
 
 .container {
-    min-height: 100vh;
     min-width: 100%;
-    background-color: $bg3;
+    background-color: $bg2;
     padding-bottom: 4em;
     display: flex;
     flex-direction: column;
-
-    .content {
-        height: 100%;
+    min-height: 100vh;
+    
+    .main-content {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 500px;
         padding: 1em 0;
-        
+
         section {
             padding: 1em 0;
             width: 75%;
@@ -67,14 +65,61 @@
                 justify-content: center;
                 align-items: center;
                 .image-viewer-content {
-                    background-color: $bg3;
-                    min-width: 50%;
-                    min-height: 50%;
-                    max-width: 90%;
-                    max-height: 90%;
-                    img {
+                    width: 100%;
+                    height: 100%;
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+
+                    .fa-times {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 10px;
+                        z-index: 7;
+                        color: $text2;
+
+                        &:hover {
+                            color: $text3;
+                        }
+                    }
+
+                    .bg-container {
                         width: 100%;
                         height: 100%;
+                        background-size: contain;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        z-index: 1;
+                        position: relative;
+
+                        .actions {
+                            position: absolute;
+                            width: 100%;
+                            top: 50%;
+                            display: flex;
+                            justify-content: space-between;
+
+                            button {
+                                padding: 1em;
+                                border: none;
+                                background-color: $bg1;
+                                color: $text2;
+                                outline: none;
+                                height: 100px;
+                                border-radius: 2px;
+
+                                &:hover {
+                                    opacity: .88;
+                                }
+                            }
+                        }
+                    }
+
+                    .customize {
+                        margin: 1em 0;
+                        display: flex;
+                        justify-content: center;
                     }
                 }
             }
@@ -89,7 +134,6 @@
         
                 .image {
                     background-color: $bg2;
-                    padding: 1em;
                     height: 200px;
                     border: 1px solid transparent;
                     transition: border-color 180ms ease;
@@ -140,6 +184,7 @@
                     img {
                         width: 32px;
                         height: 32px;
+                        border-radius: 50%;
                     }
                 }
 
@@ -163,7 +208,7 @@
                     padding: 9px 14px;
                     text-transform: uppercase;
                     background-color: $bg1;
-                    color: $text3;
+                    color: $text2;
                     border-radius: 5px;
                     cursor: pointer;
                     transition: background-color 100ms ease-in;
