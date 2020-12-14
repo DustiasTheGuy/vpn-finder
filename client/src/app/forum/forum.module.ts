@@ -19,6 +19,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AccountComponent } from './pages/account/account.component';
 import { AsideComponent } from './pages/account/aside/aside.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AsideComponent } from './pages/account/aside/aside.component';
     SignInComponent,
     AccountComponent,
     AsideComponent,
-    SignUpComponent
+    SignUpComponent,
+    RecoveryComponent
   ],
   imports: [
     CommonModule,

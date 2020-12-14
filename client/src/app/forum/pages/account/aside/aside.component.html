@@ -7,30 +7,16 @@
         <div class="thumbnail" (click)="file.click()">
             <img [src]="configureImageURL(user.imageURL)" alt="Profile Image">
             <input type="file" (change)="upload($event)" accept="image/*" #file>
-
-            <div class="on-hover">
-                <i class="fas fa-upload fa-2x"></i>
-            </div>
         </div>
 
         <div class="column">
             <div>
-                <p>{{user.created | date: 'mediumDate'}} <i class="far fa-calendar"></i></p>
-                <a routerLink="/forum/account/settings"> 
-                    <span>{{user.email}}</span>
-                    <i class="far fa-envelope"></i>
-                </a>
-                <a (click)="stateService.signOut()">
-                    <span>Sign Out</span> 
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
-            </div>
-
-            <nav>
+                <!-- <p>{{user.created | date: 'mediumDate'}}</p> -->
                 <a routerLink="/forum/account/create">New Topic</a>
                 <a routerLink="/forum/account/my-topics">My Topics</a>
                 <a routerLink="/forum/account/settings">Settings</a>
-            </nav>
+                <a (click)="stateService.signOut()">Sign Out</a>
+            </div>
         </div>
     </div>
 </aside>

@@ -54,7 +54,7 @@ module.exports = (req, res) => {
                     data: null
                 });
 
-            } else if(document != null) {
+            } else if(document) {
                 return res.json({
                     message: 'Duplication error',
                     success: false,

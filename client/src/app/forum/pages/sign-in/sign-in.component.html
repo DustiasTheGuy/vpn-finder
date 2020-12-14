@@ -5,11 +5,18 @@
     
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" placeholder="email@gmail.com" name="email" [(ngModel)]="email">
+                <div class="input">
+                    <input type="email" placeholder="email@gmail.com" name="email" [(ngModel)]="email">
+                    <i class="fas fa-envelope"></i>
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" placeholder="***********" name="password" [(ngModel)]="password" (keyup.enter)="signIn()">
+                <div class="input">
+                    <input [type]="passwordType" placeholder="***********" name="password" [(ngModel)]="password" (keyup.enter)="signIn()">
+                    <i class="fas fa-eye" (click)="passwordType = 'text'" *ngIf="passwordType === 'password'"></i>
+                    <i class="fas fa-eye-slash" (click)="passwordType = 'password'" *ngIf="passwordType === 'text'"></i>
+                </div>
                 <a routerLink="/forum/sign-up">Don't have an account?</a>
             </div>
         
@@ -23,9 +30,9 @@
             <span>-</span>
             <a routerLink="/forum">Forum</a>
             <span>-</span>
-            <a>Password Recovery</a>
+            <a routerLink="/forum/account-recovery">Password Recovery</a>
         </nav>
     </div>
 
     <div class="image-container"></div>
-</div>
+</div> 

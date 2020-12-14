@@ -5,42 +5,47 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    padding: 1em;
     .inner-container {
         width: 100%;
         display: flex;
-        
-        grid-gap: 1em;
-        
+
         app-table {
             flex-grow: 1;
         }
 
         aside {            
-            padding: 1em;
             width: 20%;
-
+            padding: 1em;
             h3 {
                 margin: 0;
             }
 
             .items {
                 .item {
+                    /*
                     background-image: url('/assets/images/backgrounds/mountains.jpg');
                     background-position: center center;
                     background-size: cover;
+                    */
 
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    height: 225px;
+                    height: 170px;
                     margin: 20px 0;
                     padding: 1em;
-                    cursor: pointer;
-                    transition: opacity 200ms ease-in;
+                    transition: box-shadow 200ms ease-in;
+                    background-color: $bg2;
+                    -webkit-box-shadow: 1.7px 1.4px 5px 0px rgba(214,214,214,1);
+                    -moz-box-shadow: 1.7px 1.4px 5px 0px rgba(214,214,214,1);
+                    box-shadow: 1.7px 1.4px 5px 0px rgba(214,214,214,1);
 
                     &:hover {
-                        opacity: .83;
+                        box-shadow: 0 0 12px 3px rgb(218, 218, 218);
+                    }
+
+                    &:first-child {
+                        margin-top: 0;
                     }
 
                     img {

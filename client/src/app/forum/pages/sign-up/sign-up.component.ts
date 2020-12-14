@@ -15,6 +15,8 @@ export class SignUpComponent implements OnInit {
   public email: string;
   public password: string;
   public confirm: string;
+  public passwordType: string = 'password';
+  public confirmType: string = 'password';
 
   constructor(
     private router: Router,
@@ -44,8 +46,9 @@ export class SignUpComponent implements OnInit {
             this.stateService.updateSidenavState(true);
             this.router.navigate(['/forum'])
           });
-        });
+        });      
       } 
     });
   }
 }
+

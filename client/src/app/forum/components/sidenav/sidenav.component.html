@@ -23,9 +23,12 @@
                 <a (click)="stateService.authorized() ? navigate('/forum/account/settings') : alert()">
                     <span>Settings</span>
                 </a>  
+
+                <a *ngIf="!stateService.authorized()" (click)="navigate('/forum/account-recovery')">
+                    <span>Account Recovery</span>
+                </a>
             </div>
         </div>
-
 
         <a (click)="navigate('/forum/sign-in')" *ngIf="!stateService.authorized()">
             <span>Sign In</span>
@@ -43,6 +46,8 @@
             <span>Sign Out</span>
             <i class="fas fa-sign-out-alt"></i> 
         </a> 
+
+
     </div>
 
     <div class="link-group">

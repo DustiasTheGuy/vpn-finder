@@ -2,6 +2,7 @@ const User = require('../../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+const { time } = require('console');
 const globalVars = require('../global-vars').globalVars;
 
 module.exports = (req, res) => {
@@ -54,6 +55,11 @@ module.exports = (req, res) => {
                         let privateKey = fs.readFileSync('private.key');
 
                         jwt.sign({ _id: document._id }, privateKey, { algorithm: 'RS256', expiresIn: '24h' }, (err, token) => {
+                            document.loginHistory.push({
+                                date: Date.now(),
+                                ip: req.connection.remoteAddress    
+                            });
+
                             if(err) {
                                 return res.json({
                                     message: "Internal Server Error",
@@ -63,14 +69,24 @@ module.exports = (req, res) => {
                                 });
                             };
 
-                            globalVars.addUser(document._id);
-                            console.log(globalVars.onlineUsers);
-                            
-                            return res.json({
-                                message: null,
-                                success: true,
-                                statusCode: 200,
-                                data: token
+                            document.updateOne(document, (err, raw) => {
+                                if(err) {
+                                    return res.json({
+                                        message: "Internal Server Error",
+                                        success: false,
+                                        statusCode: 200,
+                                        data: null
+                                    });
+                                }
+
+                                globalVars.addUser(document._id);
+                                console.log(globalVars.onlineUsers);
+                                return res.json({
+                                    message: null,
+                                    success: true,
+                                    statusCode: 200,
+                                    data: token
+                                });
                             });
                         });
                     };
@@ -87,3 +103,5 @@ module.exports = (req, res) => {
         });
     };
 };
+
+

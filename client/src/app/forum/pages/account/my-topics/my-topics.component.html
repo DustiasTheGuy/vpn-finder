@@ -1,5 +1,5 @@
-<div *ngIf="user.topics.length > 0">
-    <app-table *ngIf="user" [tableData]="user.topics"></app-table>
+<div *ngIf="user && user.topics && user.topics.length > 0" id="container">
+    <app-table [tableData]="user.topics"></app-table>
 </div>
 
 <div *ngIf="user.topics.length <= 0" id="zero-topics">

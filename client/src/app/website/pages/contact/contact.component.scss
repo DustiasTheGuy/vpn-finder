@@ -16,12 +16,17 @@
         flex-direction: column;
         
         .form-title {
-            color: $text1;
+            color: $text3;
         }
 
         #go-back {
             display: inline-block;
             width: 50px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         .message {
@@ -55,7 +60,7 @@
                 .characters {
                     left: 100%;
                     margin-left: 5px;
-                    background-color: $lb;
+                    opacity: 1;
                 }
             }
 
@@ -64,7 +69,6 @@
                 font-size: 17px;
                 color: $lb;
                 transition: color 160ms ease;
-                font-weight: bold;
                 position: absolute;
                 z-index: 1;
                 display: flex;
@@ -109,6 +113,7 @@
                 transition: all 200ms linear;
                 color: $text2;
                 background-color: $lb;
+                opacity: .4;
             }
 
             #fileUpload {
@@ -146,7 +151,7 @@
 
             th, td {
                 padding: 5px;
-                border: 1px solid $border1;
+                border: 1px solid $border3;
 
                 &:last-child {
                     text-align: right;

@@ -4,13 +4,17 @@ section {
     background-color: $bg2;
     text-align: left;
     min-height: 75vh;
+    padding: 1em;
 
     .filters {
         background-color: $bg2;
         display: flex;
         justify-content: center;
         color: $text2;
-        padding: 1em;
+        border-bottom: 1px solid $bg2_hover;
+        gap: 8px;
+        padding-bottom: 1em;
+
         select, button {
             background-color: $bg2;
             border: 1px solid $border2;
@@ -21,14 +25,12 @@ section {
             padding: .5em;
             min-width: 160px;
             outline: none;
-            margin-right: 8px;
             flex-grow: 1;
         }
 
         button {
             padding: .5em 1em;
             transition: opacity 190ms ease-in-out;
-            margin-right: 8px;
             cursor: pointer;
 
             &:hover {
@@ -37,18 +39,38 @@ section {
         }
     }
 
-    header {
+    header, .row {
         display: grid;
-        grid-template-columns: 4fr 2fr 2fr 1fr 1fr 1fr;
-        padding: 1em;
-        border-bottom: 1px solid $bg2_hover;
-        span {
-            color: $text1;
-            text-transform: uppercase;
+        grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr;
 
-            .fas {
-                margin-left: 10px;
+        span {
+            padding: .5em;
+            border-right: 1px solid $bg2_hover;
+            display: inline-block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: inherit;
+            width: 100%;
+
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6) {
+                text-align: center;
             }
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    header {
+        border-bottom: 1px solid $bg2_hover;
+        border-left: 1px solid $bg2_hover;
+        border-right: 1px solid $bg2_hover;
+        span {
+            text-transform: uppercase;
         }
 
         .clickable {
@@ -60,36 +82,21 @@ section {
     }
 
     .row {
-        display: grid;
-        grid-template-columns: 4fr 2fr 2fr 1fr 1fr 1fr;
-        padding: 1em;
         outline: none;
         color: $text1;
         border-bottom: 1px solid $bg2_hover;
-        font-size: .938em;
+        border-left: 1px solid $bg2_hover;
+        border-right: 1px solid $bg2_hover;
+        font-size: .838em;
         line-height: 1.4;
         transition: background-color 35ms ease-in-out;
 
-
-        span {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            
-            i {
-                margin-left: 5px;
-            }
-        }
-
         &:hover {
-            background-color: $bg2_hover;
+            color: $lb;
         }
 
         &:focus {
             outline: 1px solid $lb;
-        }
-
-        &:last-child {
-            border-bottom: none;
         }
     }
 }

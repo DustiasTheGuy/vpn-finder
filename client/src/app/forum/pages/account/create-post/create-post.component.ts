@@ -26,9 +26,9 @@ export class CreatePostComponent implements OnInit {
   };
 
   public formFields = {
-    topic: 'tempor incididunt ut labore et dolore',
+    topic: 'Where can I get some?',
     category: 'Frequently Asked Questions',
-    body: 'Sit amet massa vitae tortor condimentum lacinia quis. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis. Eget gravida cum sociis natoque penatibus et magnis dis. Id interdum velit laoreet id donec ultrices. Eget egestas purus viverra accumsan in nisl nisi. Aliquet nibh praesent tristique magna sit amet purus. Adipiscing diam donec adipiscing tristique. Mi in nulla posuere sollicitudin aliquam. A diam maecenas sed enim. Neque sodales ut etiam sit amet nisl. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis. Erat velit scelerisque in dictum non. Et malesuada fames ac turpis. Morbi tristique senectus et netus et malesuada fames ac. Vulputate odio ut enim blandit volutpat maecenas volutpat. Elit sed vulputate mi sit amet mauris. Integer feugiat scelerisque varius morbi enim nunc faucibus. Malesuada nunc vel risus commodo viverra maecenas accumsan. Nisi porta lorem mollis aliquam ut porttitor. Diam vulputate ut pharetra sit.',
+    body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
     images: [ 
       'placeholder1.jpeg',
       'placeholder2.jpeg', 
@@ -87,6 +87,7 @@ export class CreatePostComponent implements OnInit {
       case this.categories[1]: return this.breadCrumbs = [ 'I have a question about security', 'How does a VPN improve security?' ];  // Security Related
       case this.categories[2]: return this.breadCrumbs = [ 'Should I buy a VPN?', 'What is the best VPN?' ]; // Virtual Private Networks
       case this.categories[3]: return this.breadCrumbs = [ 'I have a question', 'I need help!', 'How do I get a VPN?', 'How do I secure my computer?' ]; // General Questions
+      case this.categories[4]: return this.breadCrumbs = [];
       default: return [];
     };
   }

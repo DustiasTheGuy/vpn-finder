@@ -1,7 +1,7 @@
-const Product = require('../../../website/models/product');
+const User = require('../../models/user');
 
 module.exports = (req, res) => {
-    Product.find({}, (err, documents) => {
+    User.findOneAndUpdate({_id: req.auth}, req.body, (err, user) => {
         if(err) {
             return res.json({
                 message: 'Internal Server Error',
@@ -10,12 +10,12 @@ module.exports = (req, res) => {
                 data: null
             });
 
-        } else if(!documents) {
+        } else if(!user) {
             return res.json({
-                message: 'Zero documents',
+                message: 'Session Expired',
                 success: false,
                 statusCode: 200,
-                data: []
+                data: null
             });
 
         } else {
@@ -23,8 +23,8 @@ module.exports = (req, res) => {
                 message: null,
                 success: true,
                 statusCode: 200,
-                data: documents.slice(0, 8)
+                data: null
             });
         }
-    })
+    });
 }

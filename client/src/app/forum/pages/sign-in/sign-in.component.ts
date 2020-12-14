@@ -13,6 +13,7 @@ import { HttpResponse } from '../../interfaces/http.interface';
 export class SignInComponent implements OnInit {
   public email: string;
   public password: string;
+  public passwordType: string = 'password';
 
   constructor(
     private router: Router,
@@ -29,6 +30,8 @@ export class SignInComponent implements OnInit {
 
     this.readService.signIn({ email: this.email, password: this.password })
     .subscribe((response: HttpResponse) => {
+      console.log(response);
+      
       if(response.success) 
       localStorage.setItem('token', response.data);
 

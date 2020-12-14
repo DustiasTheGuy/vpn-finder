@@ -37,7 +37,7 @@
                 .grid {
                     display: grid;
                     grid-gap: 6em;
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
                     align-items: start;
 
                     app-card {
@@ -64,13 +64,43 @@
 }
 
 @media only screen and (max-width: 1391px) and (min-width: 940px) {
-
+    .container {
+        .align {
+            .content {
+                .jumbotron {
+                    p {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 941px) and (min-width: 600px) {
-
+    .container {
+        .align {
+            .content {
+                .jumbotron {
+                    p {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 601px) {
-
+    .container {
+        .align {
+            .content {
+                .jumbotron {
+                    p {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -4,11 +4,17 @@
     min-width: 100%;
     min-height: 100%;
     background-color: $bg2;
+    /*
+    background-image: url("/assets/images/backgrounds/mountains-toned.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    */
 
     main {
-        min-width: 100%;
-        min-height: 100%;
-
+        width: 100%;
+        background-color: $bg2;
         #main {
             min-width: 100%;
             height: 100%;

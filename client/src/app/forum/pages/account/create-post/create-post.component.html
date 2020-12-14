@@ -6,6 +6,13 @@
         </header>
 
         <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category" [(ngModel)]="formFields.category" (change)="categoryChange(formFields.category)">
+                <option *ngFor="let category of categories">{{category}}</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
             <label for="topic">Topic</label>
             <input name="topic" type="text" [(ngModel)]="formFields.topic" placeholder="Topic *">
 
@@ -14,13 +21,6 @@
                     {{crumb}}
                 </span>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label for="category">Category</label>
-            <select name="category" id="category" [(ngModel)]="formFields.category" (change)="categoryChange(formFields.category)">
-                <option *ngFor="let category of categories">{{category}}</option>
-            </select>
         </div>
 
         <div class="file-upload" (filesUploaded)="upload($event)" appDnd>

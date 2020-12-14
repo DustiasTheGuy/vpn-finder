@@ -31,6 +31,8 @@ export class AsideComponent implements OnInit {
   configureImageURL(imageURL: string): string {
     let env = new HttpConfig().getEnv();
     
-    return !env ? 'http://localhost:3000/assets/files/' + imageURL : 'https://vpnfind.site/assets/files/' + imageURL;
+    return !env ? 
+    'http://localhost:3000/assets/files/' + imageURL : 
+    'https://vpnfind.site/assets/files/' + imageURL;
   }
 }

@@ -45,5 +45,6 @@ router.post('/upload-file', require('./controllers/create/create-image'));
 router.post('/upload-files', require('./controllers/create/upload-files'));
 router.post('/create-reply', require('./controllers/create/create-reply'));
 router.post('/create-topic', require('./controllers/create/create-topic'));
+router.post('/update-user', require('./controllers/update/update-user'));
 
 module.exports = router

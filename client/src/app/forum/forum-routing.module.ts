@@ -7,6 +7,7 @@ import { MyTopicsComponent } from './pages/account/my-topics/my-topics.component
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { AccountComponent } from './pages/account/account.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
 
 import { CanActivateRouteGuard } from './services/guards/can-activate.guard';
 import { CantActivateRouteGuard } from './services/guards/cant-activate.guard';
@@ -17,6 +18,7 @@ export const ForumRoutes: Routes = [
     { path: 'topic/:id', component: TopicComponent },
     { path: 'sign-in', component: SignInComponent, canActivate: [ CantActivateRouteGuard ] },
     { path: 'sign-up', component: SignUpComponent, canActivate: [ CantActivateRouteGuard ] },
+    { path: 'account-recovery', component: RecoveryComponent, canActivate: [ CantActivateRouteGuard ] },
     { path: 'account', component: AccountComponent, canActivate: [ CanActivateRouteGuard ], 
         children: [
             { path: 'create', component: CreatePostComponent },

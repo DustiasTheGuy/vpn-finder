@@ -1,23 +1,13 @@
 <div class="container">
     <div class="inner-container">
-      <aside>
-        <!--
-        <a href="https://www.prizerebel.com/index.php?r=8316198">
-          <img src="https://www.prizerebel.com/assets/promotion/banners/468x60_2019_2.jpg" border="1">
-        </a>
-        <a href="https://www.prizerebel.com/index.php?r=8316198">
-          <img src="https://www.prizerebel.com/assets/promotion/banners/pr_banner_wide5.gif" border="1">
-        </a>
-        -->
+      <app-table *ngIf="tableData" [tableData]="tableData"></app-table>
 
-        <h3>Top Rated VPN Providers</h3>
-        
+      <aside>
         <div class="items" *ngIf="products">
-          <div class="item" *ngFor="let product of products" (click)="adclicked(product.link)">
+          <div class="item" *ngFor="let product of products.slice(0, 6)" (click)="adclicked(product)">
             <img [src]="'https://vpnfind.site/' + product.imageURL">
           </div>
         </div>
       </aside>
-      <app-table *ngIf="tableData" [tableData]="tableData"></app-table>
     </div>
 </div>

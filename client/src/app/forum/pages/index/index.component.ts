@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../interfaces/user.interface';
 import { StateService } from '../../services/state/state.service';
 import { ReadService } from '../../services/read/read.service';
@@ -18,7 +19,10 @@ export class IndexComponent implements OnInit, OnDestroy {
   private categories;
   
   
-  constructor(private stateService: StateService, private readService: ReadService) {
+  constructor(
+    private router: Router,
+    private stateService: StateService, 
+    private readService: ReadService) {
     this.categories = new Categories();
   }
 
@@ -33,8 +37,8 @@ export class IndexComponent implements OnInit, OnDestroy {
     });
   }
 
-  adclicked(link: string) {
-    window.location.href = link;
+  adclicked(product) {
+    this.router.navigate(["/visit"], { queryParams: { id: product._id }})
   }
 
   readTopics() {

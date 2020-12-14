@@ -22,27 +22,27 @@ aside {
         .thumbnail {
             display: flex;
             justify-content: center;
-           //border-bottom: 1px solid $border2;
             padding: 2em;
             position: relative;
             height: 275px;
             cursor: pointer;
             z-index: 1;
-            
+            border-bottom: 1px solid $border2;
+
             &:hover {
-                .on-hover {
-                    display: flex;
-                    z-index: 3;
-                    background-color: rgba(0, 0, 0, 0.342);
-                    pointer-events: none;
+                img {
+                    opacity: .5;
                 }
             }
 
             img {
                 //object-fit: contain;
                 max-width: 100%;
+                max-width: 100%;
+                object-fit: contain;
                 border-radius: 50%;
                 z-index: 2;
+                transition: opacity 200ms ease-in;
             }
 
             input {
@@ -72,38 +72,16 @@ aside {
         .column {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
 
             div {
-                p, a {
-                    margin: 0;
-                    padding: 1em;
-                    display: flex;
-                    justify-content: space-between;
-                    color: $text1;
-                    outline: none;
-                }
-
-                a {
-                    cursor: pointer;
-
-                    &:hover {
-                        color: $text3;
-                    }
-                }
-            }
-
-            nav {
-                display: flex;
-                flex-direction: column;    
 
                 a {
                     padding: 1em;
                     color: $text1;
-                    border-top: 1px solid $bg2_hover;
                     cursor: pointer;
-                    
+                    display: block;
+                    font-size: 15px;
+                    border-bottom: 1px solid $border2;
                     &:hover {
                         color: $text3;
                     }
