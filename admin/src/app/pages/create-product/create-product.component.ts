@@ -6,7 +6,7 @@ import { Product } from '../../interfaces/product';
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.scss', '../form.scss']
+  styleUrls: ['./create-product.component.scss', '../form.scss'],
 })
 export class CreateProductComponent implements OnInit {
   public newFeature: string;
@@ -21,20 +21,21 @@ export class CreateProductComponent implements OnInit {
     active: true,
     moneyBack: false,
     onSaleData: { onSale: false, discount: 0 },
-    features: [ "Great value", "Amazing product" ]
+    features: ['Great value', 'Amazing product'],
   };
 
-  constructor(private createService: CreateService) { }
+  constructor(private createService: CreateService) {}
 
-  ngOnInit(): void {
-  }  
+  ngOnInit(): void {}
 
   createProduct() {
-
+    this.createService
+      .createDocument(this.product)
+      .subscribe((res) => console.log(res));
   }
 
   addFeature() {
-    if(this.newFeature === undefined) return;
+    if (this.newFeature === undefined) return;
     this.product.features.push(this.newFeature);
     this.newFeature = undefined;
   }

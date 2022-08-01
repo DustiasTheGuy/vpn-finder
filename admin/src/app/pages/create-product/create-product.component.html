@@ -1,67 +1,104 @@
 <div class="container">
-    <form>
-        <h1 class="form-title">Create Product</h1>
+  <form>
+    <h1 class="form-title">Create Product</h1>
 
-        <div class="form-group">
-            <label>Label</label>
-            <input type="text" name="label" [(ngModel)]="product.label">
-        </div>
+    <div class="form-group">
+      <label>Label</label>
+      <input type="text" name="label" [(ngModel)]="product.label" />
+    </div>
 
-        <div class="form-group">
-            <label>Description</label>
-            <textarea type="text" name="description" [(ngModel)]="product.description"></textarea>
-        </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        type="text"
+        name="description"
+        [(ngModel)]="product.description"
+      ></textarea>
+    </div>
 
-        <div class="form-group">
-            <label>Image URL</label>
-            <input type="text" name="imageURL" [(ngModel)]="product.imageURL">
-        </div>
-        
-        <div class="button-group">
-            <div class="form-group">
-                <label>{{product.active}}</label>
-                <button type="button" (click)="product.active = !product.active ? true : false">Change</button>
-            </div>
-            <div class="form-group">
-                <label>{{product.freeOption}}</label>
-                <button type="button" (click)="product.freeOption = !product.freeOption ? true : false">Change</button>
-            </div>
-            <div class="form-group">
-                <label>{{product.priority}}</label>
-                <button type="button" (click)="product.priority = !product.priority ? true : false">Change</button>
-            </div>
-            <div class="form-group">
-                <label>{{product.onSaleData.onSale}}</label>
-                <button type="button" (click)="product.onSaleData.onSale = !product.onSaleData.onSale ? true : false">Change</button>
-            </div>
-            <div class="form-group" *ngIf="product.onSaleData.onSale">
-                <label>Discount</label>
-                <input type="number" [(ngModel)]="product.onSaleData.discount" name="discount">
-            </div>
-        </div>
+    <div class="form-group">
+      <label>Image URL</label>
+      <input type="text" name="imageURL" [(ngModel)]="product.imageURL" />
+    </div>
 
-        <div class="form-list">
-            <ul>
-                <li *ngFor="let feature of product.features; let i = index">
-                    <span>{{feature}}</span>
-                    <i (click)="product.features.splice(i, 1)" class="fa fa-trash"></i>
-                </li>
-            </ul>
-        </div>
+    <div class="button-group">
+      <div class="form-group">
+        <label>Active: {{ product.active }}</label>
+        <button
+          type="button"
+          (click)="product.active = !product.active ? true : false"
+        >
+          Change
+        </button>
+      </div>
+      <div class="form-group">
+        <label>Has Free Option: {{ product.freeOption }}</label>
+        <button
+          type="button"
+          (click)="product.freeOption = !product.freeOption ? true : false"
+        >
+          Change
+        </button>
+      </div>
+      <div class="form-group">
+        <label>Prioritized: {{ product.priority }}</label>
+        <button
+          type="button"
+          (click)="product.priority = !product.priority ? true : false"
+        >
+          Change
+        </button>
+      </div>
+      <div class="form-group">
+        <label>On Sale: {{ product.onSaleData.onSale }}</label>
+        <button
+          type="button"
+          (click)="
+            product.onSaleData.onSale = !product.onSaleData.onSale
+              ? true
+              : false
+          "
+        >
+          Change
+        </button>
+      </div>
+      <div class="form-group" *ngIf="product.onSaleData.onSale">
+        <label>Discount</label>
+        <input
+          type="number"
+          [(ngModel)]="product.onSaleData.discount"
+          name="discount"
+        />
+      </div>
+    </div>
 
-        
-        <div class="button-group">
-            <div class="form-group" style="flex-grow:1;">
-                <input placeholder="New feature..." type="text" name="feature" [(ngModel)]="newFeature" (keyup.enter)="addFeature()">
-            </div>
+    <div class="form-list">
+      <ul>
+        <li *ngFor="let feature of product.features; let i = index">
+          <span>{{ feature }}</span>
+          <i (click)="product.features.splice(i, 1)" class="fa fa-trash"></i>
+        </li>
+      </ul>
+    </div>
 
-            <div class="form-group">
-                <button type="button" (click)="addFeature()">Add Feature</button>
-            </div>
-        </div>
+    <div class="button-group">
+      <div class="form-group" style="flex-grow: 1">
+        <input
+          placeholder="New feature..."
+          type="text"
+          name="feature"
+          [(ngModel)]="newFeature"
+          (keyup.enter)="addFeature()"
+        />
+      </div>
 
-        <div class="form-submit">
-            <button (click)="createProduct()" type="button">Submit Product</button>
-        </div>
-    </form>
+      <div class="form-group">
+        <button type="button" (click)="addFeature()">Add Feature</button>
+      </div>
+    </div>
+
+    <div class="form-submit">
+      <button (click)="createProduct()" type="button">Submit Product</button>
+    </div>
+  </form>
 </div>
