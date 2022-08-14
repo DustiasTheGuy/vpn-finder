@@ -1,23 +1,5 @@
 const Product = require("../../models/product");
 
-/*
-    Expected data when creating a new document
-
-    {
-        features: Array<string>,
-        description: String,
-        imageURL: String,
-        link: String,
-        label: String,
-        freeOption: Boolean,
-        moneyBack: Boolean,
-        onSaleData: {
-            onSale: Boolean,
-            discount: Number
-        }
-    }
-
-*/
 module.exports = (req, res) => {
     if(!req.body.features || req.body.features.length === 0) {
         return res.status(404).json({
