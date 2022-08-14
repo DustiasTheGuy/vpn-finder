@@ -19,7 +19,7 @@
     "@angular/core": "~11.0.5",
     "@angular/forms": "~9.1.11",
     "@angular/platform-browser": "~9.1.11",
-    "@angular/platform-browser-dynamic": "~9.1.11",
+    "@angular/platform-browser-dynamic": "~14.1.2",
     "@angular/router": "~9.1.11",
     "chart.js": "^2.9.4",
     "moment": "^2.29.4",
