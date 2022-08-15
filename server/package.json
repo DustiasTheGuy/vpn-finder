@@ -14,7 +14,7 @@
     "mongoose": "^5.10.13",
     "mongoose-fuzzy-searching": "^2.0.2",
     "nodemon": "^2.0.19",
-    "socket.io": "^2.5.0"
+    "socket.io": "^4.5.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
