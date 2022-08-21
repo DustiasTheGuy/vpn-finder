@@ -1,0 +1,26 @@
+<div class="container">
+  <app-landing></app-landing>
+
+  <div class="align">
+    <div class="content" id="main-content">
+      <div class="jumbotron">
+        <h1>Checkout Our Offers</h1>
+
+        <p>
+          We will help you find the perfect VPN for your needs and for your
+          budget. Everyone should have access to a VPN and control over their
+          privacy. Try one of our tested and proven VPN providers below!
+        </p>
+      </div>
+
+      <div id="grid" class="grid" *ngIf="renderedProducts">
+        <app-card
+          *ngFor="let product of renderedProducts"
+          [product]="product"
+          [ngStyle]="{ display: product.active ? 'block' : 'none' }"
+        >
+        </app-card>
+      </div>
+    </div>
+  </div>
+</div>
