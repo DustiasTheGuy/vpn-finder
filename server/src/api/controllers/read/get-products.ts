@@ -10,7 +10,7 @@ export const getProductsController = async (_: Request, res: Response) => {
       message: null,
       success: true,
       statusCode: 200,
-      data: products.filter((product) => product.active),
+      data: products,
     });
   } catch (err: any) {
     return res.status(404).json({
