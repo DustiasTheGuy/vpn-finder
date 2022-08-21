@@ -1,260 +1,261 @@
-[{
-        "label": "VirtualShield VPN",
-        "description": "With excellent reviews and a 30 day money back guarantee there are very few reasons not to try this reliable VPN. This VPN provider ranks at the very top of our recommended list.",
-        "imageURL": "/assets/images/products/vs.png",
-        "link": "https://virtualshield.com/?rfsn=4860654.25c305",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "30 Days Money Back Guarantee",
-            "15 Devices",
-            "Live Chat / FAQ",
-            "Windows 7+, iOS, Linux, Android",
-            "Unblock Censorship"
-        ]
+[
+  {
+    "label": "VirtualShield VPN",
+    "description": "With excellent reviews and a 30 day money back guarantee there are very few reasons not to try this reliable VPN. This VPN provider ranks at the very top of our recommended list.",
+    "imageURL": "/assets/images/products/vs.png",
+    "link": "https://virtualshield.com/?rfsn=4860654.25c305",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
+    "features": [
+      "30 Days Money Back Guarantee",
+      "15 Devices",
+      "Live Chat / FAQ",
+      "Windows 7+, iOS, Linux, Android",
+      "Unblock Censorship"
+    ]
+  },
 
-    {
-        "label": "Ivacy VPN",
-        "description": "empty",
-        "imageURL": "/assets/images/products/ivacy.png",
-        "link": "https://billing.ivacy.com/page/93606",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": true,
-            "discount": 81
-        },
-        "features": [
-            "30 Days Money Back Guarantee",
-            "100+ Locations",
-            "Unlimited Bandwidth",
-            "Malware Protection Included",
-            "Windows 7+, iOS, Linux, Android"
-        ]
+  {
+    "label": "Ivacy VPN",
+    "description": "empty",
+    "imageURL": "/assets/images/products/ivacy.png",
+    "link": "https://billing.ivacy.com/page/93606",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": true,
+      "discount": 81
     },
+    "features": [
+      "30 Days Money Back Guarantee",
+      "100+ Locations",
+      "Unlimited Bandwidth",
+      "Malware Protection Included",
+      "Windows 7+, iOS, Linux, Android"
+    ]
+  },
 
-    {
-        "label": "Windscribe VPN",
-        "description": "Windscribe is one of our absolute favorite VPN provider. They do not only provide 10 free GB of data every month but also have a wide selection of countries and extremely reliable servers. They suppport a wide range of platforms.",
-        "imageURL": "/assets/images/products/ws.png",
-        "link": "https://windscribe.com/?affid=ts8ndjip",
-        "freeOption": true,
-        "moneyBack": false,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Unlock Content",
-            "Block Annoying Ads",
-            "Windows 7+, iOS, Linux, Android",
-            "Stop Tracking",
-            "Take your browsing history to your grave"
-        ]
+  {
+    "label": "Windscribe VPN",
+    "description": "Windscribe is one of our absolute favorite VPN provider. They do not only provide 10 free GB of data every month but also have a wide selection of countries and extremely reliable servers. They suppport a wide range of platforms.",
+    "imageURL": "/assets/images/products/ws.png",
+    "link": "https://windscribe.com/?affid=ts8ndjip",
+    "freeOption": true,
+    "moneyBack": false,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
-    
-    {
-        "label": "Proton VPN",
-        "description": "With a 30 day money back guarantee and excellent customer service this is an excellent choise for your VPN.",
-        "imageURL": "/assets/images/products/proton.png",
-        "link": "https://go.getproton.me/aff_c?offer_id=6&aff_id=2082",
-        "freeOption": true,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "No-log Policy",
-            "10GBIT Servers",
-            "Unlimited Bandwidth",
-            "10 Devices",
-            "Professional Support"
-        ]
-    },
+    "features": [
+      "Unlock Content",
+      "Block Annoying Ads",
+      "Windows 7+, iOS, Linux, Android",
+      "Stop Tracking",
+      "Take your browsing history to your grave"
+    ]
+  },
 
-    {
-        "label": "HideMyAss VPN",
-        "description": "This VPN provider also makes the top list of reliable vpn providers. With their 30 days money back guarantee there's no risk associated with trying them out.",
-        "imageURL": "/assets/images/products/hma.png",
-        "link": "https://click.hmavpn.com/SH6q",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": true,
-            "discount": 59
-        },
-        "features": [
-            "30 Days Money Back Guarantee",
-            "290+ Locations",
-            "190+ Countries",
-            "5 Devices",
-            "Windows 7+, iOS, Linux, Android"
-        ]
+  {
+    "label": "Proton VPN",
+    "description": "With a 30 day money back guarantee and excellent customer service this is an excellent choise for your VPN.",
+    "imageURL": "/assets/images/products/proton.png",
+    "link": "https://go.getproton.me/aff_c?offer_id=6&aff_id=2082",
+    "freeOption": true,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
+    "features": [
+      "No-log Policy",
+      "10GBIT Servers",
+      "Unlimited Bandwidth",
+      "10 Devices",
+      "Professional Support"
+    ]
+  },
 
-    {
-        "label": "VPN.AC",
-        "description": "empty",
-        "imageURL": "/assets/images/products/vpn_ac.png",
-        "link": "https://vpn.ac/aff.php?aff=2400",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Multiple VPN protocols/encryption types",
-            "No speed limit",
-            "6 simultaneous connections",
-            "Windows, Mac, iOS and Android",
-            "Multiple countries: 21 (VPN), 32 (SecureProxy)"
-        ]
+  {
+    "label": "HideMyAss VPN",
+    "description": "This VPN provider also makes the top list of reliable vpn providers. With their 30 days money back guarantee there's no risk associated with trying them out.",
+    "imageURL": "/assets/images/products/hma.png",
+    "link": "https://click.hmavpn.com/SH6q",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": true,
+      "discount": 59
     },
+    "features": [
+      "30 Days Money Back Guarantee",
+      "290+ Locations",
+      "190+ Countries",
+      "5 Devices",
+      "Windows 7+, iOS, Linux, Android"
+    ]
+  },
 
-    {
-        "label": "Rapid VPN",
-        "description": "empty",
-        "imageURL": "/assets/images/products/rapid_vpn.png",
-        "link": "https://affiliate.rapidvpn.com/app//idevaffiliate.php?id=isakg12",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Extra Security & Anonymity",
-            "Residential IP",
-            "Multiple Sessions",
-            "30 days MoneyBack Guarantee!",
-            "Trust Point System"
-        ]
+  {
+    "label": "VPN.AC",
+    "description": "empty",
+    "imageURL": "/assets/images/products/vpn_ac.png",
+    "link": "https://vpn.ac/aff.php?aff=2400",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
+    "features": [
+      "Multiple VPN protocols/encryption types",
+      "No speed limit",
+      "6 simultaneous connections",
+      "Windows, Mac, iOS and Android",
+      "Multiple countries: 21 (VPN), 32 (SecureProxy)"
+    ]
+  },
 
-    {
-        "label": "OVPN",
-        "description": "Empty",
-        "imageURL": "/assets/images/products/ovpn.png",
-        "link": "https://www.ovpn.com/en?ref=isakgranqvist",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Proven and verified focus on privacy",
-            "Total infrastructure ownership",
-            "Transparent company and policies",
-            "Extremely knowledgable customer support",
-            "VPN servers in 26 cities across the globe"
-        ]
+  {
+    "label": "Rapid VPN",
+    "description": "empty",
+    "imageURL": "/assets/images/products/rapid_vpn.png",
+    "link": "https://affiliate.rapidvpn.com/app//idevaffiliate.php?id=isakg12",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
+    "features": [
+      "Extra Security & Anonymity",
+      "Residential IP",
+      "Multiple Sessions",
+      "30 days MoneyBack Guarantee!",
+      "Trust Point System"
+    ]
+  },
 
-    {
-        "label": "StrongVPN",
-        "description": "Empty",
-        "imageURL": "/assets/images/products/strong.png",
-        "link": "https://strongvpn.com/?tr_aid=5faa8f327bc45",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": true,
-            "discount": 50
-        },
-        "features": [
-            "Apps for all platforms",
-            "30-day money-back guarantee",
-            "WireGuard protocol",
-            "950+ servers in 30+ countries",
-            "Zero logging of connections and activity"
-        ]
+  {
+    "label": "OVPN",
+    "description": "Empty",
+    "imageURL": "/assets/images/products/ovpn.png",
+    "link": "https://www.ovpn.com/en?ref=isakgranqvist",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
+    "features": [
+      "Proven and verified focus on privacy",
+      "Total infrastructure ownership",
+      "Transparent company and policies",
+      "Extremely knowledgable customer support",
+      "VPN servers in 26 cities across the globe"
+    ]
+  },
 
-    {
-        "label": "SaferVPN",
-        "description": "Empty",
-        "imageURL": "/assets/images/products/safer.png",
-        "link": "https://www.safervpn.com/?a_aid=1792",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Apps for All Your Devices",
-            "Fastest Browsing Speeds",
-            "5-Star, 24/7 Customer Support",
-            "5 Simultaneous Connections",
-            "1300+ Servers in 50+ Locations"
-        ]
+  {
+    "label": "StrongVPN",
+    "description": "Empty",
+    "imageURL": "/assets/images/products/strong.png",
+    "link": "https://strongvpn.com/?tr_aid=5faa8f327bc45",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": true,
+      "discount": 50
     },
+    "features": [
+      "Apps for all platforms",
+      "30-day money-back guarantee",
+      "WireGuard protocol",
+      "950+ servers in 30+ countries",
+      "Zero logging of connections and activity"
+    ]
+  },
 
-    {
-        "label": "IPVanish",
-        "description": "Empty",
-        "imageURL": "/assets/images/products/ip_vanish.png",
-        "link": "https://www.ipvanish.com/?a_bid=48f95966&a_aid=isakg12",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": true,
-            "discount": 73
-        },
-        "features": [
-            "30-Day Money-Back Guarantee",
-            "Surf the web without a trace",
-            "get around censorship filters",
-            "make any internet connection secure",
-            "backup & encrypt every file"
-        ]
+  {
+    "label": "SaferVPN",
+    "description": "Empty",
+    "imageURL": "/assets/images/products/safer.png",
+    "link": "https://www.safervpn.com/?a_aid=1792",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
     },
+    "features": [
+      "Apps for All Your Devices",
+      "Fastest Browsing Speeds",
+      "5-Star, 24/7 Customer Support",
+      "5 Simultaneous Connections",
+      "1300+ Servers in 50+ Locations"
+    ]
+  },
 
-    {
-        "label": "PureVPN",
-        "description": "Empty",
-        "imageURL": "/assets/images/products/purevpn.png",
-        "link": "https://billing.purevpn.com/aff.php?aff=45139",
-        "freeOption": false,
-        "moneyBack": true,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Enterprise-grade security",
-            "10 Devices",
-            "2000+ secure servers in 140+ countries",
-            "24/7 customer support",
-            "31 days money back guarantee"
-        ]
+  {
+    "label": "IPVanish",
+    "description": "Empty",
+    "imageURL": "/assets/images/products/ip_vanish.png",
+    "link": "https://www.ipvanish.com/?a_bid=48f95966&a_aid=isakg12",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": true,
+      "discount": 73
     },
+    "features": [
+      "30-Day Money-Back Guarantee",
+      "Surf the web without a trace",
+      "get around censorship filters",
+      "make any internet connection secure",
+      "backup & encrypt every file"
+    ]
+  },
 
-    {
-        "label": "TorGuard",
-        "description": "Empty",
-        "imageURL": "/assets/images/products/torguard.png",
-        "link": "https://torguard.net/aff.php?aff=6774",
-        "freeOption": false,
-        "moneyBack": false,
-        "onSaleData": {
-            "onSale": false,
-            "discount": 0
-        },
-        "features": [
-            "Unlimited Speeds",
-            "Unlimited Bandwidth",
-            "x8 Connections Allowed",
-            "3000+ Servers in 50+ Countries",
-            "Supports All OS and Devices"
-        ]
-    }
+  {
+    "label": "PureVPN",
+    "description": "Empty",
+    "imageURL": "/assets/images/products/purevpn.png",
+    "link": "https://billing.purevpn.com/aff.php?aff=45139",
+    "freeOption": false,
+    "moneyBack": true,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
+    },
+    "features": [
+      "Enterprise-grade security",
+      "10 Devices",
+      "2000+ secure servers in 140+ countries",
+      "24/7 customer support",
+      "31 days money back guarantee"
+    ]
+  },
+
+  {
+    "label": "TorGuard",
+    "description": "Empty",
+    "imageURL": "/assets/images/products/torguard.png",
+    "link": "https://torguard.net/aff.php?aff=6774",
+    "freeOption": false,
+    "moneyBack": false,
+    "onSaleData": {
+      "onSale": false,
+      "discount": 0
+    },
+    "features": [
+      "Unlimited Speeds",
+      "Unlimited Bandwidth",
+      "x8 Connections Allowed",
+      "3000+ Servers in 50+ Countries",
+      "Supports All OS and Devices"
+    ]
+  }
 ]
