@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CreateService } from '../../services/create/create.service';
-import { HttpResponse } from '../../interfaces/http.interface';
 import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.scss', '../form.scss'],
+  styleUrls: ['./create-product.component.scss'],
 })
-export class CreateProductComponent implements OnInit {
+export class CreateProductComponent {
   public newFeature: string;
+
   public product: Product = {
     imageURL: undefined,
     label: undefined,
@@ -25,8 +25,6 @@ export class CreateProductComponent implements OnInit {
   };
 
   constructor(private createService: CreateService) {}
-
-  ngOnInit(): void {}
 
   createProduct() {
     this.createService

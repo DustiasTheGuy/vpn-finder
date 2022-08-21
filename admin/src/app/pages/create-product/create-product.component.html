@@ -8,6 +8,11 @@
     </div>
 
     <div class="form-group">
+      <label>Affiliate Link</label>
+      <input type="text" name="label" [(ngModel)]="product.link" />
+    </div>
+
+    <div class="form-group">
       <label>Description</label>
       <textarea
         type="text"
@@ -23,44 +28,27 @@
 
     <div class="button-group">
       <div class="form-group">
-        <label>Active: {{ product.active }}</label>
-        <button
-          type="button"
-          (click)="product.active = !product.active ? true : false"
-        >
-          Change
-        </button>
+        <label
+          >Active:
+          <input type="checkbox" [(ngModel)]="product.active" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Has Free Option: {{ product.freeOption }}</label>
-        <button
-          type="button"
-          (click)="product.freeOption = !product.freeOption ? true : false"
-        >
-          Change
-        </button>
+        <label
+          >Has Free Option:
+          <input type="checkbox" [(ngModel)]="product.freeOption"
+        /></label>
       </div>
       <div class="form-group">
-        <label>Prioritized: {{ product.priority }}</label>
-        <button
-          type="button"
-          (click)="product.priority = !product.priority ? true : false"
-        >
-          Change
-        </button>
+        <label
+          >Prioritized: <input type="checkbox" [(ngModel)]="product.priority"
+        /></label>
       </div>
       <div class="form-group">
-        <label>On Sale: {{ product.onSaleData.onSale }}</label>
-        <button
-          type="button"
-          (click)="
-            product.onSaleData.onSale = !product.onSaleData.onSale
-              ? true
-              : false
-          "
-        >
-          Change
-        </button>
+        <label
+          >On Sale:
+          <input type="checkbox" [(ngModel)]="product.onSaleData.onSale"
+        /></label>
       </div>
       <div class="form-group" *ngIf="product.onSaleData.onSale">
         <label>Discount</label>
