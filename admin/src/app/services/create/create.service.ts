@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpConfig } from '../http.config';
+import { serverAddr } from '../http.config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CreateService {
-
-  private serverAddr: string;
-
-  constructor(private httpClient: HttpClient) {
-    this.serverAddr = new HttpConfig().getAddr();
-  }
+  constructor(private httpClient: HttpClient) {}
 
   createDocument(data) {
-    return this.httpClient.post(`${this.serverAddr}/create`, data)
+    return this.httpClient.post(`${serverAddr}/create`, data);
   }
 }

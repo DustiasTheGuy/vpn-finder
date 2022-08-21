@@ -7,27 +7,25 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  public products: Array<Product> = [];
+  public products: Product[] = [];
 
-  constructor(
-    private router: Router,
-    private readService: ReadService) { }
+  constructor(private router: Router, private readService: ReadService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.readProducts();
   }
 
-  readProducts() {  
-    this.readService.readProducts()
-    .subscribe((response: HttpResponse) => {
-      if(response.success) this.products = response.data;
+  readProducts() {
+    this.readService.readProducts().subscribe((response: HttpResponse) => {
+      if (response.success) this.products = response.data;
     });
   }
 
   navigate(product: Product) {
-    this.router.navigate(["/edit"], { queryParams: { data: JSON.stringify(product) }})
+    this.router.navigate(['/edit'], {
+      queryParams: { data: JSON.stringify(product) },
+    });
   }
 }

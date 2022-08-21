@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpConfig } from '../http.config';
+import { serverAddr } from '../http.config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DeleteService {
-  private serverAddr: string;
-
-  constructor(private httpClient: HttpClient) {
-    this.serverAddr = new HttpConfig().getAddr();
-  }
+  constructor(private httpClient: HttpClient) {}
 
   deleteOne(id) {
-    return this.httpClient.get(`${this.serverAddr}/delete/${id}`);
+    return this.httpClient.get(`${serverAddr}/delete/${id}`);
   }
 }

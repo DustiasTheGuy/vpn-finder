@@ -24,10 +24,10 @@ export class OutpageComponent implements OnInit, OnDestroy {
       this.readService.readProduct(id).subscribe((response) => {
         if (response.success) {
           this.product = response.data;
-          this.timout = window.setTimeout(
-            () => (window.location.href = response.data.link),
-            5000
-          );
+          // this.timout = window.setTimeout(
+          //   () => (window.location.href = response.data.link),
+          //   5000
+          // );
         }
       });
     });

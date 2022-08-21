@@ -1,20 +1,18 @@
-<div *ngIf="product !== null">
-  <div class="card">
-    <div class="thumbnail">
-      <img id="image-container" [src]="product.imageURL" />
+<a
+  routerLink="/visit"
+  [queryParams]="{ id: product._id }"
+  *ngIf="product !== null"
+>
+  <div class="uk-card uk-card-default">
+    <div class="uk-card-media-top">
+      <img [src]="product.imageURL" [alt]="product.label" />
     </div>
-
-    <div class="body">
-      <h2>{{ product.label }}</h2>
-
-      <div class="features">
-        <p *ngFor="let feature of product.features">{{ feature }}</p>
-      </div>
-
-      <button (click)="visitLink(product)">
-        <span class="text">Explore</span>
-        <span class="icon"><i class="fas fa-arrow-circle-right"></i></span>
-      </button>
+    <div class="uk-card-body">
+      <h3 class="uk-card-title">{{ product.label }}</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt.
+      </p>
     </div>
   </div>
-</div>
+</a>

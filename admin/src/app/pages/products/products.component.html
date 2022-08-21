@@ -1,54 +1,55 @@
-<div class="container">
-    <div class="inner-container">
-        <h1>Current Products</h1>
-
-        <div class="grid">
-            <div *ngFor="let product of products" (click)="navigate(product)">
-                <p>
-                    <span>ID:</span> 
-                    <span>{{product._id}}</span>
-                </p>
-                <p>
-                    <span>Label:</span> 
-                    <span>{{product.label}}</span>
-                </p>
-                <p>
-                    <span>Views:</span> 
-                    <span>{{product.views}}</span>
-                </p>
-                <p>
-                    <span>Priority:</span> 
-                    <span>{{product.priority}}</span>
-                </p>
-                <p>
-                    <span>On Sale:</span>
-                    <span>{{product.onSaleData.onSale}}</span>
-                </p>
-                <p>
-                    <span>Money Back:</span>
-                    <span>{{product.moneyBack}}</span>
-                </p>
-                <p>
-                    <span>Affiliate Link:</span> 
-                    <span>{{product.link}}</span>
-                </p>
-                <p>
-                    <span>ImageURL:</span> 
-                    <span>{{product.imageURL}}</span>
-                </p>
-                <p>
-                    <span>Free Option:</span> 
-                    <span>{{product.freeOption}}</span>
-                </p>
-                <p>
-                    <span>Description:</span> 
-                    <span>{{product.description.substring(0, 20)}}</span>
-                </p>
-                <p>
-                    <span>Active:</span> 
-                    <span>{{product.active}}</span>
-                </p>
-            </div>
-        </div>
-    </div>
+<div class="uk-container">
+  <h1>Products</h1>
+  <a
+    class="uk-card"
+    *ngFor="let product of products"
+    (click)="navigate(product)"
+  >
+    <ul class="uk-list uk-list-divider">
+      <li>
+        <span>ID:</span>
+        <span>{{ product._id }}</span>
+      </li>
+      <li>
+        <span>Label:</span>
+        <span>{{ product.label }}</span>
+      </li>
+      <li>
+        <span>Views:</span>
+        <span>{{ product.views }}</span>
+      </li>
+      <li>
+        <span>Priority:</span>
+        <span>{{ product.priority }}</span>
+      </li>
+      <li>
+        <span>On Sale:</span>
+        <span>{{ product.onSaleData.onSale }}</span>
+      </li>
+      <li>
+        <span>Money Back:</span>
+        <span>{{ product.moneyBack }}</span>
+      </li>
+      <li>
+        <span>Affiliate Link:</span>
+        <span>{{ product.link }}</span>
+      </li>
+      <li>
+        <span>ImageURL:</span>
+        <span>{{ product.imageURL }}</span>
+      </li>
+      <li>
+        <span>Free Option:</span>
+        <span>{{ product.freeOption }}</span>
+      </li>
+      <li>
+        <span>Description:</span>
+        <span>{{ product.description.substring(0, 20) }}</span>
+      </li>
+      <li>
+        <span>Active:</span>
+        <span>{{ product.active }}</span>
+      </li>
+    </ul>
+  </a>
 </div>

@@ -1,21 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpConfig } from '../http.config';
+import { serverAddr } from '../http.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UpdateService {
-  private serverAddr: string;
-
-  constructor(private httpClient: HttpClient) {
-    this.serverAddr = new HttpConfig().getAddr();
-  }
+  constructor(private httpClient: HttpClient) {}
 
   public updateProduct(updatedProduct) {
-    return this.httpClient.post(
-      `${this.serverAddr}/api/update`,
-      updatedProduct
-    );
+    return this.httpClient.post(`${serverAddr}/api/update`, updatedProduct);
   }
 }

@@ -1,92 +1,134 @@
-<div class="container">
-  <form>
-    <h1 class="form-title">Product</h1>
+<div class="uk-container">
+  <div class="container">
+    <form>
+      <h1 class="form-title">Update Product</h1>
 
-    <div class="form-group">
-      <label>Label</label>
-      <input type="text" name="label" [(ngModel)]="product.label" />
-    </div>
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom">Label</label>
+        <input
+          class="uk-input"
+          type="text"
+          name="label"
+          [(ngModel)]="product.label"
+        />
+      </div>
 
-    <div class="form-group">
-      <label>Affiliate Link</label>
-      <input type="text" name="label" [(ngModel)]="product.link" />
-    </div>
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom"
+          >Affiliate Link</label
+        >
+        <input
+          class="uk-input"
+          type="text"
+          name="label"
+          [(ngModel)]="product.link"
+        />
+      </div>
 
-    <div class="form-group">
-      <label>Description</label>
-      <textarea
-        type="text"
-        name="description"
-        [(ngModel)]="product.description"
-      ></textarea>
-    </div>
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom"
+          >Description</label
+        >
+        <textarea
+          class="uk-textarea"
+          type="text"
+          name="description"
+          [(ngModel)]="product.description"
+        ></textarea>
+      </div>
 
-    <div class="form-group">
-      <label>Image URL</label>
-      <input type="text" name="imageURL" [(ngModel)]="product.imageURL" />
-    </div>
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom">Image URL</label>
+        <input
+          class="uk-input"
+          type="text"
+          name="imageURL"
+          [(ngModel)]="product.imageURL"
+        />
+      </div>
 
-    <div class="button-group">
-      <div class="form-group">
-        <label
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom"
           >Active:
-          <input type="checkbox" [(ngModel)]="product.active" />
+          <input
+            class="uk-checkbox"
+            type="checkbox"
+            [(ngModel)]="product.active"
+          />
         </label>
       </div>
-      <div class="form-group">
-        <label
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom"
           >Has Free Option:
-          <input type="checkbox" [(ngModel)]="product.freeOption"
+          <input
+            class="uk-checkbox"
+            type="checkbox"
+            [(ngModel)]="product.freeOption"
         /></label>
       </div>
-      <div class="form-group">
-        <label
-          >Prioritized: <input type="checkbox" [(ngModel)]="product.priority"
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom"
+          >Prioritized:
+          <input
+            class="uk-checkbox"
+            type="checkbox"
+            [(ngModel)]="product.priority"
         /></label>
       </div>
-      <div class="form-group">
-        <label
+      <div class="uk-margin-bottom">
+        <label class="uk-display-block uk-margin-small-bottom"
           >On Sale:
-          <input type="checkbox" [(ngModel)]="product.onSaleData.onSale"
+          <input
+            class="uk-checkbox"
+            type="checkbox"
+            [(ngModel)]="product.onSaleData.onSale"
         /></label>
       </div>
-      <div class="form-group" *ngIf="product.onSaleData.onSale">
-        <label>Discount</label>
+      <div class="uk-margin-bottom" *ngIf="product.onSaleData.onSale">
+        <label class="uk-display-block uk-margin-small-bottom">Discount</label>
         <input
+          class="uk-input"
           type="number"
           [(ngModel)]="product.onSaleData.discount"
           name="discount"
         />
       </div>
-    </div>
 
-    <div class="form-list">
-      <ul>
-        <li *ngFor="let feature of product.features; let i = index">
-          <span>{{ feature }}</span>
-          <i (click)="product.features.splice(i, 1)" class="fa fa-trash"></i>
-        </li>
-      </ul>
-    </div>
+      <div class="uk-margin-bottom">
+        <ul>
+          <li *ngFor="let feature of product.features; let i = index">
+            <span>{{ feature }}</span>
+            <i (click)="product.features.splice(i, 1)" class="fa fa-trash"></i>
+          </li>
+        </ul>
+      </div>
 
-    <div class="button-group">
-      <div class="form-group" style="flex-grow: 1">
+      <div class="uk-flex uk-margin-bottom">
         <input
+          class="uk-input"
           placeholder="New feature..."
           type="text"
           name="feature"
           [(ngModel)]="newFeature"
           (keyup.enter)="addFeature()"
         />
+
+        <button
+          class="uk-button uk-button-primary uk-text-nowrap"
+          type="button"
+          (click)="addFeature()"
+        >
+          Add Feature
+        </button>
       </div>
 
-      <div class="form-group">
-        <button type="button" (click)="addFeature()">Add Feature</button>
-      </div>
-    </div>
-
-    <div class="form-submit">
-      <button (click)="updateProduct()" type="button">Submit Product</button>
-    </div>
-  </form>
+      <button
+        class="uk-button uk-button-primary"
+        (click)="updateProduct()"
+        type="button"
+      >
+        Submit Product
+      </button>
+    </form>
+  </div>
 </div>
