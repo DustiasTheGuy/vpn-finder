@@ -11,16 +11,15 @@ const appRoutes: Routes = [
   { path: '', component: WebsiteComponent, children: WebsiteRoutes },
   { path: 'forum', component: ForumComponent, children: ForumRoutes },
   { path: '**', redirectTo: '/page-not-found' },
-  { path: 'page-not-found', component: PageNotFoundComponent }
-]
+  { path: 'page-not-found', component: PageNotFoundComponent },
+];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, { 
-      scrollPositionRestoration: 'top'
-  })],
-  exports: [RouterModule]
+    RouterModule.forRoot(appRoutes, {
+      scrollPositionRestoration: 'top',
+    }),
+  ],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
- 
+export class AppRoutingModule {}

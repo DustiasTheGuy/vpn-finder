@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './pages/index/index.component';
@@ -20,9 +19,12 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 
 const httpConfig = new HttpConfig().getEnv();
 
-const config: SocketIoConfig = { 
-  url: httpConfig === 'Development' ? 'http://localhost:3000' : 'https://vpnfind.site', 
-  options: {} 
+const config: SocketIoConfig = {
+  url:
+    httpConfig === 'Development'
+      ? 'http://localhost:3000'
+      : 'https://vpnfind.site',
+  options: {},
 };
 
 @NgModule({
@@ -35,18 +37,16 @@ const config: SocketIoConfig = {
     ProductsComponent,
     EditProductComponent,
     SidenavComponent,
-    CreateProductComponent
+    CreateProductComponent,
   ],
   imports: [
-    ChartsModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
- 
+export class AppModule {}

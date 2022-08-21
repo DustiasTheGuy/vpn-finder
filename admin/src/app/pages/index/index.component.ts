@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
-import { LineChart, BarChart } from './charts.data';
 import { ReadService } from '../../services/read/read.service';
 import { HttpResponse } from '../../interfaces/http.interface';
 import { DatePipe } from '@angular/common';
@@ -9,36 +7,16 @@ import { DatePipe } from '@angular/common';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-  providers: [DatePipe]
+  providers: [],
 })
-
 export class IndexComponent implements OnInit {
   public barChart;
   public lineChart;
 
-  constructor(
-    private readService: ReadService, 
-    private socket: Socket, 
-    private datePipe: DatePipe) {
-      this.barChart = new BarChart(this.datePipe);
-      this.lineChart = new LineChart(this.datePipe);
-    }
+  constructor(private readService: ReadService) {}
 
   ngOnInit(): void {
-    this.socket.on('history', (data) => {
-      console.log(data);
-      this.lineChart.resetData();
-      data.forEach(dataPoint => {
-        this.lineChart.updateData(dataPoint);
-      });
-    });
-
-    this.socket.on('connections', (dataPoint) => {
-      this.lineChart.updateData(dataPoint);
-    });
-
     this.readProducts();
-    this.socket.emit("get-connections");
   }
 
   readProducts() {
@@ -47,20 +25,14 @@ export class IndexComponent implements OnInit {
     this.readService.readProducts().subscribe((response: HttpResponse) => {
       let data = [];
 
-      response.data.forEach(product => {
-        data.push({ label: product.label, views: product.views })
+      response.data.forEach((product) => {
+        data.push({ label: product.label, views: product.views });
       });
 
       data.sort((a, b) => a.views - b.views);
-      data.forEach(product => this.barChart.updateData(product.views, product.label));
+      data.forEach((product) =>
+        this.barChart.updateData(product.views, product.label)
+      );
     });
   }
-
-  refresh(chart: string) {
-    switch(chart) {
-      case "line":  return this.socket.emit("get-connections");
-      case "bar": return this.readProducts();
-    };
-  }
-
 }

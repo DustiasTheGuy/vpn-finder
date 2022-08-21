@@ -1,51 +1,54 @@
 <div class="container">
-    <div class="left-list">
+  <div class="left-list">
+    <ul>
+      <li><a href="">Some Link</a></li>
+      <li><a href="">Some Link</a></li>
+      <li><a href="">Some Link</a></li>
+      <li><a href="">Some Link</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="inner-content" *ngIf="message">
+      <div class="meta-information">
+        <div>
+          <span class="name">{{ message.name }}</span>
+        </div>
+        <div>
+          <span class="email">{{ message.email }}</span>
+          <span class="date">{{ message.date }}</span>
+        </div>
+      </div>
+
+      <div class="body">
+        <p>{{ message.message }}</p>
+      </div>
+
+      <div class="attachments" *ngIf="message.files.length > 0">
+        <h3>Attachments ({{ message.files.length }})</h3>
         <ul>
-            <li><a href="">Some Link</a></li>
-            <li><a href="">Some Link</a></li>
-            <li><a href="">Some Link</a></li>
-            <li><a href="">Some Link</a></li>
+          <li *ngFor="let file of message.files">
+            <a [href]="fixUrl(file)" target="_blank">{{ file }}</a>
+          </li>
         </ul>
+      </div>
     </div>
+  </div>
 
-    <div class="content">
-        <div class="inner-content" *ngIf="message">
-
-            <div class="meta-information">
-                <div>
-                    <span class="name">{{message.name}}</span>
-                </div>
-                <div>
-                    <span class="email">{{message.email}}</span>
-                    <span class="date">{{message.date | date: 'medium'}}</span>
-                </div>
-            </div>
-
-            <div class="body">
-                <p>{{message.message}}</p>
-            </div>
-
-            <div class="attachments" *ngIf="message.files.length > 0">
-                <h3>Attachments ({{message.files.length}})</h3>
-                <ul>
-                    <li *ngFor="let file of message.files">
-                        <a [href]="fixUrl(file)" target="_blank">{{file}}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div class="messages" *ngIf="messages && message">
+    <div class="actions">
+      <button (click)="readMessages()">
+        <i class="fa fa-refresh"></i>
+      </button>
     </div>
-
-
-    <div class="messages" *ngIf="messages && message">
-        <div class="actions">
-            <button (click)="readMessages()">
-                <i class="fa fa-refresh"></i>
-            </button>
-        </div>
-        <div class="message" *ngFor="let msg of messages" (click)="viewMessage(msg._id)" [ngClass]="{ 'active': msg._id === message._id }">
-            <p class="text">{{msg.message}}</p>
-            <p class="date">{{msg.date | date: 'short'}}</p>
-        </div>
+    <div
+      class="message"
+      *ngFor="let msg of messages"
+      (click)="viewMessage(msg._id)"
+      [ngClass]="{ active: msg._id === message._id }"
+    >
+      <p class="text">{{ msg.message }}</p>
+      <p class="date">{{ msg.date }}</p>
     </div>
+  </div>
 </div>
