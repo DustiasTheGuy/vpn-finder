@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ReadService } from '../../services/read/read.service';
-import { HttpResponse } from '../../interfaces/http.interface';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   public products: Array<Product> = [];

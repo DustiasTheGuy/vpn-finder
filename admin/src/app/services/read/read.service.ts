@@ -1,31 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpConfig } from '../http.config';
+import { serverAddr } from '../http.config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ReadService {
-  private serverAddr: string;
-
-  constructor(private httpClient: HttpClient) {
-    this.serverAddr = new HttpConfig().getAddr();
-  }
+  constructor(private httpClient: HttpClient) {}
 
   readProducts() {
-    return this.httpClient.get(`${this.serverAddr}/read`) 
+    return this.httpClient.get(`${serverAddr}/read`);
   }
-  
+
   readProduct(id: string) {
-    return this.httpClient.get(`${this.serverAddr}/read/${id}`)
-  }
-
-  readMessages() {
-    return this.httpClient.get(`${this.serverAddr}/read-messages`)
-  }
-
-  readMessage(id) {
-    return this.httpClient.get(`${this.serverAddr}/read-message/${id}`)
+    return this.httpClient.get(`${serverAddr}/read/${id}`);
   }
 }

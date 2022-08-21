@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
   @Input() product: Product | null = null;
@@ -14,9 +13,9 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  visitLink(product: Product | null) {
+  getProductLink(product: Product | null) {
     if (!product) return;
 
-    this.router.navigate(['/visit'], { queryParams: { id: product._id } });
+    return `/visit?id=${product._id}`;
   }
 }

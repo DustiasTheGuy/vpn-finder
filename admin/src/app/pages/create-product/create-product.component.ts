@@ -5,23 +5,22 @@ import { Product } from '../../interfaces/product';
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
-  styleUrls: ['./create-product.component.scss'],
 })
 export class CreateProductComponent {
   public newFeature: string;
 
   public product: Product = {
-    imageURL: undefined,
-    label: undefined,
-    description: undefined,
-    link: undefined,
+    imageURL: '',
+    label: '',
+    description: '',
+    link: '',
     freeOption: false,
     priority: false,
     new: true,
     active: true,
     moneyBack: false,
     onSaleData: { onSale: false, discount: 0 },
-    features: ['Great value', 'Amazing product'],
+    features: [],
   };
 
   constructor(private createService: CreateService) {}

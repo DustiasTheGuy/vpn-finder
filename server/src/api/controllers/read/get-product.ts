@@ -9,7 +9,7 @@ export const getProductController = async (req: Request, res: Response) => {
       message: null,
       status: 200,
       success: true,
-      data: document,
+      data: product,
     });
   } catch (err: any) {
     return res.json({

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
+import { HttpResponse } from 'src/app/interfaces/http.interface';
 
 const serverAddr = 'http://localhost:3000';
 
@@ -11,11 +12,13 @@ const serverAddr = 'http://localhost:3000';
 export class ReadService {
   constructor(private httpClient: HttpClient) {}
 
-  readProducts(): Observable<any> {
-    return this.httpClient.get(`${serverAddr}/read`);
+  readProducts() {
+    return this.httpClient.get<HttpResponse<Product[]>>(`${serverAddr}/read`);
   }
 
-  readProduct(id: string): Observable<any> {
-    return this.httpClient.get(`${serverAddr}/read/${id}`);
+  readProduct(id: string) {
+    return this.httpClient.get<HttpResponse<Product>>(
+      `${serverAddr}/read/${id}`,
+    );
   }
 }

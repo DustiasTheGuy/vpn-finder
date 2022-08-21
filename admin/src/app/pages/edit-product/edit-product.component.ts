@@ -7,7 +7,6 @@ import { UpdateService } from '../../services/update/update.service';
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
-  styleUrls: ['./edit-product.component.scss'],
 })
 export class EditProductComponent implements OnInit {
   public product: Product;
@@ -21,7 +20,6 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((data) => {
       this.product = JSON.parse(data.data);
-      console.log(this.product);
     });
   }
 

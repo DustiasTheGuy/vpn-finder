@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 
 import { ProductsComponent } from './pages/products/products.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
     AppComponent,
     ProductsComponent,
     EditProductComponent,
-    SidenavComponent,
     CreateProductComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
