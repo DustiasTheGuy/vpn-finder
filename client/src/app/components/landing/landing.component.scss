@@ -1,0 +1,156 @@
+@import "../../../variables.scss";
+
+.jumbotron {
+  height: 100vh;
+  background-image: url("/assets/images/backgrounds/mountains-toned.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  padding: 1em;
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    nav {
+      margin-bottom: 1em;
+      a {
+        margin: 0 10px;
+        color: $text2;
+        cursor: pointer;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-grow: 1;
+    height: 100%;
+
+    .content {
+      h1,
+      p {
+        color: $text2;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 5em;
+      }
+
+      p {
+        font-size: 24px;
+        text-align: left;
+        margin-left: 5px;
+      }
+
+      .actions {
+        margin-left: 0.5em;
+        .call-to-action {
+          padding: 1em;
+          border: none;
+          background-color: $success;
+          color: $text2;
+          margin-top: 2em;
+          width: 200px;
+          font-weight: 700;
+          border-radius: 5px;
+          cursor: pointer;
+          outline: none;
+          text-transform: uppercase;
+          animation: pump 1s ease-in infinite alternate;
+          transition: all 200ms ease;
+          &:hover {
+            background-color: $success_hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
+*/
+
+@keyframes pump {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@media only screen and (max-width: 1750px) and (min-width: 1390px) {
+}
+
+@media only screen and (max-width: 1391px) and (min-width: 940px) {
+}
+
+@media only screen and (max-width: 941px) and (min-width: 600px) {
+  .jumbotron {
+    .navigation {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section {
+      .content {
+        h1 {
+          font-size: 3em;
+        }
+
+        h1,
+        p {
+          text-align: center;
+        }
+      }
+
+      .actions {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  .jumbotron {
+    .navigation {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section {
+      .content {
+        h1 {
+          font-size: 3em;
+        }
+
+        h1,
+        p {
+          text-align: center;
+        }
+
+        .actions {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

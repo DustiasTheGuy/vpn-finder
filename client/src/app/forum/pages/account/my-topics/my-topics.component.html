@@ -1,7 +1,0 @@
-<div *ngIf="user && user.topics && user.topics.length > 0" id="container">
-    <app-table [tableData]="user.topics"></app-table>
-</div>
-
-<div *ngIf="user.topics.length <= 0" id="zero-topics">
-    <p>You have zero topics <a routerLink="/forum/account/create">create a topic</a></p>
-</div>

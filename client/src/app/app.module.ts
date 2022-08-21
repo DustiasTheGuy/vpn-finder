@@ -4,24 +4,34 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WebsiteModule } from './website/website.module';
-import { ForumModule } from './forum/forum.module';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { HomeComponent } from './pages/home/home.component';
+import { OutpageComponent } from './pages/outpage/outpage.component';
+import { ComponentsModule } from './components/components.module';
+import { FormsModule } from '@angular/forms';
+import { ReadService } from './services/read/read.service';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    OutpageComponent,
+  ],
   imports: [
-    RouterModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
+    FormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    WebsiteModule,
-    ForumModule,
+    ComponentsModule,
   ],
   exports: [],
+  providers: [ReadService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

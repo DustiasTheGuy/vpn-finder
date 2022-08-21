@@ -1,8 +1,0 @@
-@import '../../../../variables.scss';
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    width: 100%;
-    min-height: calc(100vh - 75px - 270px);
-}
