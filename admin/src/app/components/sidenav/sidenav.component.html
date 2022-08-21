@@ -1,20 +1,4 @@
-<nav [ngClass]="{ 'open': menuOpen }">
-
-    <div class="links" style="border-bottom: 1px solid #505050;">
-        <a tabindex="1" routerLink="/" (click)="menuOpen = false">Home</a>
-        <a tabindex="2" routerLink="/inbox" (click)="menuOpen = false">Inbox</a>
-        <a tabindex="3" routerLink="/products" (click)="menuOpen = false">Products</a>
-        <a tabindex="4" routerLink="/create-product" (click)="menuOpen = false">New Product</a>
-    </div>
-
-    <div class="links" style="border-top:1px solid #505050">
-        <a tabindex="5" href="https://vpnfind.site" target="_blank">vpnfind.site</a>
-    </div>
+<nav>
+  <a tabindex="1" routerLink="/">Products</a>
+  <a tabindex="4" routerLink="/create-product">New Product</a>
 </nav>
-
-<span class="menu-trigger" [ngClass]="{ 'open': menuOpen }">
-    <i *ngIf="!menuOpen" (click)="menuOpen = !menuOpen ? true : false" class="fa fa-bars fa-2x" aria-hidden="true"></i>
-    <i *ngIf="menuOpen" (click)="menuOpen = !menuOpen ? true : false" class="fa fa-times fa-2x" aria-hidden="true"></i>
-</span>
-
-<div class="filler" [ngClass]="{ 'show': menuOpen }" (click)="menuOpen = !menuOpen ? true : false"></div>

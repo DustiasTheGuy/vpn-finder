@@ -7,7 +7,7 @@ import { UpdateService } from '../../services/update/update.service';
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
-  styleUrls: ['./edit-product.component.scss', '../form.scss']
+  styleUrls: ['./edit-product.component.scss'],
 })
 export class EditProductComponent implements OnInit {
   public product: Product;
@@ -15,26 +15,26 @@ export class EditProductComponent implements OnInit {
 
   constructor(
     private updateService: UpdateService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(data => {
+    this.activatedRoute.queryParams.subscribe((data) => {
       this.product = JSON.parse(data.data);
       console.log(this.product);
     });
   }
 
-
   updateProduct() {
-    this.updateService.updateProduct(this.product)
-    .subscribe((response: HttpResponse) => {
-      console.log(response);
-    })
+    this.updateService
+      .updateProduct(this.product)
+      .subscribe((response: HttpResponse) => {
+        console.log(response);
+      });
   }
 
-
   addFeature() {
-    if(this.newFeature === undefined) return;
+    if (this.newFeature === undefined) return;
     this.product.features.push(this.newFeature);
     this.newFeature = undefined;
   }
