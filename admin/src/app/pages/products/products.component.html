@@ -1,55 +1,32 @@
 <div class="uk-container">
   <h1>Products</h1>
-  <a
-    class="uk-card"
-    *ngFor="let product of products"
-    (click)="navigate(product)"
-  >
-    <ul class="uk-list uk-list-divider">
-      <li>
-        <span>ID:</span>
-        <span>{{ product._id }}</span>
-      </li>
-      <li>
-        <span>Label:</span>
-        <span>{{ product.label }}</span>
-      </li>
-      <li>
-        <span>Views:</span>
-        <span>{{ product.views }}</span>
-      </li>
-      <li>
-        <span>Priority:</span>
-        <span>{{ product.priority }}</span>
-      </li>
-      <li>
-        <span>On Sale:</span>
-        <span>{{ product.onSaleData.onSale }}</span>
-      </li>
-      <li>
-        <span>Money Back:</span>
-        <span>{{ product.moneyBack }}</span>
-      </li>
-      <li>
-        <span>Affiliate Link:</span>
-        <span>{{ product.link }}</span>
-      </li>
-      <li>
-        <span>ImageURL:</span>
-        <span>{{ product.imageURL }}</span>
-      </li>
-      <li>
-        <span>Free Option:</span>
-        <span>{{ product.freeOption }}</span>
-      </li>
-      <li>
-        <span>Description:</span>
-        <span>{{ product.description.substring(0, 20) }}</span>
-      </li>
-      <li>
-        <span>Active:</span>
-        <span>{{ product.active }}</span>
-      </li>
-    </ul>
-  </a>
+
+  <div class="uk-overflow-auto">
+    <table class="uk-table uk-table-divider uk-table-hover">
+      <thead>
+        <tr>
+          <th class="uk-text-nowrap">ID</th>
+          <th class="uk-text-nowrap">Label</th>
+          <th class="uk-text-nowrap">Priority</th>
+          <th class="uk-text-nowrap">On Sale</th>
+          <th class="uk-text-nowrap">Money Back</th>
+          <th class="uk-text-nowrap">Affiliate Link</th>
+          <th class="uk-text-nowrap">Free Option</th>
+          <th class="uk-text-nowrap">Active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products" (click)="navigate(product)">
+          <td class="uk-text-nowrap">{{ product._id }}</td>
+          <td class="uk-text-nowrap">{{ product.label }}</td>
+          <td class="uk-text-nowrap">{{ product.priority }}</td>
+          <td class="uk-text-nowrap">{{ product.onSaleData.onSale }}</td>
+          <td class="uk-text-nowrap">{{ product.moneyBack }}</td>
+          <td class="uk-text-nowrap">{{ product.link }}</td>
+          <td class="uk-text-nowrap">{{ product.freeOption }}</td>
+          <td class="uk-text-nowrap">{{ product.active }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
