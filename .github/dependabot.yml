@@ -1,15 +1,17 @@
-
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/admin" 
+  - package-ecosystem: 'npm'
+    directory: '/admin'
+    target-branch: 'develop'
     schedule:
-      interval: "weekly"
-  - package-ecosystem: "npm"
-    directory: "/client" 
+      interval: 'weekly'
+  - package-ecosystem: 'npm'
+    directory: '/client'
+    target-branch: 'develop'
     schedule:
-      interval: "weekly"
-  - package-ecosystem: "npm" 
-    directory: "/server" 
+      interval: 'weekly'
+  - package-ecosystem: 'npm'
+    target-branch: 'develop'
+    directory: '/server'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
