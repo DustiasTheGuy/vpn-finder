@@ -62,7 +62,7 @@ export class UpdateProductComponent implements OnInit {
 
   addFeature() {
     if (this.newFeature.length) {
-      this.product.features.push({ label: this.newFeature });
+      this.product?.features.push({ label: this.newFeature });
       this.newFeature = '';
     }
   }
