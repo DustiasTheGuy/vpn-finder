@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/services/product';
   templateUrl: './create-product.component.html',
 })
 export class CreateProductComponent {
-  public newFeature: string;
+  public newFeature: string = "";
   public product: Omit<Product, '_id'> = {
     title: '',
     description: '',
@@ -43,7 +43,13 @@ export class CreateProductComponent {
 
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => (this.product.image = reader.result.toString());
+    reader.onload = () => {
+      const result = reader.result?.toString();
+      if (result) {
+        this.product.image = result;
+      }
+    }
+
     reader.onerror = () => window.alert('Upload failed');
   }
 
