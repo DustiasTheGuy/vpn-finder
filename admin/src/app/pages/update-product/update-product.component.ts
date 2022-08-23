@@ -51,6 +51,8 @@ export class UpdateProductComponent implements OnInit {
   }
 
   updateProduct() {
+    if(!this.product) return;
+    
     this.productService.updateProduct(this.product).subscribe((res) => {
       if (res.success) {
         window.alert('Updated');
