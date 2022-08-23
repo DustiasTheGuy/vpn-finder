@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReadService } from '../../services/read/read.service';
-import { Product } from '../../interfaces/product';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-outpage',
@@ -14,7 +14,7 @@ export class OutpageComponent implements OnInit, OnDestroy {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private readService: ReadService
+    private readService: ReadService,
   ) {}
 
   ngOnInit(): void {
@@ -24,10 +24,10 @@ export class OutpageComponent implements OnInit, OnDestroy {
       this.readService.readProduct(id).subscribe((response) => {
         if (response.success) {
           this.product = response.data;
-          // this.timout = window.setTimeout(
-          //   () => (window.location.href = response.data.link),
-          //   5000
-          // );
+          this.timout = window.setTimeout(
+            () => (window.location.href = response.data.affiliateUrl),
+            5000,
+          );
         }
       });
     });

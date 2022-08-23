@@ -1,18 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../interfaces/product';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() product: Product | null = null;
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  constructor() {}
 
   getProductLink(product: Product | null) {
     if (!product) return;

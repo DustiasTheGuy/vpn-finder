@@ -6,25 +6,23 @@
       <thead>
         <tr>
           <th class="uk-text-nowrap">ID</th>
-          <th class="uk-text-nowrap">Label</th>
-          <th class="uk-text-nowrap">Priority</th>
+          <th class="uk-text-nowrap">title</th>
           <th class="uk-text-nowrap">On Sale</th>
           <th class="uk-text-nowrap">Money Back</th>
           <th class="uk-text-nowrap">Affiliate Link</th>
           <th class="uk-text-nowrap">Free Option</th>
-          <th class="uk-text-nowrap">Active</th>
+          <th class="uk-text-nowrap">Draft</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products" (click)="navigate(product)">
+        <tr *ngFor="let product of products" (click)="navigate(product._id)">
           <td class="uk-text-nowrap">{{ product._id }}</td>
-          <td class="uk-text-nowrap">{{ product.label }}</td>
-          <td class="uk-text-nowrap">{{ product.priority }}</td>
-          <td class="uk-text-nowrap">{{ product.onSaleData.onSale }}</td>
-          <td class="uk-text-nowrap">{{ product.moneyBack }}</td>
-          <td class="uk-text-nowrap">{{ product.link }}</td>
-          <td class="uk-text-nowrap">{{ product.freeOption }}</td>
-          <td class="uk-text-nowrap">{{ product.active }}</td>
+          <td class="uk-text-nowrap">{{ product.title }}</td>
+          <td class="uk-text-nowrap">{{ product.onSale }}</td>
+          <td class="uk-text-nowrap">{{ product.moneyBackGuarantee }}</td>
+          <td class="uk-text-nowrap">{{ product.affiliateUrl }}</td>
+          <td class="uk-text-nowrap">{{ product.hasFreeOption }}</td>
+          <td class="uk-text-nowrap">{{ product.draft }}</td>
         </tr>
       </tbody>
     </table>
