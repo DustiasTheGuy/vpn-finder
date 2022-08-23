@@ -32,7 +32,7 @@ export class UpdateProductComponent implements OnInit {
 
   onFileChange(e: Event) { 
     const target = e.target as HTMLInputElement;
-    const file = target.files[0]
+    const file = target.files?.[0]
     if (!file) {
       window.alert("No file")
       return;  
