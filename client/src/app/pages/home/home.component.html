@@ -11,11 +11,7 @@
 </div>
 
 <div class="uk-container">
-  <div
-    *ngIf="renderedProducts"
-    class="uk-grid-small uk-child-width-1-4@s uk-flex-center"
-    uk-grid
-  >
+  <div *ngIf="renderedProducts" class="products-grid" uk-grid>
     <div *ngFor="let product of renderedProducts">
       <app-card [product]="product"></app-card>
     </div>
