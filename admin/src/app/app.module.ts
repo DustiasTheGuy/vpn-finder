@@ -7,14 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { ProductsComponent } from './pages/products/products.component';
-import { EditProductComponent } from './pages/edit-product/edit-product.component';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    EditProductComponent,
+    UpdateProductComponent,
     CreateProductComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],

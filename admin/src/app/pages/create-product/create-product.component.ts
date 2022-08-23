@@ -1,6 +1,19 @@
 import { Component } from '@angular/core';
-import { CreateService } from '../../services/create/create.service';
-import { Product } from '../../interfaces/product';
+import { Product } from 'src/app/models';
+import { ProductService } from 'src/app/services/product';
+
+const initialProductState: Omit<Product, '_id'> = {
+  title: '',
+  description: '',
+  image: '',
+  affiliateUrl: '',
+  hasFreeOption: false,
+  moneyBackGuarantee: false,
+  draft: false,
+  onSale: false,
+  discount: 0,
+  features: [],
+};
 
 @Component({
   selector: 'app-create-product',
@@ -9,31 +22,32 @@ import { Product } from '../../interfaces/product';
 export class CreateProductComponent {
   public newFeature: string;
 
-  public product: Product = {
-    imageURL: '',
-    label: '',
-    description: '',
-    link: '',
-    freeOption: false,
-    priority: false,
-    new: true,
-    active: true,
-    moneyBack: false,
-    onSaleData: { onSale: false, discount: 0 },
-    features: [],
-  };
+  public product: Omit<Product, '_id'> = initialProductState;
 
-  constructor(private createService: CreateService) {}
+  constructor(private createService: ProductService) {}
 
   createProduct() {
-    this.createService
-      .createDocument(this.product)
-      .subscribe((res) => console.log(res));
+    this.createService.createProduct(this.product).subscribe((res) => {
+      if (res.success) {
+        this.product = initialProductState;
+      } else {
+        window.alert(res.message);
+      }
+    });
   }
 
-  addFeature() {
-    if (this.newFeature === undefined) return;
-    this.product.features.push(this.newFeature);
-    this.newFeature = undefined;
+  getBase64(file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => (this.product.image = reader.result.toString());
+    reader.onerror = () => window.alert('Upload failed');
   }
+
+  onFileChange(e: Event) {
+    const target = e.target as HTMLInputElement;
+    this.getBase64(target.files[0]);
+  }
+
+  addFeature() {}
 }

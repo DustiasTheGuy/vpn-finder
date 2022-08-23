@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ReadService } from '../../services/read/read.service';
-import { Product } from '../../interfaces/product';
-import { HttpResponse } from '../../interfaces/http.interface';
+import { ProductService } from 'src/app/services/product';
+import { Product } from 'src/app/models';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,21 +10,21 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
   public products: Product[] = [];
 
-  constructor(private router: Router, private readService: ReadService) {}
+  constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit() {
-    this.readProducts();
-  }
-
-  readProducts() {
-    this.readService.readProducts().subscribe((response: HttpResponse) => {
-      if (response.success) this.products = response.data;
+    this.productService.getProducts().subscribe((res) => {
+      if (res.success) {
+        this.products = res.data;
+      } else {
+        window.alert('Could not load products');
+      }
     });
   }
 
-  navigate(product: Product) {
-    this.router.navigate(['/edit'], {
-      queryParams: { data: JSON.stringify(product) },
+  navigate(id: string) {
+    this.router.navigate(['/update'], {
+      queryParams: { id },
     });
   }
 }

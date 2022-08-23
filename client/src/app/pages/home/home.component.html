@@ -1,4 +1,4 @@
-<div class="uk-container">
+<div class="uk-container uk-margin-large-top">
   <div class="jumbotron">
     <h1>Checkout Our Offers</h1>
 
@@ -11,12 +11,8 @@
 </div>
 
 <div class="uk-container">
-  <div
-    *ngIf="renderedProducts"
-    class="uk-grid-small uk-child-width-1-4@s uk-flex-center"
-    uk-grid
-  >
-    <div *ngFor="let product of renderedProducts">
+  <div *ngIf="products" class="products-grid" uk-grid>
+    <div *ngFor="let product of products">
       <app-card [product]="product"></app-card>
     </div>
   </div>
