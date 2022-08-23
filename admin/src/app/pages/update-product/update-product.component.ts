@@ -8,8 +8,8 @@ import { Product } from 'src/app/models';
   templateUrl: './update-product.component.html',
 })
 export class UpdateProductComponent implements OnInit {
-  public product: Product;
   public newFeature: string;
+  public product: Product;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -45,9 +45,18 @@ export class UpdateProductComponent implements OnInit {
 
   updateProduct() {
     this.productService.updateProduct(this.product).subscribe((res) => {
-      console.log(res);
+      if (res.success) {
+        window.alert('Updated');
+      } else {
+        window.alert('Error');
+      }
     });
   }
 
-  addFeature() {}
+  addFeature() {
+    if (this.newFeature.length) {
+      this.product.features.push({ label: this.newFeature });
+      this.newFeature = '';
+    }
+  }
 }

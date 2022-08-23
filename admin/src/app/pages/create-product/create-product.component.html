@@ -1,6 +1,6 @@
 <div class="uk-container">
   <form>
-    <h1 class="form-title">Create Product</h1>
+    <h1>Create Product</h1>
 
     <div class="uk-margin-bottom">
       <label class="uk-display-block uk-margin-small-bottom">Title</label>
@@ -70,10 +70,18 @@
     </div>
 
     <div class="uk-margin-bottom">
-      <ul>
-        <li *ngFor="let feature of product.features; let i = index">
-          <span>{{ feature }}</span>
-          <i (click)="product.features.splice(i, 1)" class="fa fa-trash"></i>
+      <ul style="padding-left: 0">
+        <li
+          *ngFor="let feature of product.features; let i = index"
+          class="uk-flex uk-flex-middle"
+        >
+          <span class="uk-margin-right">{{ feature.label }}</span>
+          <span
+            style="cursor: pointer"
+            (click)="product.features.splice(i, 1)"
+            class="material-icons-outlined"
+            >delete</span
+          >
         </li>
       </ul>
     </div>
@@ -110,5 +118,11 @@
     </button>
   </form>
 
-  <img *ngIf="product.image" [src]="product.image" alt="" />
+  <img
+    class="uk-margin-top"
+    style="width: 300px; height: 200px; object-fit: contain"
+    *ngIf="product.image"
+    [src]="product.image"
+    alt=""
+  />
 </div>

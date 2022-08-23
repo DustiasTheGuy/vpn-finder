@@ -6,16 +6,21 @@
       <thead>
         <tr>
           <th class="uk-text-nowrap">ID</th>
-          <th class="uk-text-nowrap">title</th>
+          <th class="uk-text-nowrap">Title</th>
           <th class="uk-text-nowrap">On Sale</th>
           <th class="uk-text-nowrap">Money Back</th>
           <th class="uk-text-nowrap">Affiliate Link</th>
           <th class="uk-text-nowrap">Free Option</th>
           <th class="uk-text-nowrap">Draft</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products" (click)="navigate(product._id)">
+        <tr
+          style="cursor: pointer"
+          *ngFor="let product of products"
+          (click)="navigate(product._id)"
+        >
           <td class="uk-text-nowrap">{{ product._id }}</td>
           <td class="uk-text-nowrap">{{ product.title }}</td>
           <td class="uk-text-nowrap">{{ product.onSale }}</td>
@@ -23,6 +28,9 @@
           <td class="uk-text-nowrap">{{ product.affiliateUrl }}</td>
           <td class="uk-text-nowrap">{{ product.hasFreeOption }}</td>
           <td class="uk-text-nowrap">{{ product.draft }}</td>
+          <td (click)="deleteProduct($event, product._id)">
+            <span class="material-icons-outlined">delete</span>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -12,11 +12,12 @@ const baseUrl = `${serverAddr}/product`;
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
-  updateProduct(data) {
-    return this.httpClient.put<HttpResponse<null>>(`${baseUrl}`, data);
+  updateProduct(data: Product) {
+    const { _id, ...rest } = data;
+    return this.httpClient.put<HttpResponse<null>>(`${baseUrl}/${_id}`, rest);
   }
 
-  createProduct(data) {
+  createProduct(data: Omit<Product, '_id'>) {
     return this.httpClient.post<HttpResponse<string>>(`${baseUrl}`, data);
   }
 
