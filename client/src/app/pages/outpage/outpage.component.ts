@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ReadService } from '../../services/read/read.service';
-import { Product } from '../../models/product.model';
+import { ProductService } from 'src/app/services';
+import { Product } from 'src/app/models';
 
 @Component({
   selector: 'app-outpage',
@@ -14,19 +14,19 @@ export class OutpageComponent implements OnInit, OnDestroy {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private readService: ReadService,
+    private readService: ProductService,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.activeRoute.queryParams.subscribe((params) => {
       const id = params['id'];
 
-      this.readService.readProduct(id).subscribe((response) => {
+      this.readService.getProductById(id).subscribe((response) => {
         if (response.success) {
           this.product = response.data;
           this.timout = window.setTimeout(
             () => (window.location.href = response.data.affiliateUrl),
-            5000,
+            1000,
           );
         }
       });

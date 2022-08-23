@@ -30,17 +30,13 @@ export class UpdateProductComponent implements OnInit {
     });
   }
 
-  getBase64(file) {
+  onFileChange(e: Event) { 
+    const target = e.target as HTMLInputElement;
+ 
     const reader = new FileReader();
-    reader.readAsDataURL(file);
-
+    reader.readAsDataURL(target.files[0]); 
     reader.onload = () => (this.product.image = reader.result.toString());
     reader.onerror = () => window.alert('Upload failed');
-  }
-
-  onFileChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    this.getBase64(target.files[0]);
   }
 
   updateProduct() {

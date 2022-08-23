@@ -1,6 +1,5 @@
 export interface HttpResponse<Data> {
-  message: string;
+  message: string | null;
   success: boolean;
-  statusCode: number;
-  data: Data;
+  data: Data | null;
 }
