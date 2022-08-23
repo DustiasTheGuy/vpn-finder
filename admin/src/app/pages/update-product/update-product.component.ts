@@ -42,7 +42,7 @@ export class UpdateProductComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       const result = reader.result?.toString();
-      if (result) {
+      if (result && this.product) {
         this.product.image = result;
       }
     }
