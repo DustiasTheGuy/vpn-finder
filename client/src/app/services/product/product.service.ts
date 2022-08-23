@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from 'src/app/models/product.model';
-import { HttpResponse } from 'src/app/models/http.model';
-
-const serverAddr = 'http://localhost:3000';
+import { serverAddr } from '../services.constants';
+import { HttpResponse } from '../services.types';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ReadService {
+export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
-  readProducts() {
+  getProducts() {
     return this.httpClient.get<HttpResponse<Product[]>>(
-      `${serverAddr}/product`,
+      `${serverAddr}/product?includeImages=1`,
     );
   }
 
-  readProduct(id: string) {
+  getProductById(id: string) {
     return this.httpClient.get<HttpResponse<Product>>(
       `${serverAddr}/product/${id}`,
     );
   }
-}
+} 
+ 

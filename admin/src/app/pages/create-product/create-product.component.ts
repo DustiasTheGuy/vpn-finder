@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/services/product';
   templateUrl: './create-product.component.html',
 })
 export class CreateProductComponent {
-  public newFeature: string;
+  public newFeature: string = "";
   public product: Omit<Product, '_id'> = {
     title: '',
     description: '',
@@ -35,16 +35,27 @@ export class CreateProductComponent {
 
   onFileChange(e: Event) {
     const target = e.target as HTMLInputElement;
+    const file = target.files?.[0];
+    if (!file) {
+     window.alert("No file")
+     return;  
+   }
 
     const reader = new FileReader();
-    reader.readAsDataURL(target.files[0]);
-    reader.onload = () => (this.product.image = reader.result.toString());
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const result = reader.result?.toString();
+      if (result) {
+        this.product.image = result;
+      }
+    }
+
     reader.onerror = () => window.alert('Upload failed');
   }
 
   addFeature() {
     if (this.newFeature.length) {
-      this.product.features.push({ label: this.newFeature });
+      this.product?.features.push({ label: this.newFeature });
       this.newFeature = '';
     }
   }

@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getProducts().subscribe((res) => {
-      if (res.success) {
+      if (res.success && res.data) {
         this.products = res.data;
       } else {
         window.alert('Could not load products');

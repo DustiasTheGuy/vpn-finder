@@ -16,4 +16,12 @@ export class CardComponent {
 
     return `/visit?id=${product._id}`;
   }
+
+  cutString(str: string) {
+    if(str.length > 80) {
+      return `${str.substring(0, 77)}...` 
+    }
+
+    return str;
+  }
 }

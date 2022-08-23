@@ -62,9 +62,11 @@ export const getProductController = async (req: Request, res: Response) => {
   }
 };
 
-export const getProductsController = async (_: Request, res: Response) => {
+export const getProductsController = async (req: Request, res: Response) => {
   try {
-    const products = await getProducts();
+    const includeImages = req.query.includeImages;
+
+    const products = await getProducts(includeImages !== undefined);
     return res.json({
       message: null,
       success: true,

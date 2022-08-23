@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { serverAddr } from '../http.config';
 import { Product } from 'src/app/models';
-import { HttpResponse } from 'src/app/models';
+import { serverAddr } from '../services.constants';
+import { HttpResponse } from '../services.types';
 
 const baseUrl = `${serverAddr}/product`;
 

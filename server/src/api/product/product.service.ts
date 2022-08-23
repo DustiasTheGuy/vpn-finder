@@ -40,12 +40,13 @@ export const getProductById = async (id: string) => {
   }
 };
 
-export const getProducts = async () => {
+export const getProducts = async (includeImages: boolean) => {
   try {
-    const products = await ProductModel.find({})
-      .select({ image: 0, __v: 0 })
-      .exec();
-    return products;
+    if (includeImages) {
+      return await ProductModel.find({}).select({ __v: 0 }).exec();
+    }
+
+    return await ProductModel.find({}).select({ image: 0, __v: 0 }).exec();
   } catch (err) {
     return err;
   }

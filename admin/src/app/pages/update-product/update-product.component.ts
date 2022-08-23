@@ -8,8 +8,8 @@ import { Product } from 'src/app/models';
   templateUrl: './update-product.component.html',
 })
 export class UpdateProductComponent implements OnInit {
-  public newFeature: string;
-  public product: Product;
+  public newFeature: string = "";
+  public product: Product | null = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,7 +21,7 @@ export class UpdateProductComponent implements OnInit {
       const id = queryParams['id'];
 
       this.productService.getProductById(id).subscribe((res) => {
-        if (res.success) {
+        if (res.success && res.data) {
           this.product = res.data;
         } else {
           window.alert('could not load product');
@@ -30,20 +30,29 @@ export class UpdateProductComponent implements OnInit {
     });
   }
 
-  getBase64(file) {
+  onFileChange(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const file = target.files?.[0];
+    if (!file) {
+     window.alert("No file")
+     return;  
+   }
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    reader.onload = () => {
+      const result = reader.result?.toString();
+      if (result && this.product) {
+        this.product.image = result;
+      }
+    }
 
-    reader.onload = () => (this.product.image = reader.result.toString());
     reader.onerror = () => window.alert('Upload failed');
   }
 
-  onFileChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    this.getBase64(target.files[0]);
-  }
-
   updateProduct() {
+    if(!this.product) return;
+    
     this.productService.updateProduct(this.product).subscribe((res) => {
       if (res.success) {
         window.alert('Updated');
@@ -55,7 +64,7 @@ export class UpdateProductComponent implements OnInit {
 
   addFeature() {
     if (this.newFeature.length) {
-      this.product.features.push({ label: this.newFeature });
+      this.product?.features.push({ label: this.newFeature });
       this.newFeature = '';
     }
   }

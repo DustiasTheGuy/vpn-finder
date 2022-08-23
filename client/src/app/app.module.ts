@@ -5,13 +5,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { HomeComponent } from './pages/home/home.component';
-import { OutpageComponent } from './pages/outpage/outpage.component';
-import { ComponentsModule } from './components/components.module';
 import { FormsModule } from '@angular/forms';
-import { ReadService } from './services/read/read.service';
+import { AppComponent } from './app.component';
+import {
+  PageNotFoundComponent,
+  HomeComponent,
+  OutpageComponent,
+} from './pages';
+import { ComponentsModule } from './components';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ReadService } from './services/read/read.service';
     ComponentsModule,
   ],
   exports: [],
-  providers: [ReadService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
