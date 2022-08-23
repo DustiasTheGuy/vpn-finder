@@ -10,6 +10,7 @@ const app = express();
 mongoose.connect(env.MONGO_URI);
 
 app.use(cors());
+app.use(express.json({ limit: '10mb' }));
 app.use(express.static('./public'));
 
 app.use('/', apiRouter);

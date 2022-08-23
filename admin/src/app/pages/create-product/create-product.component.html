@@ -1,6 +1,16 @@
 <div class="uk-container">
   <form>
-    <h1>Create Product</h1>
+    <div class="uk-flex uk-flex-between uk-flex-middle">
+      <h1>Create Product</h1>
+
+      <img
+        class="uk-margin-top uk-margin-bottom"
+        style="width: 300px; height: 200px; object-fit: contain"
+        *ngIf="product.image"
+        [src]="product.image"
+        alt=""
+      />
+    </div>
 
     <div class="uk-margin-bottom">
       <label class="uk-display-block uk-margin-small-bottom">Title</label>
@@ -70,7 +80,7 @@
     </div>
 
     <div class="uk-margin-bottom">
-      <ul style="padding-left: 0">
+      <ul class="uk-list uk-list-divider" style="padding-left: 0">
         <li
           *ngFor="let feature of product.features; let i = index"
           class="uk-flex uk-flex-middle"
@@ -117,12 +127,4 @@
       Submit Product
     </button>
   </form>
-
-  <img
-    class="uk-margin-top"
-    style="width: 300px; height: 200px; object-fit: contain"
-    *ngIf="product.image"
-    [src]="product.image"
-    alt=""
-  />
 </div>
