@@ -35,9 +35,14 @@ export class CreateProductComponent {
 
   onFileChange(e: Event) {
     const target = e.target as HTMLInputElement;
+    const file = target.files[0];
+    if (!file) {
+     window.alert("No file")
+     return;  
+   }
 
     const reader = new FileReader();
-    reader.readAsDataURL(target.files[0]);
+    reader.readAsDataURL(file);
     reader.onload = () => (this.product.image = reader.result.toString());
     reader.onerror = () => window.alert('Upload failed');
   }
