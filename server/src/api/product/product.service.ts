@@ -42,7 +42,9 @@ export const getProductById = async (id: string) => {
 
 export const getProducts = async () => {
   try {
-    const products = await ProductModel.find({});
+    const products = await ProductModel.find({})
+      .select({ image: 0, __v: 0 })
+      .exec();
     return products;
   } catch (err) {
     return err;

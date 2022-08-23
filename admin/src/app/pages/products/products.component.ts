@@ -27,4 +27,24 @@ export class ProductsComponent implements OnInit {
       queryParams: { id },
     });
   }
+
+  deleteProduct(e: Event, id: string) {
+    e.stopPropagation();
+
+    const ok = window.confirm('Confirm');
+
+    if (ok) {
+      this.productService.deleteOneById(id).subscribe((res) => {
+        if (res.success) {
+          window.alert('Deleted');
+          this.products.splice(
+            this.products.findIndex((product) => product._id === id),
+            1
+          );
+        } else {
+          window.alert('Error');
+        }
+      });
+    }
+  }
 }
