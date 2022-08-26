@@ -5,6 +5,7 @@ on:
     branches: ['main']
 
 env:
+  working-directory: ./server
   AWS_REGION: eu-central-1
   ECR_REPOSITORY: vpnfinder
   ECS_SERVICE: vpn-finder
@@ -39,6 +40,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
+          working-directory: ${{ env.working-directory }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
