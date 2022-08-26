@@ -28,7 +28,7 @@ export const getProductsController = async (req: Request, res: Response) => {
       data: products,
     });
   } catch (err: any) {
-    return res.status(404).json({
+    return res.json({
       message: err.message,
       success: false,
       data: null,
