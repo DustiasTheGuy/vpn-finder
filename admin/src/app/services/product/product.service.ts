@@ -4,7 +4,7 @@ import { Product } from 'src/app/models';
 import { serverAddr } from '../services.constants';
 import { HttpResponse } from '../services.types';
 
-const baseUrl = `${serverAddr}/product`;
+const baseUrl = `${serverAddr}/products`;
 
 @Injectable({
   providedIn: 'root',
