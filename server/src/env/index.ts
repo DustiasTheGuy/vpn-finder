@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
 const _env = {
+  NODE_ENV: process.env.NODE_ENV,
   NODE_PORT: process.env.NODE_PORT,
   MONGO_URI: process.env.MONGO_URI,
 };
