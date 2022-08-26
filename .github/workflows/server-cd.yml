@@ -3,6 +3,7 @@ name: Deploy server to Amazon ECS
 on:
   push:
     branches: ['main']
+    paths: ['server/**']
 
 env:
   AWS_REGION: eu-central-1
