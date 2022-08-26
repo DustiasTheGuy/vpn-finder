@@ -1,4 +1,4 @@
 node_modules
 .env
 dist
-vpnfinder-server.env
+vpn-finder-server.env
