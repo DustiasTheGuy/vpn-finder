@@ -1,12 +1,16 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import express from 'express';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import { apiRouter } from './api';
+import { env } from './env';
 
-if (environment.production) {
-  enableProdMode();
-}
+const app = express();
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+app.set('view engine', 'ejs');
+app.use(express.static('./public'));
+
+app.use('/', apiRouter);
+
+const port = env.NODE_ENV === 'production' ? 80 : env.NODE_PORT;
+app.listen(port, () => {
+  console.log(`Server started on port ${port}...`);
+});
