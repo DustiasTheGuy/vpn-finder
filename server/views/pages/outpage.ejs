@@ -34,7 +34,7 @@
     main .container #thank-you-desktop {
       width: 100%;
       height: 250px;
-      background-image: url('/assets/images/backgrounds/bg-outro.png');
+      background-image: url('/images/outpage.jpg');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -102,5 +102,12 @@
         </section>
       </div>
     </main>
+
+    <script>
+      const url = '<%= product.affiliateUrl %>';
+      window.setTimeout(() => {
+        window.location.href = url;
+      }, [1000]);
+    </script>
   </body>
 </html>
