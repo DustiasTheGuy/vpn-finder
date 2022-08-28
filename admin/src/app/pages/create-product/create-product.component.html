@@ -13,6 +13,18 @@
     </div>
 
     <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >Rating (0-5)</label
+      >
+      <input
+        class="uk-input"
+        type="number"
+        [(ngModel)]="product.rating"
+        name="rating"
+      />
+    </div>
+
+    <div class="uk-margin-bottom">
       <label class="uk-display-block uk-margin-small-bottom">Title</label>
       <input
         class="uk-input"

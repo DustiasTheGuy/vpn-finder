@@ -10,6 +10,7 @@ export interface Product {
   moneyBackGuarantee: boolean;
   onSale: boolean;
   discount: number;
+  rating: number;
   features: { label: string }[];
 }
 
@@ -22,7 +23,8 @@ const productSchema = new mongoose.Schema<Product>({
   draft: { type: Boolean, required: true },
   moneyBackGuarantee: { type: Boolean, required: true },
   onSale: { type: Boolean, required: true },
-  discount: { type: Number, requird: true },
+  discount: { type: Number, required: true },
+  rating: { type: Number, required: true },
   features: [{ label: { type: String } }],
 });
 
