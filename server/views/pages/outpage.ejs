@@ -10,8 +10,10 @@
       align-items: center;
     }
 
-    img {
+    img.cover-photo {
+      padding: 50px;
       height: 300px;
+      border-bottom: 1px solid #fff;
     }
 
     .container {
@@ -20,7 +22,6 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      border-bottom: 1px solid #fff;
       position: fixed;
     }
 
@@ -38,16 +39,25 @@
     .vpn-logo {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
       position: absolute;
       right: 40px;
       bottom: 40px;
+    }
+
+    @media (max-width: 1480px) {
+      h1 {
+        font-size: 2.225rem;
+      }
     }
 
     @media (max-width: 1300px) {
       .container {
         width: 80%;
         border-bottom: none;
+      }
+
+      h1 {
+        font-size: 2rem;
       }
     }
 
@@ -80,7 +90,7 @@
     <main>
       <div class="container">
         <a id="go-back" href="/">Go Back</a>
-        <img src="/images/outpage.jpg" alt="" />
+        <img class="cover-photo" src="/images/outpage.svg" alt="" />
 
         <section
           class="uk-padding uk-flex uk-flex-center uk-flex-middle uk-flex-column"
