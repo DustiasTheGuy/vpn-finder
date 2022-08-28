@@ -11,7 +11,7 @@ interface Product {
   onSale: boolean;
   rating: number;
   discount: number;
-  features: { label: string }[];
+  features: string[];
 }
 
 export const productSchema = Joi.object<Product, true>({
@@ -23,7 +23,7 @@ export const productSchema = Joi.object<Product, true>({
   draft: Joi.boolean().valid(true, false).required(),
   onSale: Joi.boolean().valid(true, false).required(),
   discount: Joi.number().max(100).required(),
-  rating: Joi.number().max(5).required(),
+  rating: Joi.number().integer().max(5).required(),
   features: Joi.array().items(Joi.string().required()).required(),
 });
 
@@ -36,8 +36,9 @@ export const ProductModel = mongoose.model<Product>(
     affiliateUrl: { type: String, required: true },
     hasFreeOption: { type: Boolean, required: true },
     draft: { type: Boolean, required: true },
+    rating: { type: Number, required: true },
     onSale: { type: Boolean, required: true },
     discount: { type: Number, requird: true },
-    features: [{ label: { type: String } }],
+    features: [String],
   }),
 );

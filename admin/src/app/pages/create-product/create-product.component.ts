@@ -55,7 +55,7 @@ export class CreateProductComponent {
 
   addFeature() {
     if (this.newFeature.length) {
-      this.product?.features.push({ label: this.newFeature });
+      this.product?.features.push(this.newFeature);
       this.newFeature = '';
     }
   }

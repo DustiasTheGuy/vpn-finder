@@ -9,5 +9,5 @@ export interface Product {
   onSale: boolean;
   rating: number;
   discount: number;
-  features: { label: string }[];
+  features: string[];
 }

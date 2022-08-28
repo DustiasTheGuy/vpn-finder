@@ -22,6 +22,7 @@ export class UpdateProductComponent implements OnInit {
 
       this.productService.getProductById(id).subscribe((res) => {
         if (res.success && res.data) {
+          console.log(res.data);
           this.product = res.data;
         } else {
           window.alert('could not load product');
@@ -57,14 +58,14 @@ export class UpdateProductComponent implements OnInit {
       if (res.success) {
         window.alert('Updated');
       } else {
-        window.alert('Error');
+        window.alert(res.message);
       }
     });
   }
 
   addFeature() {
     if (this.newFeature.length) {
-      this.product?.features.push({ label: this.newFeature });
+      this.product?.features.push(this.newFeature);
       this.newFeature = '';
     }
   }

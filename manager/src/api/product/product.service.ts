@@ -33,7 +33,9 @@ export const updateProductById = async (id: string, data: any) => {
 
 export const getProductById = async (id: string) => {
   try {
-    const product = await ProductModel.findOne({ _id: id });
+    const product = await ProductModel.findOne({ _id: id })
+      .select({ __v: 0 })
+      .exec();
     return product;
   } catch (err) {
     return err;

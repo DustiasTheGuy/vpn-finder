@@ -11,7 +11,7 @@ export const getProductById = async (id: string): Promise<Product | null> => {
 
 export const getProducts = async (): Promise<Product[] | null> => {
   try {
-    return await ProductModel.find({}).lean().exec();
+    return await ProductModel.find({ draft: false }).lean().exec();
   } catch (err) {
     console.error(err);
     return null;
