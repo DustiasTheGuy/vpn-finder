@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 
+import { productSchema } from './product.model';
 import {
   createProduct,
   deleteProductById,
@@ -10,6 +11,15 @@ import {
 
 export const createProductController = async (req: Request, res: Response) => {
   try {
+    const { error } = productSchema.validate(req.body);
+    if (error) {
+      return res.json({
+        message: error.message,
+        success: false,
+        data: null,
+      });
+    }
+
     const product = await createProduct(req.body);
 
     return res.json({
@@ -18,7 +28,7 @@ export const createProductController = async (req: Request, res: Response) => {
       data: product,
     });
   } catch (err: any) {
-    return res.status(400).json({
+    return res.json({
       message: err.message,
       success: false,
       data: null,
@@ -32,14 +42,12 @@ export const deleteProductController = async (req: Request, res: Response) => {
     return res.json({
       message: null,
       success: true,
-      statusCode: 200,
       data: null,
     });
   } catch (err: any) {
     return res.json({
       message: err.message,
       success: false,
-      statusCode: 200,
       data: null,
     });
   }
@@ -71,7 +79,7 @@ export const getProductsController = async (req: Request, res: Response) => {
       data: products,
     });
   } catch (err: any) {
-    return res.status(404).json({
+    return res.json({
       message: err.message,
       success: false,
       data: null,
@@ -81,6 +89,15 @@ export const getProductsController = async (req: Request, res: Response) => {
 
 export const updateProductController = async (req: Request, res: Response) => {
   try {
+    const { error } = productSchema.validate(req.body);
+    if (error) {
+      return res.json({
+        message: error.message,
+        success: false,
+        data: null,
+      });
+    }
+
     await updateProductById(req.params.id, req.body);
     res.json({
       message: null,

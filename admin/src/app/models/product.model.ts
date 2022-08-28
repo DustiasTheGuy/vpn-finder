@@ -6,8 +6,8 @@ export interface Product {
   affiliateUrl: string;
   hasFreeOption: boolean;
   draft: boolean;
-  moneyBackGuarantee: boolean;
   onSale: boolean;
+  rating: number;
   discount: number;
   features: { label: string }[];
 }

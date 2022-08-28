@@ -14,10 +14,10 @@ export class CreateProductComponent {
     image: '',
     affiliateUrl: '',
     hasFreeOption: false,
-    moneyBackGuarantee: false,
     draft: false,
     onSale: false,
     discount: 0,
+    rating: 0,
     features: [],
   };
 
@@ -38,7 +38,7 @@ export class CreateProductComponent {
     const file = target.files?.[0];
     if (!file) {
      window.alert("No file")
-     return;  
+     return;
    }
 
     const reader = new FileReader();
