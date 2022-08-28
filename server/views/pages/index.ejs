@@ -98,12 +98,12 @@
                     <%= product.title %>
                   </h3>
                   <div class="uk-flex" style="gap: 3px">
-                    <% for(let i = 0; i < 5-product.rating; i++) { %>
-                    <span class="material-icons-outlined star-dark">
+                    <% for (let i = 0; i < product.rating; i++) { %>
+                    <span class="material-icons-outlined star-yellow">
                       star
                     </span>
-                    <% } for(let i = 0; i < product.rating; i++) { %>
-                    <span class="material-icons-outlined star-yellow">
+                    <% } for (let i = 0; i < 5-product.rating; i++) { %>
+                    <span class="material-icons-outlined star-dark">
                       star
                     </span>
                     <% } %>
