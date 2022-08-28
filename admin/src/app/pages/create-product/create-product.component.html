@@ -97,7 +97,7 @@
           *ngFor="let feature of product.features; let i = index"
           class="uk-flex uk-flex-middle"
         >
-          <span class="uk-margin-right">{{ feature.label }}</span>
+          <span class="uk-margin-right">{{ feature }}</span>
           <span
             style="cursor: pointer"
             (click)="product.features.splice(i, 1)"

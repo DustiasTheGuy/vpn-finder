@@ -1,4 +1,4 @@
-<div class="uk-container uk-margin-bottom" *ngIf="product">
+<div class="uk-container" *ngIf="product">
   <form>
     <div class="uk-flex uk-flex-between uk-flex-middle">
       <h1>Update Product</h1>
@@ -9,6 +9,18 @@
         *ngIf="product.image"
         [src]="product.image"
         alt=""
+      />
+    </div>
+
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >Rating (0-5)</label
+      >
+      <input
+        class="uk-input"
+        type="number"
+        [(ngModel)]="product.rating"
+        name="rating"
       />
     </div>
 
@@ -85,7 +97,7 @@
           *ngFor="let feature of product.features; let i = index"
           class="uk-flex uk-flex-middle"
         >
-          <span class="uk-margin-right">{{ feature.label }}</span>
+          <span class="uk-margin-right">{{ feature }}</span>
           <span
             style="cursor: pointer"
             (click)="product.features.splice(i, 1)"
@@ -124,7 +136,7 @@
       (click)="updateProduct()"
       type="button"
     >
-      Submit Product
+      Update Product
     </button>
   </form>
 </div>

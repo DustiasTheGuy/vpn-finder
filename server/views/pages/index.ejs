@@ -5,30 +5,49 @@
     .products-grid {
       gap: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .star-yellow {
+      color: rgb(223, 185, 18);
+    }
+
+    .star-yellow,
+    .star-dark {
+      font-size: 20px;
+    }
+
+    .products-grid a {
+      box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+      transition: box-shadow 200ms ease;
+    }
+
+    .products-grid a:hover {
+      text-decoration: none;
+      box-shadow: 0 22px 22px rgba(20, 20, 20, 0.08);
     }
 
     .uk-card {
-      height: 400px;
       display: flex;
+      padding: 0;
       flex-direction: column;
     }
 
     .uk-card .uk-card-media-top {
       flex-grow: 1;
       max-height: 50%;
-      padding: 10px;
+      padding: 0;
     }
 
     .uk-card .uk-card-media-top img {
-      max-height: 100%;
+      height: 250px;
       width: 100%;
-      object-fit: contain;
     }
 
     .uk-card .uk-card-body {
       height: 50%;
       padding: 20px;
+      background-color: #fff;
     }
 
     .uk-card .uk-card-body h3 {
@@ -37,6 +56,18 @@
 
     .uk-card .uk-card-body p {
       margin-top: 10px;
+    }
+
+    @media (max-width: 990px) {
+      .products-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 660px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <body>
@@ -62,8 +93,30 @@
                 <img src="<%= product.image %>" alt="<%= product.title %>" />
               </div>
               <div class="uk-card-body">
-                <h3 class="uk-card-title"><%= product.title %></h3>
+                <div class="uk-flex uk-flex-between uk-flex-middle">
+                  <h3 class="uk-card-title uk-margin-remove">
+                    <%= product.title %>
+                  </h3>
+                  <div class="uk-flex" style="gap: 3px">
+                    <% for(let i = 0; i < 5-product.rating; i++) { %>
+                    <span class="material-icons-outlined star-dark">
+                      star
+                    </span>
+                    <% } for(let i = 0; i < product.rating; i++) { %>
+                    <span class="material-icons-outlined star-yellow">
+                      star
+                    </span>
+                    <% } %>
+                  </div>
+                </div>
                 <p><%= product.description %></p>
+
+                <ul class="uk-list uk-list-divider">
+                  <% product.features.slice(0, 3).forEach(feature => { %>
+                  <li><%= feature %></li>
+                  <% }) %>
+                  <li>And more</li>
+                </ul>
               </div>
             </div>
           </a>

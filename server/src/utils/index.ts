@@ -1,6 +1,6 @@
-export const cutStr = (str: string, maxLength: number = 75) => {
-  if (str.length > 75) {
-    return str.slice(0, 72) + '...';
+export const cutStr = (str: string, maxLength: number = 120) => {
+  if (str.length > maxLength) {
+    return str.slice(0, maxLength - 3) + '...';
   }
 
   return str;
