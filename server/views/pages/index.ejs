@@ -1,0 +1,75 @@
+<html>
+  <%- include("../partials/head") %>
+
+  <style>
+    .products-grid {
+      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .uk-card {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .uk-card .uk-card-media-top {
+      flex-grow: 1;
+      max-height: 50%;
+      padding: 10px;
+    }
+
+    .uk-card .uk-card-media-top img {
+      max-height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .uk-card .uk-card-body {
+      height: 50%;
+      padding: 20px;
+    }
+
+    .uk-card .uk-card-body h3 {
+      margin-bottom: 10px;
+    }
+
+    .uk-card .uk-card-body p {
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <main class="uk-margin-bottom">
+      <div class="uk-container uk-margin-large-top">
+        <div class="jumbotron">
+          <h1>Checkout Our Offers</h1>
+
+          <p>
+            We will help you find the perfect VPN for your needs and for your
+            budget. Everyone should have access to a VPN and control over their
+            privacy. Try one of our tested and proven VPN providers below!
+          </p>
+        </div>
+      </div>
+
+      <div class="uk-container">
+        <div class="products-grid" uk-grid>
+          <% products.forEach(product => { %>
+          <a href="/<%= product._id %>">
+            <div class="uk-card uk-card-default">
+              <div class="uk-card-media-top">
+                <img src="<%= product.image %>" alt="<%= product.title %>" />
+              </div>
+              <div class="uk-card-body">
+                <h3 class="uk-card-title"><%= product.title %></h3>
+                <p><%= product.description %></p>
+              </div>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

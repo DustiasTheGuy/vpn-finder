@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "Server for vpn-finder ",
+  "description": "Server for litvpns ",
   "main": "main.js",
   "dependencies": {
     "cors": "^2.8.5",

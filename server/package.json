@@ -1,11 +1,12 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "Server for vpn-finder ",
+  "description": "Server for litvpns ",
   "main": "main.js",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "mongoose": "^6.5.2"
   },
