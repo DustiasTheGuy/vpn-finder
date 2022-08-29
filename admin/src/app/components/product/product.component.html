@@ -1,0 +1,22 @@
+<div class="uk-card uk-card-default" *ngIf="product">
+  <div class="uk-card-media-top">
+    <img [src]="product.image" [alt]="product.title" />
+  </div>
+  <div class="uk-card-body">
+    <div class="uk-flex uk-flex-between uk-flex-middle">
+      <h3 class="uk-card-title uk-margin-remove">{{ product.title }}</h3>
+      <div class="uk-flex stars" style="gap: 3px">
+        <span *ngFor="let i of [0, 1, 2, 3, 4]" [class]="getStarClass(i)">
+          star
+        </span>
+      </div>
+    </div>
+    <p>{{ cutStr(product.description) }}</p>
+    <ul class="uk-list uk-list-divider">
+      <li *ngFor="let feature of product.features.slice(0, 3)">
+        {{ feature }}
+      </li>
+      <li>And more</li>
+    </ul>
+  </div>
+</div>
