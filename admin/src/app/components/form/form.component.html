@@ -1,0 +1,134 @@
+<div class="uk-container uk-flex uk-margin-bottom" style="gap: 30px">
+  <form style="flex-grow: 1">
+    <h1>{{ pageTitle }}</h1>
+
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >Rating (0-5)</label
+      >
+      <input
+        class="uk-input"
+        type="number"
+        [(ngModel)]="product.rating"
+        name="rating"
+      />
+    </div>
+
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom">Title</label>
+      <input
+        class="uk-input"
+        type="text"
+        name="title"
+        [(ngModel)]="product.title"
+      />
+    </div>
+
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >Affiliate Link</label
+      >
+      <input
+        class="uk-input"
+        type="text"
+        name="affiliateUrl"
+        [(ngModel)]="product.affiliateUrl"
+      />
+    </div>
+
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom">Description</label>
+      <textarea
+        class="uk-textarea"
+        type="text"
+        name="description"
+        [(ngModel)]="product.description"
+      ></textarea>
+    </div>
+
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >Draft:
+        <input
+          class="uk-checkbox"
+          type="checkbox"
+          [(ngModel)]="product.draft"
+        />
+      </label>
+    </div>
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >Has Free Option:
+        <input
+          class="uk-checkbox"
+          type="checkbox"
+          [(ngModel)]="product.hasFreeOption"
+      /></label>
+    </div>
+    <div class="uk-margin-bottom">
+      <label class="uk-display-block uk-margin-small-bottom"
+        >On Sale:
+        <input class="uk-checkbox" type="checkbox" [(ngModel)]="product.onSale"
+      /></label>
+    </div>
+    <div class="uk-margin-bottom" *ngIf="product.onSale">
+      <label class="uk-display-block uk-margin-small-bottom">Discount</label>
+      <input
+        class="uk-input"
+        type="number"
+        [(ngModel)]="product.discount"
+        name="discount"
+      />
+    </div>
+
+    <div class="uk-margin-bottom">
+      <ul class="uk-list uk-list-divider" style="padding-left: 0">
+        <li
+          *ngFor="let feature of product.features; let i = index"
+          class="uk-flex uk-flex-middle"
+        >
+          <span class="uk-margin-right">{{ feature }}</span>
+          <span
+            style="cursor: pointer"
+            (click)="product.features.splice(i, 1)"
+            class="material-icons-outlined"
+            >delete</span
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="uk-flex uk-margin-bottom">
+      <input
+        class="uk-input"
+        placeholder="New feature..."
+        type="text"
+        name="feature"
+        [(ngModel)]="newFeature"
+        (keyup.enter)="addFeature()"
+      />
+
+      <button
+        class="uk-button uk-button-primary uk-text-nowrap"
+        type="button"
+        (click)="addFeature()"
+      >
+        Add Feature
+      </button>
+    </div>
+
+    <div class="uk-margin-bottom">
+      <input (change)="onFileChange($event)" type="file" />
+    </div>
+
+    <button
+      class="uk-button uk-button-primary"
+      (click)="submit()"
+      type="button"
+    >
+      {{ pageTitle }}
+    </button>
+  </form>
+
+  <app-product [product]="product"></app-product>
+</div>

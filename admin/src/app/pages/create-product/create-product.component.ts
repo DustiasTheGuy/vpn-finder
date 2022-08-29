@@ -23,40 +23,13 @@ export class CreateProductComponent {
 
   constructor(private createService: ProductService) {}
 
-  createProduct() {
-    this.createService.createProduct(this.product).subscribe((res) => {
+  createProduct(data: Omit<Product, "_id">) {
+    this.createService.createProduct(data).subscribe((res) => {
       if (res.success) {
         window.alert('Created');
       } else {
         window.alert(res.message);
       }
     });
-  }
-
-  onFileChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    const file = target.files?.[0];
-    if (!file) {
-     window.alert("No file")
-     return;
-   }
-
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      const result = reader.result?.toString();
-      if (result) {
-        this.product.image = result;
-      }
-    }
-
-    reader.onerror = () => window.alert('Upload failed');
-  }
-
-  addFeature() {
-    if (this.newFeature.length) {
-      this.product?.features.push(this.newFeature);
-      this.newFeature = '';
-    }
   }
 }
