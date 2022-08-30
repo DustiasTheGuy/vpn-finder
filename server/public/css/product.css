@@ -1,0 +1,27 @@
+.flex-child {
+  width: 100%;
+}
+
+.product-image {
+  max-height: 300px;
+  width: 100%;
+  object-fit: contain;
+  border: 1px solid rgb(235, 235, 235);
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.product-row {
+  gap: 30px;
+}
+
+.footer {
+  gap: 10px;
+}
+
+@media (max-width: 960px) {
+  .product-row {
+    gap: 0;
+    flex-direction: column;
+  }
+}

@@ -1,10 +1,24 @@
 import { Request, Response } from 'express';
 
 import { cutStr } from '../../utils';
-import { getProducts } from './product.service';
+import { getProductByTitle, getProducts } from './product.service';
 
-export const getProductByIdController = async (req: Request, res: Response) => {
-  return res.redirect('/');
+export const getProductByTitleController = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const title = req.params.title.replace('_', ' ');
+    const product = await getProductByTitle(title);
+
+    if (!product) {
+      return res.render('pages/error');
+    }
+
+    return res.render('pages/product', { product });
+  } catch (err: any) {
+    return res.render('pages/error');
+  }
 };
 
 export const getProductsController = async (_: Request, res: Response) => {
