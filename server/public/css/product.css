@@ -19,6 +19,10 @@
   gap: 10px;
 }
 
+p {
+  white-space: pre-wrap;
+}
+
 @media (max-width: 960px) {
   .product-row {
     gap: 0;
