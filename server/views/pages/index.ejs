@@ -1,10 +1,14 @@
 <html>
-  <%- include("../partials/head") %>
+  <head>
+    <title>Litvpns - Find Your VPN Today!</title>
+    <%- include("../partials/head") %>
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
   <body>
     <%- include("../partials/navbar") %>
 
-    <main class="uk-margin-bottom">
-      <div class="uk-container uk-margin-large-top">
+    <main class="uk-margin-large-bottom uk-margin-large-top">
+      <div class="uk-container">
         <div class="jumbotron">
           <h1>Checkout Our Offers</h1>
 
@@ -17,35 +21,56 @@
       </div>
 
       <div class="uk-container">
-        <div class="products-grid" uk-grid>
+        <div class="products-grid">
           <% products.forEach(product => { %>
-          <a href="<%= product.affiliateUrl %>">
-            <div class="uk-card uk-card-default">
-              <div class="uk-card-media-top">
-                <img src="<%= product.image %>" alt="<%= product.title %>" />
-              </div>
-              <div class="uk-card-body">
-                <div class="uk-flex uk-flex-between uk-flex-middle">
-                  <h3 class="uk-card-title uk-margin-remove">
-                    <%= product.title %>
-                  </h3>
-                  <div
-                    title="Rating: <%= product.rating %>"
-                    class="uk-flex stars"
-                    style="gap: 3px"
-                    data-rating="<%= product.rating %>"
-                  ></div>
-                </div>
-                <p><%= product.description %></p>
-                <ul class="uk-list uk-list-divider">
-                  <% product.features.slice(0, 3).forEach(feature => { %>
-                  <li><%= feature %></li>
-                  <% }) %>
-                  <li>And more</li>
-                </ul>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+              <img src="<%= product.image %>" alt="<%= product.title %>" />
+
+              <div class="card-bubbles">
+                <% if(product.discount) { %>
+                <span title="<%= product.discount %>% discount"
+                  ><%= product.discount %>%</span
+                >
+                <% } %>
               </div>
             </div>
-          </a>
+            <div class="uk-card-body">
+              <div class="uk-flex uk-flex-between uk-flex-middle">
+                <h3 class="uk-card-title uk-margin-remove">
+                  <%= product.title %>
+                </h3>
+                <div
+                  title="Rating: <%= product.rating %>"
+                  class="uk-flex stars"
+                  style="gap: 3px"
+                  data-rating="<%= product.rating %>"
+                ></div>
+              </div>
+              <p><%= product.description %></p>
+              <ul class="uk-list uk-list-divider">
+                <% product.features.slice(0, 3).forEach(feature => { %>
+                <li><%= feature %></li>
+                <% }) %>
+              </ul>
+            </div>
+
+            <div class="uk-card-footer">
+              <a
+                href="/<%= product.title.replace(' ', '_') %>"
+                class="uk-button uk-button-default"
+                href="#modal-overflow"
+                uk-toggle
+                >Read more</a
+              >
+              <a
+                href="<%= product.affiliateUrl %>"
+                class="uk-button uk-button-primary"
+                >Get offer</a
+              >
+            </div>
+          </div>
+
           <% }) %>
         </div>
       </div>

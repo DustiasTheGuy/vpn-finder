@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Litvpns - <%= product.title %></title>
+    <link rel="stylesheet" href="/css/product.css" />
+    <%- include("../partials/head") %>
+  </head>
+
+  <body>
+    <%- include("../partials/navbar") %>
+
+    <main class="uk-margin-large-bottom uk-margin-large-top">
+      <div class="uk-container">
+        <div class="uk-flex product-row">
+          <div class="flex-child">
+            <img
+              class="product-image"
+              src="<%= product.image %>"
+              alt="<%= product.title %>"
+            />
+
+            <div class="uk-flex uk-flex-between uk-flex-middle">
+              <h3 class="uk-margin-remove"><%= product.title %></h3>
+              <div
+                title="Rating: <%= product.rating %>"
+                class="uk-flex stars"
+                style="gap: 3px"
+                data-rating="<%= product.rating %>"
+              ></div>
+            </div>
+
+            <p><%= product.description %></p>
+          </div>
+          <div class="flex-child">
+            <h4><%= product.title %> offers these features and more</h4>
+            <ul class="uk-list uk-list-divider">
+              <% product.features.forEach(feature => { %>
+              <li><%= feature %></li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="uk-flex footer">
+          <a class="uk-button uk-button-default" href="/"> Go back </a>
+          <a
+            href="<%= product.affiliateUrl %>"
+            class="uk-button uk-button-primary"
+            >Get offer</a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

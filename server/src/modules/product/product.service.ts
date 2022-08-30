@@ -17,3 +17,14 @@ export const getProducts = async (): Promise<Product[] | null> => {
     return null;
   }
 };
+
+export const getProductByTitle = async (
+  title: string,
+): Promise<Product | null> => {
+  try {
+    return await ProductModel.findOne({ title });
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};
