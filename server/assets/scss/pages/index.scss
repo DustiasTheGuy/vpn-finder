@@ -1,3 +1,5 @@
+@import '../components/components';
+
 .jumbotron p {
   max-width: 92ch;
 }
@@ -13,7 +15,7 @@
   padding: 0;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .uk-card:hover {
@@ -50,6 +52,7 @@
 .uk-card-footer a {
   flex-grow: 1;
   display: inline-block !important;
+  pointer-events: all;
 }
 
 .uk-card .uk-card-body h3 {
