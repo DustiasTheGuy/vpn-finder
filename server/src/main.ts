@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import mongoose from 'mongoose';
 
 import { env } from './env';
@@ -9,7 +10,15 @@ const app = express();
 
 mongoose.connect(env.MONGO_URI);
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 250,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 app.set('view engine', 'ejs');
+app.use(limiter);
 app.use(cors());
 app.use(express.static('./public'));
 
