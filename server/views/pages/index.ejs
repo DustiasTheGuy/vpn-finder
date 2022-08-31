@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Litvpns - Find Your VPN Today!</title>
+    <title>LitVPNS - Top <%= products.length %> VPNS on the market</title>
     <%- include("../partials/head") %>
     <link rel="stylesheet" href="/css/index.css" />
   </head>
@@ -8,7 +8,7 @@
     <%- include("../partials/navbar") %>
 
     <main class="uk-margin-large-bottom uk-margin-large-top">
-      <div class="uk-container">
+      <div class="uk-container uk-margin-bottom">
         <div class="jumbotron">
           <h1>Checkout Our Offers</h1>
 
@@ -26,33 +26,18 @@
           <div class="uk-card uk-card-default">
             <div class="uk-card-media-top">
               <img src="<%= product.image %>" alt="<%= product.title %>" />
-
-              <div class="card-bubbles">
-                <% if(product.discount) { %>
-                <span title="<%= product.discount %>% discount"
-                  ><%= product.discount %>%</span
-                >
-                <% } %>
-              </div>
             </div>
             <div class="uk-card-body">
               <div class="uk-flex uk-flex-between uk-flex-middle">
                 <h3 class="uk-card-title uk-margin-remove">
                   <%= product.title %>
                 </h3>
-                <div
-                  title="Rating: <%= product.rating %>"
-                  class="uk-flex stars"
-                  style="gap: 3px"
-                  data-rating="<%= product.rating %>"
-                ></div>
+                <div class="uk-flex uk-flex-middle" style="gap: 5px">
+                  <span class="material-icons-outlined star">star</span>
+                  <%= product.rating %>
+                </div>
               </div>
               <p><%= product.description %></p>
-              <ul class="uk-list uk-list-divider">
-                <% product.features.slice(0, 3).forEach(feature => { %>
-                <li><%= feature %></li>
-                <% }) %>
-              </ul>
             </div>
 
             <div class="uk-card-footer">

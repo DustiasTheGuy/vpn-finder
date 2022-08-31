@@ -1,8 +1,4 @@
-.star-yellow {
-  color: rgb(223, 185, 18);
-}
-
-.star-yellow,
-.star-dark {
+.star {
   font-size: 20px;
+  color: rgb(223, 185, 18);
 }

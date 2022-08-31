@@ -23,7 +23,7 @@ export const productSchema = Joi.object<Product, true>({
   draft: Joi.boolean().valid(true, false).required(),
   onSale: Joi.boolean().valid(true, false).required(),
   discount: Joi.number().min(0).max(100).required(),
-  rating: Joi.number().integer().min(0).max(5).required(),
+  rating: Joi.number().min(0).max(5).required(),
   features: Joi.array().items(Joi.string().required()).min(3).required(),
 });
 
