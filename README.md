@@ -1,4 +1,4 @@
-# vpnfind.site
+# litvpns.com
 
 ## Tech Stack
 
