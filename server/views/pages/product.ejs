@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Litvpns - <%= product.title %></title>
+    <title>LitVPNS - <%= product.title %></title>
     <link rel="stylesheet" href="/css/product.css" />
     <%- include("../partials/head") %>
   </head>
@@ -10,6 +10,9 @@
 
     <main class="uk-margin-large-bottom uk-margin-large-top">
       <div class="uk-container">
+        <a class="uk-button uk-button-secondary uk-margin-bottom" href="/">
+          Go back
+        </a>
         <div class="uk-flex product-row">
           <div class="flex-child">
             <img
@@ -20,15 +23,22 @@
 
             <div class="uk-flex uk-flex-between uk-flex-middle">
               <h3 class="uk-margin-remove"><%= product.title %></h3>
-              <div
-                title="Rating: <%= product.rating %>"
-                class="uk-flex stars"
-                style="gap: 3px"
-                data-rating="<%= product.rating %>"
-              ></div>
+              <div class="uk-flex uk-flex-middle" style="gap: 5px">
+                <span class="material-icons-outlined star">star</span>
+                <%= product.rating %>
+              </div>
             </div>
 
-            <p><%= product.description %></p>
+            <% if(product.discount) { %>
+            <a
+              href="<%= product.affiliateUrl %>"
+              class="product-discount uk-margin-top uk-display-block"
+            >
+              <%= product.title %> offers a <%= product.discount %>% discount
+            </a>
+            <% } %>
+
+            <p class="product-description"><%= product.description %></p>
           </div>
           <div class="flex-child">
             <h4><%= product.title %> offers these features and more</h4>
@@ -41,7 +51,7 @@
         </div>
 
         <div class="uk-flex footer">
-          <a class="uk-button uk-button-default" href="/"> Go back </a>
+          <a class="uk-button uk-button-default" href="/">Go back</a>
           <a
             href="<%= product.affiliateUrl %>"
             class="uk-button uk-button-primary"

@@ -19,8 +19,13 @@
   gap: 10px;
 }
 
-p {
+.product-description {
   white-space: pre-wrap;
+}
+
+.product-discount {
+  color: rgb(20, 179, 60);
+  text-decoration: underline;
 }
 
 @media (max-width: 960px) {
