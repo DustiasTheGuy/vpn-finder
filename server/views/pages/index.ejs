@@ -37,15 +37,39 @@
                   <%= product.rating %>
                 </div>
               </div>
-              <p><%= product.description %></p>
+
+              <% if(product.discount) { %>
+              <a
+                href="<%= product.affiliateUrl %>"
+                class="product-discount uk-margin-top uk-display-block"
+              >
+                <%= product.title %> offers a <%= product.discount %>% discount
+              </a>
+              <% } else { %>
+              <a
+                href="<%= product.affiliateUrl %>"
+                class="uk-margin-top uk-display-block"
+              >
+                <%= product.title %> currently has no discount
+              </a>
+              <% } %>
+
+              <ul class="uk-list uk-list-divider">
+                <% product.features.slice(0, 3).forEach(feature => { %>
+                <li class="uk-text-nowrap"><%= feature %></li>
+                <% }) %>
+                <li>
+                  <a href="/<%= product.title.replace(' ', '_') %>"
+                    >And more...</a
+                  >
+                </li>
+              </ul>
             </div>
 
-            <div class="uk-card-footer">
+            <div class="uk-card-footer uk-margin-top">
               <a
                 href="/<%= product.title.replace(' ', '_') %>"
                 class="uk-button uk-button-default"
-                href="#modal-overflow"
-                uk-toggle
                 >Read more</a
               >
               <a
