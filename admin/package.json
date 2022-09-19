@@ -19,7 +19,7 @@
     "@angular/core": "^14.1.0",
     "@angular/forms": "^14.1.0",
     "@angular/platform-browser": "^14.1.0",
-    "@angular/platform-browser-dynamic": "^14.1.0",
+    "@angular/platform-browser-dynamic": "^14.2.2",
     "@angular/router": "^14.1.0",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "prettier": "^2.7.1",
